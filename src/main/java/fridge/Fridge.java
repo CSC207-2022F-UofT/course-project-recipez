@@ -16,4 +16,9 @@ public class Fridge {
     public void removeIngredient (Ingredient item) {
         ingredients.remove(item);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
