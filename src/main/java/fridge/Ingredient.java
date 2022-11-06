@@ -6,9 +6,11 @@ public class Ingredient {
      * String name: name of the ingredient
      */
     private String name;
-
+    /**
+     * Constructor for the Ingredient class
+     * @ param name: name of the ingredient
+     * */
     public String getName() {
-//      print the name of the ingredient
         return name;
     }
 }

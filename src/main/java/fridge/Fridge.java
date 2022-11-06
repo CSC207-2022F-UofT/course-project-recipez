@@ -10,25 +10,30 @@ public class Fridge {
      * Existing user can set their Ingredient to their previous ingredients list.
      */
     private ArrayList<Ingredient> ingredients;
-
+    /**
+     * Constructor for the Fridge class
+     * @ param ingredients: list of ingredients
+     * */
     public void setIngredients(ArrayList<Ingredient> ingredients) {
-//      Set Ingredient to a list of existing ingredients
         this.ingredients = ingredients;
     }
-
+    /**
+     * Add an ingredient to Ingredient
+     * */
     public void addIngredient (Ingredient item) {
-//      Add an ingredient to Ingredient
         ingredients.add(item);
     }
-
+    /**
+     * Remove an ingredient from Ingredient
+     * */
     public void removeIngredient (Ingredient item) {
-//      Remove an ingredient from Ingredient
         ingredients.remove(item);
     }
-
+    /**
+     * Print the list of ingredients in Ingredient
+     * */
     @Override
     public String toString() {
-//      Print the list of ingredients in Ingredient
         return super.toString();
     }
 }
