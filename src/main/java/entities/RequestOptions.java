@@ -1,4 +1,4 @@
-package useCases;
+package entities;
 
 public class RequestOptions {
     String[] ingredients;
