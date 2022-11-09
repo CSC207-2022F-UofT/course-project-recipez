@@ -1,6 +1,6 @@
-package fridge;
+package entities;
 
-public class Ingredient {
+public class testIngredient implements Ingrediant {
     /**
      * Class ingredient:
      * String name: name of the ingredient
