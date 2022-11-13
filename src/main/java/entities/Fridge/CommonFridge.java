@@ -35,6 +35,12 @@ public class CommonFridge implements Fridge {
     public void removeIngredient (CommonIngrediant item) {
         ingredients.remove(item);
     }
+
+    public void printIngrediant () {
+        System.out.println(ingredients);
+    }
+
+
     /**
      * Print the list of ingredients in Ingredient
      * */
