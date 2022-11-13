@@ -1,10 +1,10 @@
 package entities.user;
 
-import entities.Fridge;
+import entities.Fridge.CommonFridge;
 
-public class user implements UserInterface {
+public class CommonUser implements User {
     String name;
-    Fridge fridge;
+    CommonFridge commonFridge;
 
     /**
      * Constructor for the user class
@@ -12,9 +12,9 @@ public class user implements UserInterface {
      * @ param Fridge "Unique fridge of the user, user stores the ingrediants in this fridge" (at the start fridge is
      * just empty)
      * */
-    public user(String name, Fridge fridge) {
+    public CommonUser(String name, CommonFridge commonFridge) {
         this.name = name;
-        this.fridge = fridge;
+        this.commonFridge = commonFridge;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class user implements UserInterface {
     }
 
     @Override
-    public Fridge getFridge() {
-        return this.fridge;
+    public CommonFridge getFridge() {
+        return this.commonFridge;
     }
 }

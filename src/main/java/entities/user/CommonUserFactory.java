@@ -1,11 +1,10 @@
 package entities.user;
 
-import entities.Fridge;
-import entities.FridgeInterface;
+import entities.Fridge.CommonFridge;
 
-public class testUserFactory implements UserFactory {
+public class CommonUserFactory implements UserFactory {
     @Override
-    public UserInterface create(String name, FridgeInterface fridge) {
-        return new CommonUser(name, (Fridge) fridge);
+    public User create(String name, CommonFridge commonFridge) {
+        return new CommonUser(name, commonFridge);
     }
 }

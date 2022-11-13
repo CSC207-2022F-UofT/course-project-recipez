@@ -1,10 +1,10 @@
 package entities.user;
 
-import entities.Fridge;
+import entities.Fridge.CommonFridge;
 
-public interface UserInterface {
+public interface User {
     boolean ingrediantIsValid();
     String getName();
 
-    Fridge getFridge();
+    CommonFridge getFridge();
 }

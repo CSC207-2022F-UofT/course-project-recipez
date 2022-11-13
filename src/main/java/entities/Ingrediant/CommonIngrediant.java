@@ -1,6 +1,6 @@
-package entities;
+package entities.Ingrediant;
 
-public class testIngredient implements Ingrediant {
+public class CommonIngrediant implements Ingrediant {
     /**
      * Class ingredient:
      * String name: name of the ingredient
@@ -10,6 +10,11 @@ public class testIngredient implements Ingrediant {
      * Constructor for the Ingredient class
      * @ param name: name of the ingredient
      * */
+
+    public CommonIngrediant(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

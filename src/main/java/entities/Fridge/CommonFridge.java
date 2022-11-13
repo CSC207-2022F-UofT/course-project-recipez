@@ -1,6 +1,6 @@
 package entities.Fridge;
 
-import entities.testIngredient;
+import entities.Ingrediant.CommonIngrediant;
 
 import java.util.ArrayList;
 
@@ -11,24 +11,28 @@ public class CommonFridge implements Fridge {
      * User can make changes to the ingredients list by adding or removing an ingredient.
      * Existing user can set their Ingredient to their previous ingredients list.
      */
-    private ArrayList<testIngredient> ingredients;
+    private ArrayList<CommonIngrediant> ingredients;
     /**
      * Constructor for the Fridge class
      * @ param ingredients: list of ingredients
      * */
-    public void setIngredients(ArrayList<testIngredient> ingredients) {
+
+    public CommonFridge(ArrayList<CommonIngrediant> ingrediants) {
+        this.ingredients = ingrediants;
+    }
+    public void setIngredients(ArrayList<CommonIngrediant> ingredients) {
         this.ingredients = ingredients;
     }
     /**
      * Add an ingredient to Ingredient
      * */
-    public void addIngredient (testIngredient item) {
+    public void addIngredient (CommonIngrediant item) {
         ingredients.add(item);
     }
     /**
      * Remove an ingredient from Ingredient
      * */
-    public void removeIngredient (testIngredient item) {
+    public void removeIngredient (CommonIngrediant item) {
         ingredients.remove(item);
     }
     /**

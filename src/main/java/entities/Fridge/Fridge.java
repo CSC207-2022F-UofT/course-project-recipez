@@ -1,14 +1,14 @@
 package entities.Fridge;
 
-import entities.testIngredient;
+import entities.Ingrediant.CommonIngrediant;
 
 import java.util.ArrayList;
 
 public interface Fridge {
-    void setIngredients(ArrayList<testIngredient> ingredients);
+    void setIngredients(ArrayList<CommonIngrediant> ingredients);
 
-    void  addIngredient (testIngredient item);
+    void  addIngredient (CommonIngrediant item);
 
-    void removeIngredient (testIngredient item) ;
+    void removeIngredient (CommonIngrediant item) ;
 
 }
