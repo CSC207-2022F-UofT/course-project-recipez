@@ -46,6 +46,12 @@ public class DatabaseTest {
         assertEquals(file.getName(), "Hello.txt");
     }
 
+    /**
+     * The test that tests everything
+     *  - Creating the database using the gateway
+     *  - Saving a fridge object
+     *  - Load the Fridge object and see if they are the same as the original Fridge Object
+     */
     @Test
     public void testCreateSaveLoadDatabase() throws IOException, ClassNotFoundException {
 
