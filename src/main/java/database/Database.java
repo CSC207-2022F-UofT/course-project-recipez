@@ -1,13 +1,11 @@
 package database;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 public class Database implements Serializable, DatabaseGateway{
 
-    private File storageFile;
+    private final File storageFile;
     private HashMap<String, Object> database;
 
     public Database(String filepath) throws IOException, IllegalArgumentException, ClassNotFoundException {
@@ -31,10 +29,6 @@ public class Database implements Serializable, DatabaseGateway{
 
     @Override
     public void save() throws IOException {
-//        ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(storageFile)));
-//        out.writeObject(database);
-//        out.flush();
-//        out.close();
         FileOutputStream fileWriter = new FileOutputStream(this.storageFile);
         ObjectOutputStream out = new ObjectOutputStream(fileWriter);
         out.writeObject(this.database);
@@ -48,7 +42,18 @@ public class Database implements Serializable, DatabaseGateway{
         save();
     }
 
+    @Override
+    public void remove(String key) throws IOException {
+        database.remove(key);
+        save();
+    }
 
+    @Override
+    public Object get(String key) {
+        return this.database.get(key);
+    }
+
+    @SuppressWarnings("unchecked")
     private void load() throws IOException, ClassNotFoundException {
         ObjectInputStream in =
                 new ObjectInputStream(new BufferedInputStream(new FileInputStream(storageFile)));
@@ -56,28 +61,8 @@ public class Database implements Serializable, DatabaseGateway{
         in.close();
     }
 
-    public Object get(String key) {
-        return this.database.get(key);
-    }
-
-
-    // Not sure if we need this....
-    public ArrayList<Object> getAllAsArrayList() {
-        return new ArrayList<>(this.database.values());
-    }
-
     public HashMap<String, Object> getAll() {
         return database;
-    }
-
-    public void printAll() {
-        System.out.println(this);
-    }
-
-    @Override
-    public void remove(String key) throws IOException {
-        database.remove(key);
-        save();
     }
 
     public boolean hasKey(String key) {

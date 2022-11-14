@@ -11,7 +11,9 @@ import java.util.stream.Stream;
  *
  * @param <T> T - type of the items in the database.
  */
-public interface DatabaseGateway <T> {
+public interface DatabaseGateway {
+
+    public Object get(String key);
 
     /**
      * Adds a new object of type T to the database.

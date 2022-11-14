@@ -21,11 +21,11 @@ public class main {
 
         Database database = new Database("Fridge.ser");
         database.store("Eric", f);
-        System.out.println(database.getAllAsArrayList());
+        System.out.println(database.getAll());
 
 
-        Database loadedDatabase = new Database("Fridge.ser");
+        Database loadedDatabase = new Database("Fridge");
         Fridge loadedFridge = (Fridge) loadedDatabase.get("Eric");
-        System.out.println("Welcome Back " +  database.getKeys() + " " + loadedFridge.test());
+        System.out.println("Welcome Back " +  database.getKeys() + " " + Arrays.toString(loadedFridge.allIngredientValues()));
     }
 }

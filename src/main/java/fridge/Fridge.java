@@ -44,7 +44,7 @@ public class Fridge implements Serializable {
     }
 
 
-    public String[] test() {
+    public String[] allIngredientValues() {
         String[] str = new String[this.ingredients.size()];
         for (int i = 0; i < this.ingredients.size(); i++) {
             str[i] = this.ingredients.get(i).toString();
