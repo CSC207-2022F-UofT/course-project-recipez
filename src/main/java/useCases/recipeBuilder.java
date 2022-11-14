@@ -11,8 +11,12 @@ public class recipeBuilder {
      *Handles the creation of recipes using API output.
      *createRecipe takes input from collected API information and uses it to create a new recipe instance.
      */
-    public static recipe createRecipe(String name,ArrayList<ingredient> ingList, int time, int price, String info){
-        recipe n = new recipe(name, ingList, time, price, info);
+    public static recipe createRecipe(String name,
+                                      ArrayList<ingredient> ingredientsList,
+                                      int time,
+                                      int price,
+                                      String info){
+        recipe n = new recipe(name, ingredientsList, time, price, info);
         return n;
     }
 }
