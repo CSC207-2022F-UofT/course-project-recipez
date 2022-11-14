@@ -1,27 +1,20 @@
 package database;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 /**
- * Interface that defines interaction with a database containing only items of type T.
+ * Interface that defines interaction with a database containing only items of the object type.
  *
- * @param <T> T - type of the items in the database.
  */
 public interface DatabaseGateway {
 
-    public Object get(String key);
-
     /**
-     * Adds a new object of type T to the database.
+     * Adds a new object given a unique key to the database.
      *
-     * @param item The item to add to the database.
-     * null if item can't be added.
+     * @param key The unique string identifier of the object that is stored in the database.
+     * @param object The object that is stored in the database.
      */
-    void store(String key, Object o) throws IOException;
+    void store(String key, Object object) throws IOException ;
 
     /**
      * Remove an object from the database.
@@ -34,5 +27,17 @@ public interface DatabaseGateway {
      * Saves the database.
      */
     void save() throws IOException;
+
+    /**
+     * Gets the first and only key in the database which is the username
+     */
+    String getUsername();
+
+    /**
+     * Gets the object from the database based on the
+     *
+     * @param key The unique string identifier of that object.
+     */
+    public Object get(String key);
 
 }

@@ -19,13 +19,12 @@ public class main {
         f.addIngredient(l);
         f.addIngredient(t);
 
-        Database database = new Database("Fridge.ser");
+        Database database = new Database("Fridge");
         database.store("Eric", f);
-        System.out.println(database.getAll());
 
 
         Database loadedDatabase = new Database("Fridge");
         Fridge loadedFridge = (Fridge) loadedDatabase.get("Eric");
-        System.out.println("Welcome Back " +  database.getKeys() + " " + Arrays.toString(loadedFridge.allIngredientValues()));
+        System.out.println("Welcome Back " +  database.getUsername() + " " + Arrays.toString(loadedFridge.allIngredientValues()));
     }
 }

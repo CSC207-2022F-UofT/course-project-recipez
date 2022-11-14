@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class Fridge implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * Class Fridge:
      * ArrayList<Ingredient> ingredients: list of available ingredients that user added.

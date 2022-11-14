@@ -3,7 +3,9 @@ package database;
 import java.io.*;
 import java.util.HashMap;
 
-public class Database implements Serializable, DatabaseGateway{
+public class Database implements Serializable, DatabaseGateway {
+
+    private static final long serialVersionUID = 1L;
 
     private final File storageFile;
     private HashMap<String, Object> database;
@@ -19,7 +21,7 @@ public class Database implements Serializable, DatabaseGateway{
             throw new IllegalArgumentException("The Database file must not be a directory");
         }
 
-        if (storageFile.length() == 0 || storageFile.createNewFile()) {
+        if (storageFile.createNewFile() || storageFile.length() == 0) {
             this.database = new HashMap<String, Object>();
             save();
         } else {
@@ -53,6 +55,12 @@ public class Database implements Serializable, DatabaseGateway{
         return this.database.get(key);
     }
 
+    @Override
+    public String getUsername() {
+        Object username = this.database.keySet().iterator().next();
+        return username.toString();
+    }
+
     @SuppressWarnings("unchecked")
     private void load() throws IOException, ClassNotFoundException {
         ObjectInputStream in =
@@ -61,30 +69,12 @@ public class Database implements Serializable, DatabaseGateway{
         in.close();
     }
 
-    public HashMap<String, Object> getAll() {
-        return database;
-    }
-
-    public boolean hasKey(String key) {
-        return this.database.containsKey(key);
-    }
-
-    public String getKeys() {
-        Object[] keys = this.database.keySet().toArray();
-        return keys[0].toString();
-    }
-
-    public boolean hasObject(Object o) {
+    private boolean hasObject(Object o) {
         return this.database.containsValue(o);
     }
 
-    @Override
-    public String toString() {
-        String result = "FileStorage @ " + storageFile.getAbsolutePath() + "\n";
-        for (String cKey : database.keySet()) {
-            result += cKey + " :: " + database.get(cKey) + "\n";
-        }
-        return result.trim();
+    private boolean hasKey(String key) {
+        return this.database.containsKey(key);
     }
 
 
