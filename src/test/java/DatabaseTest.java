@@ -1,12 +1,11 @@
 import database.Database;
-import database.DatabaseDeleteFile;
 import fridge.Fridge;
 import fridge.Ingredient;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,17 +13,14 @@ public class DatabaseTest {
 
     private final String username = "Eric";
     private Database database;
+    private Fridge fridge;
 
     /**
-     * The test that tests everything
-     *  - Creating the database using the gateway
-     *  - Saving a fridge object
-     *  - Load the Fridge object and see if they are the same as the original Fridge Object
+     * Setup method before each test
      */
-    @Test
-    public void testCreateSaveLoadDatabase() throws IOException, ClassNotFoundException {
-
-        Fridge fridge = new Fridge();
+    @BeforeEach
+    public void setUp() {
+        fridge = new Fridge();
         Ingredient t = new Ingredient();
         t.setName("Tomato");
 
@@ -34,7 +30,17 @@ public class DatabaseTest {
         fridge.addIngredient(l);
         fridge.addIngredient(t);
 
-        Database database = new Database("Test");
+        database = new Database("Test");
+    }
+
+    /**
+     * The test that tests everything
+     * - Creating the database using the gateway
+     * - Saving a fridge object
+     * - Load the Fridge object and see if they are the same as the original Fridge Object
+     */
+    @Test
+    public void testCreateSaveLoadDatabase() {
 
         database.store(username, fridge);
 
@@ -42,17 +48,31 @@ public class DatabaseTest {
 
         assertEquals(username, loadedDatabase.getUsername());
         assertEquals(database.getUsername(), loadedDatabase.getUsername());
+        assertEquals("[Lettuce, Tomato]",
+                Arrays.toString(((Fridge) database.get(username)).allIngredientValues()));
         assertEquals(((Fridge) database.get(username)).allIngredientValues(),
                 ((Fridge) loadedDatabase.get(username)).allIngredientValues());
     }
 
+    /**
+     * A test that tests the remove method in the database.
+     */
+    @Test
+    public void testRemoveDatabase() {
+
+        database.store(username, fridge);
+
+        database.remove(username);
+
+        assertEquals(database.getUsername(), "");
+    }
 
     /**
-     * Deletes the temporary database folder used to store the database for tests after tests are done.
+     * A tear down method after each test.
      */
-    @After
-    public void after() {
-       DatabaseDeleteFile.deleteFile(new File("Test"));
+    @AfterEach
+    public void tearDown() {
+        database.deleteStorageFile();
     }
 
 }
