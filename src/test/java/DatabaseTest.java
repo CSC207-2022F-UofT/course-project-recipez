@@ -1,4 +1,5 @@
 import database.Database;
+import database.DatabaseGateway;
 import fridge.Fridge;
 import fridge.Ingredient;
 import org.junit.jupiter.api.AfterEach;
@@ -12,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class DatabaseTest {
 
     private final String username = "Eric";
-    private Database database;
+    private DatabaseGateway database;
     private Fridge fridge;
 
     /**
