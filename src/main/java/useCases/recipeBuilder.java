@@ -1,7 +1,7 @@
 package useCases;
 
-import entities.recipe;
-import entities.ingredient;
+import entities.Ingredient;
+import entities.Recipe;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,12 @@ public class recipeBuilder {
      *Handles the creation of recipes using API output.
      *createRecipe takes input from collected API information and uses it to create a new recipe instance.
      */
-    public static recipe createRecipe(String name,
-                                      ArrayList<ingredient> ingredientsList,
+    public static Recipe createRecipe(String name,
+                                      ArrayList<Ingredient> ingredientsList,
                                       int time,
                                       int price,
                                       String info){
-        recipe n = new recipe(name, ingredientsList, time, price, info);
+        Recipe n = new Recipe(name, ingredientsList, time, price, info);
         return n;
     }
 }

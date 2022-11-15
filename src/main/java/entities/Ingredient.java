@@ -1,4 +1,4 @@
-package fridge;
+package entities;
 
 public class Ingredient {
     /**
