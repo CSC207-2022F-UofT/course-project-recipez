@@ -105,7 +105,7 @@ public class Database implements Serializable, DatabaseGateway {
      */
     @Override
     public String getUsername() {
-        if (!database.isEmpty()) {
+        if (!this.database.isEmpty()) {
             Object username = this.database.keySet().iterator().next();
             return username.toString();
         }
