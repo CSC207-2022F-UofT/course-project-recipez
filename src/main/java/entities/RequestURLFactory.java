@@ -1,25 +1,21 @@
-package utilities;
-
-import entities.RequestOptions;
+package entities;
 
 /**
- * Utilities for creating the URL to access the Recipe Search API
+ * Factory for creating the RequestURL to access the Recipe Search API
  */
-public class RequestURLUtils {
+public class RequestURLFactory {
     private final static String appId = "c863d4be";
     private final static String appKey = "9c705fc2c472f935f32ea2e2c1494311";
     private final static String[] includedFields = {"label", "url", "yield", "ingredientLines", "calories", "totalWeight", "totalTime"};
 
     /**
      *
-     * @param options Ingredients to search with and filters to apply in a RequestOptions object
+     * @param ingredientsList Ingredients to search with and filters to apply
      * @return URL for accessing API endpoint
      */
-    public static String createSearchURL(RequestOptions options){
+    public RequestURL createRequestURL(String ingredientsList){
         StringBuilder url = new StringBuilder("https://api.edamam.com/api/recipes/v2?type=any");
-        String[] ingredientsList = options.getIngredients();
-        String ingredientsString = String.join(", ", ingredientsList);
-        String ingredientsURLFormat = ingredientsString
+        String ingredientsURLFormat = ingredientsList
                 .replace(" ", "%20")
                 .replace(",", "%2C");
         url.append("&q=");
@@ -32,6 +28,6 @@ public class RequestURLUtils {
             url.append("&field=");
             url.append(field);
         }
-        return url.toString();
+        return new RequestURL(url.toString());
     }
 }
