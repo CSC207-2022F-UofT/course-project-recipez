@@ -10,6 +10,9 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * The unit test class to test the Database.
+ */
 public class DatabaseTest {
 
     private final String username = "Eric";

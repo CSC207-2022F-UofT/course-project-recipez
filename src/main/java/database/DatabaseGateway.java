@@ -1,7 +1,7 @@
 package database;
 
 /**
- * Interface that defines interaction with a database.
+ * Interface that defines interaction with the Database.
  */
 public interface DatabaseGateway {
 

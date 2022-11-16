@@ -3,6 +3,10 @@ package database;
 import java.io.*;
 import java.util.HashMap;
 
+
+/**
+ * Implements Serializable and DatabaseGateway and the Database is the persistence layer in the project.
+ */
 public class Database implements Serializable, DatabaseGateway {
 
     // Instance variables
