@@ -5,7 +5,11 @@ import java.util.ArrayList;
 
 public class Fridge implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    /**
+     * Used for unit testing purposes
+     * the UUID allows for the object to have a unique ID.
+     */
+    final private java.util.UUID uuid = java.util.UUID.randomUUID();
 
     /**
      * Class Fridge:
@@ -62,4 +66,15 @@ public class Fridge implements Serializable {
     public String toString() {
         return super.toString();
     }
+
+    /**
+     * This method is for unit testing that the deserialized object
+     * is the same as the serialized before after storing in the Database.
+     *
+     * @return the uuid
+     */
+    public int getUUID() {
+        return uuid.hashCode();
+    }
+
 }

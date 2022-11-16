@@ -52,10 +52,8 @@ public class DatabaseTest {
 
         assertEquals(username, loadedDatabase.getUsername());
         assertEquals(database.getUsername(), loadedDatabase.getUsername());
-        assertEquals("[Lettuce, Tomato]",
-                Arrays.toString(((Fridge) database.get(username)).allIngredientValues()));
-        assertEquals(((Fridge) database.get(username)).allIngredientValues(),
-                ((Fridge) loadedDatabase.get(username)).allIngredientValues());
+
+        assertEquals(((Fridge) database.get(username)).getUUID(), ((Fridge) loadedDatabase.get(username)).getUUID());
     }
 
     /**

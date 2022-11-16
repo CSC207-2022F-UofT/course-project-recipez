@@ -13,7 +13,6 @@ public class Database implements Serializable, DatabaseGateway {
     private final File storageFile;
     private HashMap<String, Object> database;
 
-
     /**
      * Constructor used to initialize the Database given a String filepath
      *
