@@ -1,6 +1,6 @@
 package entities.Ingrediant;
 
-public class CommonIngrediant implements Ingrediant {
+public class CommonIngredient implements Ingrediant {
     /**
      * Class ingredient:
      * String name: name of the ingredient
@@ -11,7 +11,7 @@ public class CommonIngrediant implements Ingrediant {
      * @ param name: name of the ingredient
      * */
 
-    public CommonIngrediant(String name) {
+    public CommonIngredient(String name) {
         this.name = name;
     }
 

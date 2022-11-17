@@ -1,21 +1,19 @@
 import controllers.CreateUserandFridgeController;
-import entities.Fridge.CommonFridge;
+import controllers.User_Enter_Ingrediants_Controller;
 import entities.Fridge.CommonFridgeFactory;
 import entities.Ingrediant.CommonIngrediant;
 import entities.Ingrediant.CommonIngrediantFactory;
-import entities.Ingrediant.IngrediantFactory;
 import entities.user.CommonUser;
 import entities.user.CommonUserFactory;
-import entities.user.UserFactory;
-import presenters.UserEnterIngrediant.CreateUserAndFridgeFormatter;
-import presenters.UserEnterIngrediant.CreateUserAndFridgePresenter;
+import presenters.CreateUserandFridge.CreateUserAndFridgeFormatter;
+import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
+import presenters.enteringrediant.UserEnterIngrediantFormatter;
+import presenters.enteringrediant.UserEnterIngrediantPresenter;
 import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundry;
 import useCases.CreateUserAndFridge.CreateUserandFridgeInteractor;
+import useCases.UserEnterIndrediantsInteractor.UserEnterIngrediantsInteractor;
+import useCases.UserEnterIndrediantsInteractor.User_Enter_Ingrediants_Input_Boundry;
 
-import javax.swing.*;
-import java.awt.*;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -34,22 +32,35 @@ public class main {
                 presenter);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
 
+
+
+
+
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter Username");
         String userName = myObj.nextLine();
+
+        CommonUser shaffaan = createUserandFridgeController.create(userName);
+
         System.out.println("the user is " +
-                presenter.prepareSuccessView(createUserandFridgeController.create(userName)).getName() + " the current" +
+                presenter.prepareSuccessView(shaffaan).getName() + " the current" +
                         " fridge is ");
-        presenter.prepareSuccessView(createUserandFridgeController.create(userName)).getFridge().printIngrediant();
-        /*
-        * create ingrediant next
-        * */
-//        Scanner myObj2 = new Scanner(System.in);
-//        System.out.println("Enter Ingrediant");
-//        String ingrediant = myObj2.nextLine();
-//        IngrediantFactory ingrediantFactory = new CommonIngrediantFactory();
-//        CommonIngrediant te = (CommonIngrediant) ingrediantFactory.create(ingrediant);
-//        x.addIngredient(te);
-//        System.out.println("Current fridge = " + x.toString());
+        System.out.println((presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
+
+        Scanner myObj5 = new Scanner(System.in);
+        System.out.println("Enter Ingrediant");
+        String ingrediant_at_index1 = myObj5.nextLine();
+
+
+        CommonIngrediantFactory ingrediantFactory = new CommonIngrediantFactory();
+        UserEnterIngrediantPresenter presenter1 = new UserEnterIngrediantFormatter();
+        User_Enter_Ingrediants_Input_Boundry interactor2 = new
+                UserEnterIngrediantsInteractor(shaffaan, shaffaan.getFridge(),ingrediantFactory,presenter1);
+        User_Enter_Ingrediants_Controller userEnterIngrediantsController = new User_Enter_Ingrediants_Controller(interactor2);
+
+        CommonIngrediant ing = userEnterIngrediantsController.create(ingrediant_at_index1);
+        System.out.println(" You have added" + presenter1.prepareSuccessView(ing).getName() + "new fridge is " +
+                (presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
+
     }
 }

@@ -1,6 +1,7 @@
 package entities.Fridge;
 
 import entities.Ingrediant.CommonIngrediant;
+import entities.Ingrediant.Ingrediant;
 
 import java.util.ArrayList;
 
@@ -36,8 +37,12 @@ public class CommonFridge implements Fridge {
         ingredients.remove(item);
     }
 
-    public void printIngrediant () {
-        System.out.println(ingredients);
+    public Ingrediant getIngrediantx () {
+        return this.ingredients.get(0) ;
+    }
+
+    public String printIngrediant () {
+        return this.ingredients.toString() ;
     }
 
 

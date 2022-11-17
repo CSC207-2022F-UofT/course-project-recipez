@@ -1,13 +1,11 @@
 package useCases.CreateUserAndFridge;
 
 import entities.Fridge.CommonFridge;
-import entities.Fridge.Fridge;
 import entities.Fridge.FridgeFactory;
 import entities.Ingrediant.CommonIngrediant;
 import entities.user.CommonUser;
-import entities.user.User;
 import entities.user.UserFactory;
-import presenters.UserEnterIngrediant.CreateUserAndFridgePresenter;
+import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
 
 import java.util.ArrayList;
 import java.util.Objects;

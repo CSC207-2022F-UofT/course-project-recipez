@@ -1,4 +1,4 @@
-package presenters.UserEnterIngrediant;
+package presenters.CreateUserandFridge;
 
 import entities.user.CommonUser;
 import useCases.CreateUserAndFridge.CreateUserandFridgeRequestModel;

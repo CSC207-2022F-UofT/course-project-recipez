@@ -1,10 +1,10 @@
 package useCases.UserEnterIndrediantsInteractor;
 
-public class UserEnterIngrediantRequestModel {
+public class UserEnterIngredientRequestModel {
 
     public String Ingrediant;
 
-    public UserEnterIngrediantRequestModel(String Ingrediant) {
+    public UserEnterIngredientRequestModel(String Ingrediant) {
         this.Ingrediant = Ingrediant;
     }
 
