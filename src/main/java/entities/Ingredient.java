@@ -1,16 +1,6 @@
 package entities;
 
-public class Ingredient {
-    /**
-     * Class ingredient:
-     * String name: name of the ingredient
-     */
-    private String name;
-    /**
-     * Constructor for the Ingredient class
-     * @ param name: name of the ingredient
-     * */
-    public String getName() {
-        return name;
-    }
+public interface Ingredient {
+    String getName();
+
 }
