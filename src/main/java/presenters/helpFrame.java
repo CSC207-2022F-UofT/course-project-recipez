@@ -91,7 +91,7 @@ public class helpFrame extends JFrame implements ActionListener {
         search.setBounds(100, 500, 240, 100);
         panel3.add(search);
 
-        //let the frame unresizable and add all panels to it.
+        //let the frame resizable and add all panels to it.
         this.setResizable(false);
         this.setLayout(null);
         this.add(panel1);
