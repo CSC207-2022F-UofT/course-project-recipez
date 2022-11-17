@@ -1,5 +1,8 @@
 package useCases.searchUseCase;
 
+/**
+ * Input model for search use case
+ */
 public class SearchRequestModel {
     private String ingredientsList;
     // TODO: Add filter options entity as parameter
