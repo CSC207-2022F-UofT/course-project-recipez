@@ -1,12 +1,11 @@
 package presenters.enteringrediant;
 
-import entities.Ingrediant.CommonIngrediant;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngrediantResponseModel;
+import entities.Ingrediant.CommonIngredient;
 
 public class UserEnterIngrediantFormatter implements UserEnterIngrediantPresenter {
 
     @Override
-    public CommonIngrediant prepareSuccessView(CommonIngrediant ingrediant) {
+    public CommonIngredient prepareSuccessView(CommonIngredient ingrediant) {
         return ingrediant;
     }
 }

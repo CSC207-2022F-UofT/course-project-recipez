@@ -6,6 +6,7 @@ public class CreateUserandFridgeRequestModel {
     public String user;
     // fridge will not be here as it is created automatically
 
+
     public CreateUserandFridgeRequestModel(String user) {
         this.user = user;
     }

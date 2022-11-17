@@ -69,7 +69,6 @@ public class Database implements Serializable, DatabaseGateway {
 
     /**
      * Store's the object of any type given a unique key in the Database.
-     *
      * @param key    The unique string identifier of the object that is stored in the database.
      * @param object The object that is stored in the database.
      */

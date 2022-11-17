@@ -1,9 +1,8 @@
 package presenters.enteringrediant;
 
-import entities.Ingrediant.CommonIngrediant;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngrediantResponseModel;
+import entities.Ingrediant.CommonIngredient;
 
 public interface UserEnterIngrediantPresenter {
 
-    CommonIngrediant prepareSuccessView(CommonIngrediant ingrediant);
+    CommonIngredient prepareSuccessView(CommonIngredient ingrediant);
 }

@@ -1,18 +1,26 @@
 package useCases.CreateUserAndFridge;
 
-public class CreateUserandFridgeResponseModel {
-    public String user_and_fridge_creation_time;
+import entities.Fridge.CommonFridge;
+import entities.user.CommonUser;
 
-    public CreateUserandFridgeResponseModel(String user_and_fridge_creation_time) {
-        this.user_and_fridge_creation_time = user_and_fridge_creation_time;
+public class CreateUserandFridgeResponseModel {
+    public CommonFridge commonFridge;
+    public CommonUser commonUser;
+    public String userandfridgecreationtime;
+
+    public CreateUserandFridgeResponseModel(CommonFridge commonFridge, CommonUser commonUser,
+            String userandfridgecreationtime) {
+        this.commonFridge = commonFridge;
+        this.commonUser = commonUser;
+        this.userandfridgecreationtime = userandfridgecreationtime;
     }
 
     public String getCreationTime() {
-        return user_and_fridge_creation_time;
+        return userandfridgecreationtime;
     }
 
     public void setCreationTime(String creationTime) {
-        this.user_and_fridge_creation_time = user_and_fridge_creation_time;
+        this.userandfridgecreationtime = userandfridgecreationtime;
     }
 
 }

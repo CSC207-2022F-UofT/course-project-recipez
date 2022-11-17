@@ -4,6 +4,7 @@ import entities.user.CommonUser;
 
 public interface CreateUserAndFridgeInputBoundry {
 
-   CommonUser create(CreateUserandFridgeRequestModel requestModel);
+//   CommonUser create(CreateUserandFridgeRequestModel requestModel);
+      CreateUserandFridgeResponseModel create(CreateUserandFridgeRequestModel requestModel);
 
 }

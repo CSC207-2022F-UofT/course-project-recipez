@@ -6,5 +6,8 @@ import useCases.CreateUserAndFridge.CreateUserandFridgeResponseModel;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngrediantResponseModel;
 
     public interface CreateUserAndFridgePresenter {
-        CommonUser prepareSuccessView(CommonUser user);
+//        CommonUser prepareSuccessView(CommonUser user);
+        CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel);
+
+        CreateUserandFridgeResponseModel prepareFailView(String error);
 }

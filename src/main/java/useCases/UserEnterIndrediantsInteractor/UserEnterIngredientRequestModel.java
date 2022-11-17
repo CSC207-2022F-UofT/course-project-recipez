@@ -8,7 +8,7 @@ public class UserEnterIngredientRequestModel {
         this.Ingrediant = Ingrediant;
     }
 
-    String getIngrediant_in_String_Format() {
+    String getIngredient_in_String_Format() {
         return Ingrediant;
     }
 

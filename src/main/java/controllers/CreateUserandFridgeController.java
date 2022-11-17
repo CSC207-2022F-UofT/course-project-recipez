@@ -1,6 +1,5 @@
 package controllers;
 
-import entities.user.CommonUser;
 import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundry;
 import useCases.CreateUserAndFridge.CreateUserandFridgeRequestModel;
 import useCases.CreateUserAndFridge.CreateUserandFridgeResponseModel;
@@ -13,10 +12,13 @@ public class CreateUserandFridgeController{
         this.userNameInteractor = userNameInteractor;
     }
 
-
-    public CommonUser create(String user) {
-        CreateUserandFridgeRequestModel requestModel = new CreateUserandFridgeRequestModel(
-                user);
+    public CreateUserandFridgeResponseModel create(String user) {
+        CreateUserandFridgeRequestModel requestModel = new CreateUserandFridgeRequestModel(user);
         return userNameInteractor.create(requestModel);
     }
-}
+
+//    public CommonUser create(String user) {
+//        CreateUserandFridgeRequestModel requestModel = new CreateUserandFridgeRequestModel(
+//                user);
+//        return userNameInteractor.create(requestModel);
+    }

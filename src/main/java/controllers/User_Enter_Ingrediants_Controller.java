@@ -1,9 +1,7 @@
 package controllers;
 
-import entities.Ingrediant.CommonIngrediant;
-import presenters.enteringrediant.UserEnterIngrediantPresenter;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngrediantRequestModel;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngrediantResponseModel;
+import entities.Ingrediant.CommonIngredient;
+import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientRequestModel;
 import useCases.UserEnterIndrediantsInteractor.User_Enter_Ingrediants_Input_Boundry;
 
 public class User_Enter_Ingrediants_Controller {
@@ -17,8 +15,8 @@ public class User_Enter_Ingrediants_Controller {
     }
 
 
-    public CommonIngrediant create(String ingrediant) {
-        UserEnterIngrediantRequestModel requestModel = new UserEnterIngrediantRequestModel(ingrediant);
+    public CommonIngredient create(String ingrediant) {
+        UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingrediant);
         return userIngrediantinteractor.create(requestModel);
     }
 

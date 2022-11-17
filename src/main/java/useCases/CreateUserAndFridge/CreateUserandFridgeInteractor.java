@@ -2,11 +2,12 @@ package useCases.CreateUserAndFridge;
 
 import entities.Fridge.CommonFridge;
 import entities.Fridge.FridgeFactory;
-import entities.Ingrediant.CommonIngrediant;
+import entities.Ingrediant.CommonIngredient;
 import entities.user.CommonUser;
 import entities.user.UserFactory;
 import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -25,15 +26,20 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
     }
 
     @Override
-    public CommonUser create(CreateUserandFridgeRequestModel requestModel) {
+    public CreateUserandFridgeResponseModel create(CreateUserandFridgeRequestModel requestModel) {
         if (Objects.equals(requestModel.getUserName(), "")) {
-            return null;
+            return createUserAndFridgePresenter.prepareFailView("Nothin entered");
         }
         else {
-            ArrayList<CommonIngrediant> tesst = new ArrayList<>();
+            ArrayList<CommonIngredient> tesst = new ArrayList<>();
             CommonFridge x = (CommonFridge) fridgeFactory.create(tesst);
             CommonUser user = (CommonUser) userFactory.create(requestModel.getUserName(), x);
-            return createUserAndFridgePresenter.prepareSuccessView(user);
+
+            LocalDateTime now = LocalDateTime.now();
+
+            CreateUserandFridgeResponseModel successResponseModel = new
+                    CreateUserandFridgeResponseModel(x, user, now.toString());
+            return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
         }
     }
 
