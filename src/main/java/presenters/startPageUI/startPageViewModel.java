@@ -30,4 +30,9 @@ public class startPageViewModel implements startPageViewModelInterface {
     public void enterMainPage() {
         this.pageState = "main";
     }
+
+    public String registerUser(String username) {
+        assert this.pageState.equals("register");
+        return registerController.createUser(username);
+    }
 }

@@ -42,16 +42,14 @@ public class startPageViewWelcome extends JPanel implements ActionListener{
         if (e.getSource() == register) {
             try {
                 viewModel.enterUserRegistrationPage();
-                screenLayout.show(screens, "register");
-                System.out.println(viewModel.pageState);
+                screenLayout.show(screens, viewModel.pageState);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         } else if (e.getSource() == login) {
             try {
                 viewModel.enterLoginPage();
-                screenLayout.show(screens, "login");
-                System.out.println(viewModel.pageState);
+                screenLayout.show(screens, viewModel.pageState);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

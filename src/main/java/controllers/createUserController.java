@@ -5,9 +5,9 @@ public class createUserController {
     public createUserController() {
     }
 
-    public void createUser(String username) {
+    public String createUser(String username) {
         this.username = username;
-        System.out.println("User Created: " + username);
+        return username;
     }
 
     public String getUsername() {

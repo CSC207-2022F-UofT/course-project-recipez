@@ -29,8 +29,8 @@ public class startPageViewMain extends JPanel{
         startScreens.setLayout(screenLayout);
 
         startPageViewWelcome welcome = new startPageViewWelcome(viewModel, startScreens, screenLayout);
-        registerUserView register = new registerUserView(viewModel);
-        userLoginView login = new userLoginView(viewModel);
+        registerUserView register = new registerUserView(viewModel, startScreens, screenLayout);
+        userLoginView login = new userLoginView(viewModel, startScreens, screenLayout);
 
         startScreens.add(welcome , "main");
         startScreens.add(register, "register");
@@ -42,5 +42,4 @@ public class startPageViewMain extends JPanel{
         add(startScreens, BorderLayout.SOUTH);
 
     }
-
 }
