@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 public class JavaHttpGateway implements IApiGateway{
     private final static String appId = "c863d4be";
     private final static String appKey = "9c705fc2c472f935f32ea2e2c1494311";
-    private final static String[] includedFields = {"label", "url", "yield", "ingredientLines", "calories", "totalWeight", "totalTime"};
+    private final static String[] includedFields = {"label", "url", "image", "yield", "ingredientLines", "calories", "totalWeight", "totalTime"};
     /**
      * Calls API endpoint and gets response
      * @param ingredientsList Comma-separated ingredients to search with
