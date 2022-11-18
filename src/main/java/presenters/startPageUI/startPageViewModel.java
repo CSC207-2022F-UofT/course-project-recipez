@@ -18,16 +18,12 @@ public class startPageViewModel implements startPageViewModelInterface {
     }
 
     public void enterUserRegistrationPage() {
-        assert this.pageState.equals("main");
         this.pageState = "register";
-        System.out.println(this.pageState);
     }
 
     @Override
     public void enterLoginPage() {
-        assert this.pageState.equals("main");
         this.pageState = "login";
-        System.out.println(this.pageState);
     }
 
     @Override

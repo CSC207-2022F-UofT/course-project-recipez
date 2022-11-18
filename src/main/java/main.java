@@ -1,7 +1,7 @@
 import controllers.createUserController;
 import presenters.startPageUI.startPageViewMain;
+import presenters.startPageUI.startPageViewWelcome;
 import presenters.startPageUI.startPageViewModel;
-import presenters.startPageUI.startPageViewModelInterface;
 
 import javax.swing.*;
 import java.awt.*;
