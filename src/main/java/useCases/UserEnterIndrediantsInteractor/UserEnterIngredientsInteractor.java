@@ -7,12 +7,13 @@ import entities.Ingrediant.IngredientFactory;
 import entities.user.User;
 import presenters.enteringrediant.UserEnterIngrediantPresenter;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * Class UserEnterIngredientsInteractor (Implements the ser_Enter_Ingrediants_Input_Boundry)
  */
-public class UserEnterIngredientsInteractor implements User_Enter_Ingrediants_Input_Boundry {
+public class UserEnterIngredientsInteractor implements UserEnterIngredientsInputBoundary {
     User user;
     Fridge fridge;
     UserEnterIngrediantPresenter userEnterIngrediantPresenter;
@@ -44,18 +45,22 @@ public class UserEnterIngredientsInteractor implements User_Enter_Ingrediants_In
      */
  // method will be called by the controller once it has recieved string
     @Override
-    public CommonIngredient create(UserEnterIngredientRequestModel requestModel) {
+    public UserEnterIngrediantResponseModel create(UserEnterIngredientRequestModel requestModel) {
         if (Objects.equals(requestModel.getIngredient_in_String_Format(), "")) {
-            return null;
+            return userEnterIngrediantPresenter.prepareFailView("Nothing created");
         }
         else {
-            Ingrediant ingrediant = ingredientFactory.create(requestModel.getIngredient_in_String_Format());
-            user.getFridge().addIngredient((CommonIngredient) ingrediant);
+            //create the ingredient and add it to the fridge
+            CommonIngredient ingrediant = (CommonIngredient) ingredientFactory.create(requestModel.getIngredient_in_String_Format());
+            user.getFridge().addIngredient(ingrediant);
 
-//            UserEnterIngrediantResponseModel Ingrediant_entered_successfully =
-//                    new UserEnterIngrediantResponseModel(user.getFridge().printIngrediant());
-            return userEnterIngrediantPresenter.prepareSuccessView
-                    ((CommonIngredient) user.getFridge().getIngrediantx());
+            LocalDateTime now = LocalDateTime.now();
+
+            UserEnterIngrediantResponseModel responseModel = new UserEnterIngrediantResponseModel(ingrediant,
+                    now.toString());
+            return userEnterIngrediantPresenter.prepareSuccessView(responseModel);
+//            return userEnterIngrediantPresenter.prepareSuccessView
+//                    ((CommonIngredient) user.getFridge().getIngrediantx());
         }
     }
 }

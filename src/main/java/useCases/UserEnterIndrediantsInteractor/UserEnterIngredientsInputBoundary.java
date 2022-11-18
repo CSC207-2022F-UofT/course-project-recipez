@@ -1,7 +1,5 @@
 package useCases.UserEnterIndrediantsInteractor;
 
-import entities.Ingrediant.CommonIngredient;
-
-public interface UserEnterIngredientsInputBoundry {
+public interface UserEnterIngredientsInputBoundary {
     UserEnterIngrediantResponseModel create(UserEnterIngredientRequestModel requestModel);
 }

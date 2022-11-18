@@ -2,18 +2,18 @@ package useCases.UserEnterIndrediantsInteractor;
 
 public class UserEnterIngredientRequestModel {
 
-    public String Ingrediant;
+    public String Ingredient;
 
-    public UserEnterIngredientRequestModel(String Ingrediant) {
-        this.Ingrediant = Ingrediant;
+    public UserEnterIngredientRequestModel(String Ingredient) {
+        this.Ingredient = Ingredient;
     }
 
     String getIngredient_in_String_Format() {
-        return Ingrediant;
+        return Ingredient;
     }
 
-    void setIngrediant(String Ingrediant) {
-        this.Ingrediant = Ingrediant;
+    void setIngredient(String Ingredient) {
+        this.Ingredient = Ingredient;
     }
 
 
