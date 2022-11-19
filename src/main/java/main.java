@@ -1,21 +1,18 @@
 import controllers.CreateUserandFridgeController;
-import controllers.User_Enter_Ingrediants_Controller;
-import entities.Fridge.CommonFridge;
+import controllers.UserEnterIngredientsController;
+import database.Database;
+import database.DatabaseGateway;
 import entities.Fridge.CommonFridgeFactory;
-import entities.Ingrediant.CommonIngredient;
 import entities.Ingrediant.CommonIngredientFactory;
-import entities.user.CommonUser;
 import entities.user.CommonUserFactory;
 import presenters.CreateUserandFridge.CreateUserAndFridgeFormatter;
 import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
 import presenters.enteringrediant.UserEnterIngrediantFormatter;
 import presenters.enteringrediant.UserEnterIngrediantPresenter;
-import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundry;
+import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundary;
 import useCases.CreateUserAndFridge.CreateUserandFridgeInteractor;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInteractor;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInputBoundary;
-
-import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
@@ -29,9 +26,13 @@ public class main {
         CommonFridgeFactory fridgeFactory = new CommonFridgeFactory();
         CommonUserFactory userFactory = new CommonUserFactory();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter();
-        CreateUserAndFridgeInputBoundry interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
-                presenter);
+
+        DatabaseGateway databaseGateway = new Database();
+        CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
+                presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
+
+
 //        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 //        System.out.println("Enter Username");
 //        String userName = myObj.nextLine();
@@ -46,15 +47,20 @@ public class main {
 //        System.out.println("Enter Ingrediant");
 //        String ingrediant_at_index1 = myObj5.nextLine();
 
-        CommonIngredientFactory ingrediantFactory = new CommonIngredientFactory();
+        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
         UserEnterIngrediantPresenter presenter1 = new UserEnterIngrediantFormatter();
-
+/**
+ * Don't know how to pass current user and current fridge
+ */
         UserEnterIngredientsInputBoundary interactor2 =
-                new UserEnterIngredientsInteractor(x,y,ingrediantFactory, presenter1);
+                new UserEnterIngredientsInteractor(x,y,ingredientFactory, presenter1, databaseGateway);
+
+        UserEnterIngredientsController userEnterIngrediantsController =
+                new UserEnterIngredientsController(interactor2);
 
 
 //        User_Enter_Ingrediants_Input_Boundry interactor2 = new
-//                UserEnterIngredientsInteractor(shaffaan, shaffaan.getFridge(),ingrediantFactory,presenter1);
+//                UserEnterIngredientsInteractor(shaffaan, shaffaan.getFridge(),ingredientFactory,presenter1);
 //        User_Enter_Ingrediants_Controller userEnterIngrediantsController = new User_Enter_Ingrediants_Controller(interactor2);
 
 //        CommonIngredient ing = userEnterIngrediantsController.create(ingrediant_at_index1);

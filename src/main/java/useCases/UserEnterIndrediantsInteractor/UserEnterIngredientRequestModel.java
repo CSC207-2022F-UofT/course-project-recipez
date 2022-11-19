@@ -1,15 +1,30 @@
 package useCases.UserEnterIndrediantsInteractor;
 
+/**
+ * Request Model for entering ingredient UseCase
+ */
 public class UserEnterIngredientRequestModel {
 
     public String Ingredient;
+    public String UserName;
 
-    public UserEnterIngredientRequestModel(String Ingredient) {
+    /**
+     * Constructor for request model
+     * @param Ingredient
+     */
+    public UserEnterIngredientRequestModel(String Ingredient, String userName) {
         this.Ingredient = Ingredient;
+        this.UserName = userName;
     }
 
+    /**
+     * @return the ingredient in a string format
+     */
     String getIngredient_in_String_Format() {
         return Ingredient;
+    }
+    String getUserName() {
+        return this.UserName;
     }
 
     void setIngredient(String Ingredient) {

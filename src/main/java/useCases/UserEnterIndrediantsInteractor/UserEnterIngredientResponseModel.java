@@ -2,21 +2,32 @@ package useCases.UserEnterIndrediantsInteractor;
 
 import entities.Ingrediant.CommonIngredient;
 
-public class UserEnterIngrediantResponseModel {
+/**
+ * Response Model for Entering ingredient use case
+ */
+public class UserEnterIngredientResponseModel {
 
-    public CommonIngredient commonIngredientingredient;
-    public String enterIngredantTime;
+    public CommonIngredient commonIngredient;
+    public String enterIngredientTime;
 
-    public UserEnterIngrediantResponseModel(CommonIngredient commonIngredient,String enterIngredantTime) {
-        this.commonIngredientingredient = commonIngredient;
-        this.enterIngredantTime = enterIngredantTime;
+    /**
+     * Constructor for this response model.
+     * @param commonIngredient
+     * @param enterIngredientTime
+     */
+    public UserEnterIngredientResponseModel(CommonIngredient commonIngredient, String enterIngredientTime) {
+        this.commonIngredient = commonIngredient;
+        this.enterIngredientTime = enterIngredientTime;
     }
 
+    /**
+     * @return creation time, of when ingredient is entered
+     */
     public String getCreationTime() {
-        return enterIngredantTime;
+        return enterIngredientTime;
     }
 
     public void setCreationTime(String creationTime) {
-        this.enterIngredantTime = enterIngredantTime;
+        this.enterIngredientTime = enterIngredientTime;
     }
 }

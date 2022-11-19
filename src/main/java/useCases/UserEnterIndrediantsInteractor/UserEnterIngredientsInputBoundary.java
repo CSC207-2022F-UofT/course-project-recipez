@@ -1,5 +1,8 @@
 package useCases.UserEnterIndrediantsInteractor;
 
+/**
+ * Interface UserEnterIngredientsInputBoundary
+ */
 public interface UserEnterIngredientsInputBoundary {
-    UserEnterIngrediantResponseModel create(UserEnterIngredientRequestModel requestModel);
+    UserEnterIngredientResponseModel create(UserEnterIngredientRequestModel requestModel);
 }

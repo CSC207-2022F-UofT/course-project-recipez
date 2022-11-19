@@ -4,13 +4,11 @@ import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientResponseModel;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientRequestModel;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInputBoundary;
 
-public class User_Enter_Ingrediants_Controller {
-
-    // needs to take in an interactor
+public class UserEnterIngredientsController {
 
     public UserEnterIngredientsInputBoundary userIngrediantinteractor;
 
-    public User_Enter_Ingrediants_Controller(UserEnterIngredientsInputBoundary userIngrediantinteractor) {
+    public UserEnterIngredientsController(UserEnterIngredientsInputBoundary userIngrediantinteractor) {
         this.userIngrediantinteractor = userIngrediantinteractor;
     }
 
@@ -19,12 +17,4 @@ public class User_Enter_Ingrediants_Controller {
         UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingrediant);
         return userIngrediantinteractor.create(requestModel);
     }
-
-//    UserEnterIngrediantResponseModel create(String Ingrediant) {
-//        UserEnterIngrediantRequestModel requestModel = new UserEnterIngrediantRequestModel(
-//                Ingrediant);
-//    UserEnterIngrediantResponseModel x = new UserEnterIngrediantResponseModel("2");
-//        return x;
-        // have this right now to fix the return statement error
-        // interactor will return a response model
     }
