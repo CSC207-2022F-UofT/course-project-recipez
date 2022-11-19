@@ -5,8 +5,8 @@ import controllers.CreateUserandFridgeController;
 public class startPageViewModel implements startPageViewModelInterface {
 
     public String pageState;
-    private String create_register_response;
-    private String attempt_login_response;
+    public String create_register_response;
+    public String attempt_login_response;
 
     public startPageViewModel() {
         this.pageState = "main";

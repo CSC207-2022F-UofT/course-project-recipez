@@ -60,7 +60,7 @@ public class main {
         JPanel screens = new JPanel(cardLayout);
         application.add(screens);
 
-        DatabaseGateway databaseGateway = new Database("Storage");
+        DatabaseGateway databaseGateway = new Database("Storage33");
 
         startPageViewModelInterface startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);

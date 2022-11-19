@@ -19,7 +19,8 @@ public class registerUserView extends JPanel implements ActionListener {
 
     private CreateUserandFridgeController registerController;
 
-    public registerUserView(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
+    public registerUserView(startPageViewModel viewModel, CreateUserandFridgeController controller,
+                            JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;

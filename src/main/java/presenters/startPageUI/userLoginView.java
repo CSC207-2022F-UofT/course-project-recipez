@@ -31,13 +31,18 @@ public class userLoginView extends JPanel implements ActionListener {
 
         this.username = new JTextField(15);
 
-        this.login_response = new JTextField(30);
+        this.login_response = new JTextField(15);
         this.login_response.setEditable(false);
         this.login_response.setOpaque(true);
         this.login_response.setBorder(null);
 
+        this.login_response.setText(viewModel.attempt_login_response);
+
+        setLayout(new BorderLayout());
+
         JLabel enter_user_label = new JLabel("Enter Username: ");
         login_user_btn = new JButton("Login");
+        login_user_btn.addActionListener(this);
         back = new JButton("Back");
         back.addActionListener(this);
 
@@ -45,16 +50,13 @@ public class userLoginView extends JPanel implements ActionListener {
         entry_formatter.add(enter_user_label);
         entry_formatter.add(username);
         entry_formatter.add(login_user_btn);
-
-        JPanel button_formatter = new JPanel();
-        button_formatter.add(back);
+        entry_formatter.add(back);
 
         JPanel response_formatter = new JPanel();
         response_formatter.add(this.login_response);
 
-        this.add(entry_formatter);
-        this.add(button_formatter);
-        this.add(response_formatter);
+        this.add(entry_formatter, BorderLayout.NORTH);
+        this.add(response_formatter, BorderLayout.SOUTH);
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
