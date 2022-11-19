@@ -38,4 +38,6 @@ public interface DatabaseGateway {
      * Deletes the storage file associated with the database.
      */
     void deleteStorageFile();
+
+    boolean hasKey(String key);
 }
