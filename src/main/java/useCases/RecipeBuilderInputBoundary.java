@@ -7,5 +7,5 @@ import entities.Recipe;
  * Requires implementors to have createRecipe
  */
 public interface RecipeBuilderInputBoundary {
-    Recipe createRecipe(String[] apiOutput);
+    RecipeBuilderResponseModel createRecipe(RecipeBuilder requestModel);
 }
