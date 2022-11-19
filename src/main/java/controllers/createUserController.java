@@ -1,8 +1,10 @@
 package controllers;
 
+import presenters.mockUserRegisterPresenter;
+
 public class createUserController {
     private String username;
-    public createUserController() {
+    public createUserController(mockUserRegisterPresenter presenter) {
     }
 
     public String createUser(String username) {

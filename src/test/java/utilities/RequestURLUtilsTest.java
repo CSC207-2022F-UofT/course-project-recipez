@@ -1,6 +1,5 @@
 package utilities;
 
-import entities.RequestOptions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

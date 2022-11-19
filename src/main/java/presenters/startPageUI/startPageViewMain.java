@@ -7,13 +7,20 @@ import java.awt.event.ActionListener;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+/**
+ * Facade for UI start page. Manages if start page is in welcome, register, or login state.
+ */
 
 public class startPageViewMain extends JPanel{
     private startPageViewModel viewModel;
-
     private JPanel startScreens;
     private CardLayout screenLayout;
 
+    /**
+     * Constructor for startPageViewMain class
+     *
+     * @param viewModel the view model for the start page
+     */
     public startPageViewMain(startPageViewModel viewModel) {
         this.viewModel = viewModel;
 

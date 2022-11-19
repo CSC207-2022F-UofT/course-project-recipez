@@ -10,15 +10,11 @@ import java.awt.event.ActionListener;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-
-
 public class registerUserView extends JPanel implements ActionListener {
     private startPageViewModel viewModel;
     private JTextField username;
-
     private JButton back;
     private JButton create_user_btn;
-
     private JPanel screens;
     private CardLayout screenLayout;
 
@@ -54,7 +50,7 @@ public class registerUserView extends JPanel implements ActionListener {
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == create_user_btn) {
-            System.out.println(viewModel.registerUser(username.getText()));
+            viewModel.registerUser(username.getText());
         }
     }
 }
