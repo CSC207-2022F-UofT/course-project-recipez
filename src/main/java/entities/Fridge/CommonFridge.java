@@ -3,9 +3,10 @@ package entities.Fridge;
 import entities.Ingrediant.CommonIngredient;
 import entities.Ingrediant.Ingrediant;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CommonFridge implements Fridge {
+public class CommonFridge implements Fridge, Serializable {
     /**
      * Class Fridge:
      * ArrayList<Ingredient> ingredients: list of available ingredients that user added.
@@ -73,4 +74,20 @@ public class CommonFridge implements Fridge {
     public String toString() {
         return super.toString();
     }
+
+    /**
+     * Used for unit testing purposes
+     * the UUID allows for the object to have a unique ID.
+     */
+    final private java.util.UUID uuid = java.util.UUID.randomUUID();
+    /**
+     * This method is for unit testing that the deserialized object
+     * is the same as the serialized before after storing in the Database.
+     *
+     * @return the uuid
+     */
+    public int getUUID() {
+        return uuid.hashCode();
+    }
+
 }
