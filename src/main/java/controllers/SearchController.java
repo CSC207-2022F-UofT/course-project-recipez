@@ -11,7 +11,6 @@ public class SearchController {
     public SearchController(SearchInputBoundary userInput) {
         this.userInput = userInput;
     }
-    // TODO: Get ingredients from fridge database instead of as String
     /**
      * Searches for recipes that can be made with inputted user's ingredients
      * @param username Comma-separated ingredients to search with

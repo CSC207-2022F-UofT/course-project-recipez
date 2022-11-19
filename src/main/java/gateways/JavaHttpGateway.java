@@ -40,7 +40,8 @@ public class JavaHttpGateway implements IApiGateway{
         return response.body();
     }
 
-    public String createRequestURL(String ingredientsList){
+    public String createRequestURL(String ingredientsList) {
+        // TODO: Convert the filter options from the UI into fields for URL
         StringBuilder url = new StringBuilder("https://api.edamam.com/api/recipes/v2?type=any");
         String ingredientsURLFormat = ingredientsList
                 .replace(" ", "%20")
