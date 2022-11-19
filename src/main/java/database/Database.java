@@ -110,12 +110,13 @@ public class Database implements Serializable, DatabaseGateway {
     }
 
     /**
-     * Private method that checks if the Database has the key in the Hashmap.
+     * Public method that checks if the Database has the key in the Hashmap.
      *
      * @param key The unique string identifier of the object that is stored in the database.
      * @return True if the key in the Database other False.
      */
-    private boolean hasKey(String key) {
+    @Override
+    public boolean hasKey(String key) {
         return this.database.containsKey(key);
     }
 }
