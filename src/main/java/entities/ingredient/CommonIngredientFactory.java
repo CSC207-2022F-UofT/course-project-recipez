@@ -1,4 +1,4 @@
-package entities.Ingredient;
+package entities.ingredient;
 
 /**
  * Class CommonIngredientFactory

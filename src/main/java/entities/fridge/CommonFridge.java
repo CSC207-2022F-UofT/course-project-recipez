@@ -1,7 +1,7 @@
-package entities.Fridge;
+package entities.fridge;
 
-import entities.Ingredient.CommonIngredient;
-import entities.Ingredient.Ingredient;
+import entities.ingredient.CommonIngredient;
+import entities.ingredient.Ingredient;
 
 import java.io.Serializable;
 import java.util.ArrayList;

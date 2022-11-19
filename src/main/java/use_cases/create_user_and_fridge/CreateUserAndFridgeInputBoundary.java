@@ -1,4 +1,4 @@
-package useCases.CreateUserAndFridge;
+package use_cases.create_user_and_fridge;
 
 /**
  * Interface Create User and Fridge Input Boundary

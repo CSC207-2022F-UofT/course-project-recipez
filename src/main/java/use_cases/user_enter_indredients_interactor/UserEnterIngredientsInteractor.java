@@ -1,10 +1,10 @@
-package useCases.UserEnterIndrediantsInteractor;
+package use_cases.user_enter_indredients_interactor;
 
 import database.DatabaseGateway;
-import entities.Ingredient.CommonIngredient;
-import entities.Ingredient.IngredientFactory;
+import entities.ingredient.CommonIngredient;
+import entities.ingredient.IngredientFactory;
 import entities.user.CommonUser;
-import presenters.enteringrediant.UserEnterIngredientPresenter;
+import presenters.enter_ingredient.UserEnterIngredientPresenter;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

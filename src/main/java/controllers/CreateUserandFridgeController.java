@@ -1,8 +1,8 @@
 package controllers;
 
-import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundary;
-import useCases.CreateUserAndFridge.CreateUserandFridgeRequestModel;
-import useCases.CreateUserAndFridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
+import use_cases.create_user_and_fridge.CreateUserandFridgeRequestModel;
+import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
 
 /**
  * Controller Class

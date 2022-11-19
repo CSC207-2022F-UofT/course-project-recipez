@@ -1,12 +1,12 @@
-package useCases.CreateUserAndFridge;
+package use_cases.create_user_and_fridge;
 
 import database.DatabaseGateway;
-import entities.Fridge.CommonFridge;
-import entities.Fridge.FridgeFactory;
-import entities.Ingredient.CommonIngredient;
+import entities.fridge.CommonFridge;
+import entities.fridge.FridgeFactory;
+import entities.ingredient.CommonIngredient;
 import entities.user.CommonUser;
 import entities.user.UserFactory;
-import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
+import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

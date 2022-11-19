@@ -1,8 +1,8 @@
 package controllers;
 
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientResponseModel;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientRequestModel;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInputBoundary;
+import use_cases.user_enter_indredients_interactor.UserEnterIngredientResponseModel;
+import use_cases.user_enter_indredients_interactor.UserEnterIngredientRequestModel;
+import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
 
 public class UserEnterIngredientsController {
 

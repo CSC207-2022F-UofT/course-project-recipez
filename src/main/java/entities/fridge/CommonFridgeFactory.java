@@ -1,6 +1,6 @@
-package entities.Fridge;
+package entities.fridge;
 
-import entities.Ingredient.CommonIngredient;
+import entities.ingredient.CommonIngredient;
 
 import java.util.ArrayList;
 

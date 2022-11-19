@@ -1,4 +1,4 @@
-package useCases.UserEnterIndrediantsInteractor;
+package use_cases.user_enter_indredients_interactor;
 
 /**
  * Interface UserEnterIngredientsInputBoundary

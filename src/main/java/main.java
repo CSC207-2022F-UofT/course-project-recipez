@@ -1,26 +1,18 @@
-<<<<<<< HEAD
 import database.Database;
-import java.util.ArrayList;
 import database.DatabaseGateway;
 import controllers.CreateUserandFridgeController;
 import controllers.UserEnterIngredientsController;
-import entities.Fridge.CommonFridge;
-import entities.Fridge.CommonFridgeFactory;
-import entities.Fridge.Fridge;
-import entities.Ingredient.CommonIngredientFactory;
+import entities.fridge.CommonFridgeFactory;
+import entities.ingredient.CommonIngredientFactory;
 import entities.user.CommonUserFactory;
-import presenters.CreateUserandFridge.CreateUserAndFridgeFormatter;
-import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
-import presenters.enteringrediant.UserEnterIngredientFormatter;
-import presenters.enteringrediant.UserEnterIngredientPresenter;
-import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundary;
-import useCases.CreateUserAndFridge.CreateUserandFridgeInteractor;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInteractor;
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInputBoundary;
-
-
-
-
+import presenters.create_user_and_fridge.CreateUserAndFridgeFormatter;
+import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
+import presenters.enter_ingredient.UserEnterIngredientFormatter;
+import presenters.enter_ingredient.UserEnterIngredientPresenter;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
+import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
+import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
+import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
 
 public class main {
     public static void main(String[] args) {

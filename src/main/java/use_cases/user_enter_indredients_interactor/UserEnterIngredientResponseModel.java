@@ -1,6 +1,6 @@
-package useCases.UserEnterIndrediantsInteractor;
+package use_cases.user_enter_indredients_interactor;
 
-import entities.Ingredient.CommonIngredient;
+import entities.ingredient.CommonIngredient;
 
 /**
  * Response Model for Entering ingredient use case

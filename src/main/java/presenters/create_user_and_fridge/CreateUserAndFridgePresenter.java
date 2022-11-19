@@ -1,6 +1,6 @@
-package presenters.CreateUserandFridge;
+package presenters.create_user_and_fridge;
 
-import useCases.CreateUserAndFridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
 
 public interface CreateUserAndFridgePresenter {
         CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel);

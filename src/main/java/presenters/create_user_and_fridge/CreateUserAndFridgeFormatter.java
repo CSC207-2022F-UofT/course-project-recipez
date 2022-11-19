@@ -1,7 +1,6 @@
-package presenters.CreateUserandFridge;
+package presenters.create_user_and_fridge;
 
-import entities.user.CommonUser;
-import useCases.CreateUserAndFridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

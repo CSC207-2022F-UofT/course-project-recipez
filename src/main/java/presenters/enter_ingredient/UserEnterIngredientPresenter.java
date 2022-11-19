@@ -1,6 +1,6 @@
-package presenters.enteringrediant;
+package presenters.enter_ingredient;
 
-import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientResponseModel;
+import use_cases.user_enter_indredients_interactor.UserEnterIngredientResponseModel;
 
 public interface UserEnterIngredientPresenter {
 

@@ -1,6 +1,6 @@
 package entities.user;
 
-import entities.Fridge.CommonFridge;
+import entities.fridge.CommonFridge;
 
 /**
  * Class Common User Factory
