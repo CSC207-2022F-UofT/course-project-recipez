@@ -13,15 +13,15 @@ public class SearchController {
     }
     // TODO: Get ingredients from fridge database instead of as String
     /**
-     * Searches for recipes that can be made with inputted ingredients
-     * @param ingredientsList Comma-separated ingredients to search with
+     * Searches for recipes that can be made with inputted user's ingredients
+     * @param username Comma-separated ingredients to search with
      * @param mealType Type of meal (breakfast, lunch, etc.)
      * @param calories Range for calories in recipe
      * @param time Range for time recipe takes
      * @return Recipe results
      */
-    public SearchResponseModel search(String ingredientsList, String mealType, String calories, String time) {
-        SearchRequestModel requestModel = new SearchRequestModel(ingredientsList, mealType, calories, time);
+    public SearchResponseModel search(String username, String mealType, String calories, String time) {
+        SearchRequestModel requestModel = new SearchRequestModel(username, mealType, calories, time);
         return userInput.search(requestModel);
     }
 }

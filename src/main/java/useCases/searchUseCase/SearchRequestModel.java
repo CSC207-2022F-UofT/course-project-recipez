@@ -4,17 +4,20 @@ package useCases.searchUseCase;
  * Input model for search use case
  */
 public class SearchRequestModel {
-    private String ingredientsList;
+    private String username;
     private String mealType;
     private String calories;
     private String time;
 
-    public SearchRequestModel(String ingredientsList, String mealType, String calories, String time){
-        this.ingredientsList = ingredientsList;
+    public SearchRequestModel(String username, String mealType, String calories, String time){
+        this.username = username;
+        this.mealType = mealType;
+        this.calories = calories;
+        this.time = time;
     }
 
-    public String getIngredientsList() {
-        return this.ingredientsList;
+    public String getUsername() {
+        return this.username;
     }
     public String getMealType() {
         return this.mealType;
@@ -25,7 +28,7 @@ public class SearchRequestModel {
     public String getTime() {
         return this.time;
     }
-    public void setIngredientsList(String ingredientsList) {
-        this.ingredientsList = ingredientsList;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
