@@ -30,8 +30,6 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
     public UserEnterIngredientsInteractor(IngredientFactory ingredientFactory,
                                           UserEnterIngredientPresenter userEnterIngredientPresenter,
                                           DatabaseGateway database) {
-//        this.user = user;
-//        this.fridge = fridge;
         this.ingredientFactory = ingredientFactory;
         this.userEnterIngredientPresenter = userEnterIngredientPresenter;
         this.database = database;
