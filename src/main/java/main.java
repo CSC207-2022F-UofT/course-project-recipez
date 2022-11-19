@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import controllers.CreateUserandFridgeController;
 import controllers.UserEnterIngredientsController;
 import database.Database;
@@ -66,6 +67,10 @@ public class main {
 //        CommonIngredient ing = userEnterIngrediantsController.create(ingrediant_at_index1);
 //        System.out.println(" You have added" + presenter1.prepareSuccessView(ing).getName() + "new fridge is " +
 //                (presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
+=======
+public class main {
+    public static void main(String[] args) {
+>>>>>>> main
 
     }
 }
