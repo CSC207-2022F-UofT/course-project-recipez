@@ -2,7 +2,7 @@ package presenters.enteringrediant;
 
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientResponseModel;
 
-public interface UserEnterIngrediantPresenter {
+public interface UserEnterIngredientPresenter {
 
     UserEnterIngredientResponseModel prepareSuccessView(UserEnterIngredientResponseModel userEnterIngredientResponseModel);
 

@@ -5,7 +5,7 @@ import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientResponseModel;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class UserEnterIngrediantFormatter implements UserEnterIngrediantPresenter {
+public class UserEnterIngredientFormatter implements UserEnterIngredientPresenter {
 
 
     @Override

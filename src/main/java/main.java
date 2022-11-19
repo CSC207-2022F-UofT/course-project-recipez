@@ -7,8 +7,8 @@ import entities.Ingrediant.CommonIngredientFactory;
 import entities.user.CommonUserFactory;
 import presenters.CreateUserandFridge.CreateUserAndFridgeFormatter;
 import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
-import presenters.enteringrediant.UserEnterIngrediantFormatter;
-import presenters.enteringrediant.UserEnterIngrediantPresenter;
+import presenters.enteringrediant.UserEnterIngredientFormatter;
+import presenters.enteringrediant.UserEnterIngredientPresenter;
 import useCases.CreateUserAndFridge.CreateUserAndFridgeInputBoundary;
 import useCases.CreateUserAndFridge.CreateUserandFridgeInteractor;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInteractor;
@@ -48,7 +48,7 @@ public class main {
 //        String ingrediant_at_index1 = myObj5.nextLine();
 
         CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
-        UserEnterIngrediantPresenter presenter1 = new UserEnterIngrediantFormatter();
+        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
 /**
  * Don't know how to pass current user and current fridge
  */

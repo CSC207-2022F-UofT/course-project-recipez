@@ -19,6 +19,6 @@ public class CommonIngredient implements Ingrediant {
      * @return The name of the ingredient
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 }
