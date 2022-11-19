@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +17,7 @@ public class DatabaseTest {
 
     private final String username = "Eric";
     private DatabaseGateway database;
+    private final ArrayList<Object> list = new ArrayList<>();
     private Fridge fridge;
 
     /**
@@ -46,14 +47,16 @@ public class DatabaseTest {
     @Test
     public void testCreateSaveLoadDatabase() {
 
-        database.store(username, fridge);
+        list.add(fridge);
+        list.add(fridge);
+        database.store(username, list);
 
         Database loadedDatabase = new Database("Test");
 
-        assertEquals(username, loadedDatabase.getUsername());
-        assertEquals(database.getUsername(), loadedDatabase.getUsername());
+        Fridge f = (Fridge) database.get(username).get(0);
 
-        assertEquals(((Fridge) database.get(username)).getUUID(), ((Fridge) loadedDatabase.get(username)).getUUID());
+        assertEquals(((Fridge) database.get(username).get(0)).getUUID(),
+                ((Fridge) loadedDatabase.get(username).get(0)).getUUID());
     }
 
     /**
@@ -62,11 +65,13 @@ public class DatabaseTest {
     @Test
     public void testRemoveDatabase() {
 
-        database.store(username, fridge);
+        list.add(fridge);
+
+        database.store(username, list);
 
         database.remove(username);
 
-        assertEquals(database.getUsername(), "");
+        assertEquals(database.get(username), null);
     }
 
     /**

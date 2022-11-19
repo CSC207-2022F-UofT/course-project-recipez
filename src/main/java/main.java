@@ -1,8 +1,12 @@
+<<<<<<< HEAD
+import database.Database;
+import java.util.ArrayList;
+import database.DatabaseGateway;
 import controllers.CreateUserandFridgeController;
 import controllers.UserEnterIngredientsController;
-import database.Database;
-import database.DatabaseGateway;
+import entities.Fridge.CommonFridge;
 import entities.Fridge.CommonFridgeFactory;
+import entities.Fridge.Fridge;
 import entities.Ingredient.CommonIngredientFactory;
 import entities.user.CommonUserFactory;
 import presenters.CreateUserandFridge.CreateUserAndFridgeFormatter;
@@ -14,20 +18,43 @@ import useCases.CreateUserAndFridge.CreateUserandFridgeInteractor;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInteractor;
 import useCases.UserEnterIndrediantsInteractor.UserEnterIngredientsInputBoundary;
 
+
+
+
+
 public class main {
     public static void main(String[] args) {
         /*
-        * create username first
-        * */
-
+         * create username first
+         * */
+//        Fridge userFridge = new CommonFridge();
+//        Fridge fridgeOne = new Fridge();
+//        Ingredient t = new Ingredient();
+//        t.setName("Tomato");
+//
+//        Ingredient l = new Ingredient();
+//        l.setName("Lettuce");
+//
+//        fridgeOne.addIngredient(l);
+//        fridgeOne.addIngredient(t);
+//
+//        DatabaseGateway database = new Database("Test");
+//
+//        ArrayList<Object> list = new ArrayList<>();
+//
+//        list.add(fridgeOne);
+//        String username = "Test";
+//        database.store(username, list);
+//
+//        ArrayList<Object> test = database.get(username);
         /*
-        * Create user factories first
-        * */
+         * Create user factories first
+         * */
         CommonFridgeFactory fridgeFactory = new CommonFridgeFactory();
         CommonUserFactory userFactory = new CommonUserFactory();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter();
 
-        DatabaseGateway databaseGateway = new Database();
+        DatabaseGateway databaseGateway = new Database("Storage");
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
@@ -66,3 +93,4 @@ public class main {
 //        CommonIngredient ing = userEnterIngrediantsController.create(ingrediant_at_index1);
 //        System.out.println(" You have added" + presenter1.prepareSuccessView(ing).getName() + "new fridge is " +
 //                (presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
+    }}

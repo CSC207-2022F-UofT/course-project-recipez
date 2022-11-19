@@ -3,6 +3,7 @@ package useCases.UserEnterIndrediantsInteractor;
 import database.DatabaseGateway;
 import entities.Ingredient.CommonIngredient;
 import entities.Ingredient.IngredientFactory;
+import entities.user.CommonUser;
 import presenters.enteringrediant.UserEnterIngredientPresenter;
 
 import java.time.LocalDateTime;
@@ -50,7 +51,7 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
             /**
              * Need to call some database method based on String
              */
-            CommonUser Curr_User = database.returnuserFridge(requestModel.getUserName());
+            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(0);
             Curr_User.getFridge().addIngredient(ingrediant);
             LocalDateTime now = LocalDateTime.now();
             UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingrediant,
