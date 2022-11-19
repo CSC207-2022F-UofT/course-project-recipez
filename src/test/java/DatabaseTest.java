@@ -6,7 +6,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,22 +20,24 @@ public class DatabaseTest {
 
     private final String username = "Eric";
     private DatabaseGateway database;
-    private Fridge fridge;
+    private final ArrayList<Object> list = new ArrayList<>();
+    private Fridge fridgeOne;
+    private Fridge fridgeTwo;
 
     /**
      * Setup method before each test
      */
     @BeforeEach
     public void setUp() {
-        fridge = new Fridge();
+        fridgeOne = new Fridge();
         Ingredient t = new Ingredient();
         t.setName("Tomato");
 
         Ingredient l = new Ingredient();
         l.setName("Lettuce");
 
-        fridge.addIngredient(l);
-        fridge.addIngredient(t);
+        fridgeOne.addIngredient(l);
+        fridgeOne.addIngredient(t);
 
         database = new Database("Test");
     }
@@ -46,14 +51,15 @@ public class DatabaseTest {
     @Test
     public void testCreateSaveLoadDatabase() {
 
-        database.store(username, fridge);
+        list.add(fridgeOne);
+        database.store(username, list);
 
         Database loadedDatabase = new Database("Test");
 
-        assertEquals(username, loadedDatabase.getUsername());
-        assertEquals(database.getUsername(), loadedDatabase.getUsername());
+        Fridge f = (Fridge) database.get(username).get(0);
 
-        assertEquals(((Fridge) database.get(username)).getUUID(), ((Fridge) loadedDatabase.get(username)).getUUID());
+        assertEquals(((Fridge) database.get(username).get(0)).getUUID(),
+                ((Fridge) loadedDatabase.get(username).get(0)).getUUID());
     }
 
     /**
@@ -62,11 +68,13 @@ public class DatabaseTest {
     @Test
     public void testRemoveDatabase() {
 
-        database.store(username, fridge);
+        list.add(fridgeOne);
+
+        database.store(username, list);
 
         database.remove(username);
 
-        assertEquals(database.getUsername(), "");
+        assertEquals(database.get(username), null);
     }
 
     /**

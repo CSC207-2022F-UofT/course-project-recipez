@@ -1,7 +1,7 @@
 package database;
 
 import java.io.*;
-import java.util.HashMap;
+import java.util.*;
 
 
 /**
@@ -11,7 +11,7 @@ public class Database implements Serializable, DatabaseGateway {
 
     // Instance variables
     private final File storageFile;
-    private HashMap<String, Object> database;
+    private HashMap<String, ArrayList<Object>> database;
 
     /**
      * Constructor used to initialize the Database given a String filepath
@@ -23,9 +23,9 @@ public class Database implements Serializable, DatabaseGateway {
         this.storageFile = new File(filepath);
 
         try {
-            // Enters the if branch if the new file is successfully created. Otherwise, we load from the existing file.
+            // Enters the if branch is the new file is successfully created. Otherwise, we load from the existing file.
             if (storageFile.createNewFile()) {
-                this.database = new HashMap<String, Object>();
+                this.database = new HashMap<String, ArrayList<Object>>();
                 save();
             } else {
                 load();
@@ -60,7 +60,7 @@ public class Database implements Serializable, DatabaseGateway {
     private void load() {
         try {
             ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(storageFile)));
-            this.database = (HashMap<String, Object>) in.readObject();
+            this.database = (HashMap<String, ArrayList<Object>>) in.readObject();
             in.close();
         } catch (Exception e) {
             throw new RuntimeException("The database loading system is malfunctioning");
@@ -71,10 +71,10 @@ public class Database implements Serializable, DatabaseGateway {
      * Store's the object of any type given a unique key in the Database.
      *
      * @param key    The unique string identifier of the object that is stored in the database.
-     * @param object The object that is stored in the database.
+     * @param object The list of object(s) that is stored in the database.
      */
     @Override
-    public void store(String key, Object object) {
+    public void store(String key, ArrayList<Object> object) {
         this.database.put(key, object);
         save();
     }
@@ -94,25 +94,11 @@ public class Database implements Serializable, DatabaseGateway {
      * The Database class getter function that gets the object given a unique key.
      *
      * @param key The unique string identifier of that object.
-     * @return the object of any type that is stored in the Database.
+     * @return the list object(s) of any type that is stored in the Database.
      */
     @Override
-    public Object get(String key) {
+    public ArrayList<Object> get(String key) {
         return this.database.get(key);
-    }
-
-    /**
-     * Gets the first and only key in the Database which is the username.
-     *
-     * @return a String that is the username if it was stored otherwise an empty String.
-     */
-    @Override
-    public String getUsername() {
-        if (!this.database.isEmpty()) {
-            Object username = this.database.keySet().iterator().next();
-            return username.toString();
-        }
-        return "";
     }
 
     /**
@@ -124,22 +110,13 @@ public class Database implements Serializable, DatabaseGateway {
     }
 
     /**
-     * Private methods that checks if the object of any type is in the Database.
-     *
-     * @param object Any type of object that is stored in the Database.
-     * @return True if the object is in the database otherwise False.
-     */
-    private boolean hasObject(Object object) {
-        return this.database.containsValue(object);
-    }
-
-    /**
      * Private method that checks if the Database has the key in the Hashmap.
      *
-     * @param key
+     * @param key The unique string identifier of the object that is stored in the database.
      * @return True if the key in the Database other False.
      */
     private boolean hasKey(String key) {
         return this.database.containsKey(key);
     }
 }
+
