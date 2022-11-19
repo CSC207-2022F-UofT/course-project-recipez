@@ -7,9 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,23 +18,22 @@ public class DatabaseTest {
     private final String username = "Eric";
     private DatabaseGateway database;
     private final ArrayList<Object> list = new ArrayList<>();
-    private Fridge fridgeOne;
-    private Fridge fridgeTwo;
+    private Fridge fridge;
 
     /**
      * Setup method before each test
      */
     @BeforeEach
     public void setUp() {
-        fridgeOne = new Fridge();
+        fridge = new Fridge();
         Ingredient t = new Ingredient();
         t.setName("Tomato");
 
         Ingredient l = new Ingredient();
         l.setName("Lettuce");
 
-        fridgeOne.addIngredient(l);
-        fridgeOne.addIngredient(t);
+        fridge.addIngredient(l);
+        fridge.addIngredient(t);
 
         database = new Database("Test");
     }
@@ -51,7 +47,8 @@ public class DatabaseTest {
     @Test
     public void testCreateSaveLoadDatabase() {
 
-        list.add(fridgeOne);
+        list.add(fridge);
+        list.add(fridge);
         database.store(username, list);
 
         Database loadedDatabase = new Database("Test");
@@ -68,7 +65,7 @@ public class DatabaseTest {
     @Test
     public void testRemoveDatabase() {
 
-        list.add(fridgeOne);
+        list.add(fridge);
 
         database.store(username, list);
 
