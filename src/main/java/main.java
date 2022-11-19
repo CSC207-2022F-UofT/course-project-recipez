@@ -1,5 +1,5 @@
-import presenters.startPageUI.startPageViewMain;
-import presenters.startPageUI.startPageViewModel;
+import UI.startPageUI.startPageViewMain;
+import UI.startPageUI.startPageViewModel;
 import database.Database;
 import database.DatabaseGateway;
 import controllers.CreateUserandFridgeController;
@@ -11,7 +11,7 @@ import presenters.create_user_and_fridge.CreateUserAndFridgeFormatter;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
-import presenters.startPageUI.startPageViewModelInterface;
+import UI.startPageUI.startPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;

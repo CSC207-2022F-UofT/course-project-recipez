@@ -1,4 +1,4 @@
-package presenters.startPageUI;
+package UI.startPageUI;
 
 public interface startPageViewModelInterface {
     public void registration_success(String response);

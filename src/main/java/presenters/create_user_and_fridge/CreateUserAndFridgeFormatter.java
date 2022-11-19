@@ -1,6 +1,6 @@
 package presenters.create_user_and_fridge;
 
-import presenters.startPageUI.startPageViewModelInterface;
+import UI.startPageUI.startPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
 
 import java.time.LocalDateTime;

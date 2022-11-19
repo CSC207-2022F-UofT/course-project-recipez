@@ -1,4 +1,4 @@
-package presenters.startPageUI;
+package UI.startPageUI;
 
 import controllers.CreateUserandFridgeController;
 

@@ -1,6 +1,4 @@
-package presenters.startPageUI;
-
-import controllers.CreateUserandFridgeController;
+package UI.startPageUI;
 
 public class startPageViewModel implements startPageViewModelInterface {
 
