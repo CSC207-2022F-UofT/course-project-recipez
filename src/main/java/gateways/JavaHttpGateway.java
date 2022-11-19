@@ -16,9 +16,12 @@ public class JavaHttpGateway implements IApiGateway{
     /**
      * Calls API endpoint and gets response
      * @param ingredientsList Comma-separated ingredients to search with
+     * @param mealType Type of meal (breakfast, lunch, etc.)
+     * @param calories Range for calories in recipe
+     * @param time Range for time recipe takes
      * @return The API response for the recipes as a JSON-formatted string
      */
-    public String send(String ingredientsList) {
+    public String send(String ingredientsList, String mealType, String calories, String time) {
         String url = createRequestURL(ingredientsList);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))

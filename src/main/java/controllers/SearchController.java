@@ -11,16 +11,17 @@ public class SearchController {
     public SearchController(SearchInputBoundary userInput) {
         this.userInput = userInput;
     }
-
-    // TODO: Add filter options entity as parameter
-
+    // TODO: Get ingredients from fridge database instead of as String
     /**
      * Searches for recipes that can be made with inputted ingredients
      * @param ingredientsList Comma-separated ingredients to search with
+     * @param mealType Type of meal (breakfast, lunch, etc.)
+     * @param calories Range for calories in recipe
+     * @param time Range for time recipe takes
      * @return Recipe results
      */
-    public SearchResponseModel search(String ingredientsList) {
-        SearchRequestModel requestModel = new SearchRequestModel(ingredientsList);
+    public SearchResponseModel search(String ingredientsList, String mealType, String calories, String time) {
+        SearchRequestModel requestModel = new SearchRequestModel(ingredientsList, mealType, calories, time);
         return userInput.search(requestModel);
     }
 }

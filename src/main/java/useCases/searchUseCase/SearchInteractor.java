@@ -18,7 +18,12 @@ public class SearchInteractor implements SearchInputBoundary {
      * @return Recipe results
      */
     public SearchResponseModel search(SearchRequestModel model) {
-        String APIResponse = this.apiCaller.send(model.getIngredientsList());
+        String APIResponse = this.apiCaller.send(
+                model.getIngredientsList(),
+                model.getMealType(),
+                model.getCalories(),
+                model.getTime()
+        );
         // TODO: Convert Response to Recipe Objects
         Recipe[] recipesOutputted = new Recipe[]{new Recipe()};
         return new SearchResponseModel(recipesOutputted);
