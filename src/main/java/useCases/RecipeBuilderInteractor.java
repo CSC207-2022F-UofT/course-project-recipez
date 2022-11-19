@@ -2,6 +2,9 @@ package useCases;
 
 import entities.Recipe;
 import entities.RecipeFactory;
+
+import java.util.ArrayList;
+
 /**
  * Class RecipeBuilderInteractor (Implements RecipeBuilderInputBoundary interface)
  */
@@ -22,9 +25,9 @@ public class RecipeBuilderInteractor implements RecipeBuilderInputBoundary{
     }
     @Override
     public RecipeBuilderResponseModel createRecipe(RecipeBuilder requestModel) {
-        String[] APIOutput = requestModel.getAPIOutput();
+        String APIOutput = requestModel.getAPIOutput();
         RecipeBuilderResponseModel recipeResponseModel = new RecipeBuilderResponseModel(recipeFactory);
-        Recipe recipeOutput = recipeResponseModel.createRecipe(APIOutput);
+        ArrayList<Recipe> recipeOutput = recipeResponseModel.createRecipe(APIOutput);
         if (recipeOutput == null) {
             return recipePresenter.prepareFailView("API Output was incompatible.");
         }
