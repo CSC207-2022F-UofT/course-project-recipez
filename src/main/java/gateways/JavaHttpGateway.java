@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.HashMap;
 
 /**
  * Implements IApiGateway using the JavaHttp library
@@ -22,7 +23,8 @@ public class JavaHttpGateway implements IApiGateway{
      * @return The API response for the recipes as a JSON-formatted string
      */
     public String send(String ingredientsList, String mealType, String calories, String time) {
-        String url = createRequestURL(ingredientsList);
+        String url = createRequestURL(ingredientsList, mealType, calories, time);
+        System.out.println(url);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .method("GET", HttpRequest.BodyPublishers.noBody())
@@ -40,8 +42,7 @@ public class JavaHttpGateway implements IApiGateway{
         return response.body();
     }
 
-    public String createRequestURL(String ingredientsList) {
-        // TODO: Convert the filter options from the UI into fields for URL
+    public String createRequestURL(String ingredientsList, String mealType, String calories, String time) {
         StringBuilder url = new StringBuilder("https://api.edamam.com/api/recipes/v2?type=any");
         String ingredientsURLFormat = ingredientsList
                 .replace(" ", "%20")
@@ -52,10 +53,46 @@ public class JavaHttpGateway implements IApiGateway{
         url.append(appId);
         url.append("&app_key=");
         url.append(appKey);
+        url.append(createFilterOptions(mealType, calories, time));
         for (String field : includedFields) {
             url.append("&field=");
             url.append(field);
         }
         return url.toString();
+    }
+
+    public String createFilterOptions(String mealType, String calories, String time) {
+        StringBuilder filterFields = new StringBuilder("");
+
+        HashMap<String, String> convertMealType = new HashMap<String, String>();
+        convertMealType.put("Breakfast", "&mealType=Breakfast");
+        convertMealType.put("Brunch", "");
+        convertMealType.put("Lunch/dinner", "&mealType=Lunch&mealType=Dinner");
+        convertMealType.put("Snack", "&mealType=Snack");
+        convertMealType.put("Teatime", "&mealType=Teatime");
+
+        HashMap<String, String> convertCookTime = new HashMap<String, String>();
+        convertCookTime.put("Less than 30 minutes", "&time=30");
+        convertCookTime.put("30-60 minutes", "&time=30-60");
+        convertCookTime.put("More than 1 hour", "&time=60%2B");
+
+        HashMap<String, String> convertCalories = new HashMap<String, String>();
+        convertCalories.put("Less than 300 cal", "&calories=300");
+        convertCalories.put("300-800 cal", "&calories=300-800");
+        convertCalories.put("More than 800 cal", "&calories=800%2B");
+
+        if (convertMealType.containsKey(mealType)) {
+            filterFields.append(convertMealType.get(mealType));
+        }
+
+        if (convertCalories.containsKey(calories)) {
+            filterFields.append(convertCalories.get(calories));
+        }
+
+        if (convertCookTime.containsKey(time)) {
+            filterFields.append(convertCookTime.get(mealType));
+        }
+
+        return filterFields.toString();
     }
 }

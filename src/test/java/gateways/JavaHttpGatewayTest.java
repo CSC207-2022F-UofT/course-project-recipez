@@ -33,4 +33,24 @@ public class JavaHttpGatewayTest {
         String response = httpGateway.send(ingredients, "No meal filter", "No calories filter", "No cookTime filter");
         Assertions.assertTrue(response.contains("Eggplant & Lentil Fritters") && response.contains("Yummy Moroccan Lentil Soup Recipe"));
     }
+    /**
+     * Test for Recipe Search API call with ingredient list and a Mealtype filter
+     */
+    @Test
+    public void MealtypeFilteredAPICall() {
+        String ingredients = "chicken, lemon, rice, raisins, ginger";
+        JavaHttpGateway httpGateway = new JavaHttpGateway();
+        String response = httpGateway.send(ingredients, "Breakfast", "No calories filter", "No cookTime filter");
+        Assertions.assertTrue(response.contains("Mom's Curried Chicken Pancakes") && response.contains("\"count\":1,"));
+    }
+    /**
+     * Test for Recipe Search API call with ingredient list and a Mealtype filter
+     */
+    @Test
+    public void CalorieFilteredAPICall() {
+        String ingredients = "chicken, lemon, rice, raisins";
+        JavaHttpGateway httpGateway = new JavaHttpGateway();
+        String response = httpGateway.send(ingredients, "No meal filter", "Less than 300 cal", "No cookTime filter");
+        Assertions.assertTrue(response.contains("\"count\":14,"));
+    }
 }
