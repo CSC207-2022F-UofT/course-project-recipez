@@ -1,5 +1,7 @@
 package presenters.startPageUI;
 
+import controllers.CreateUserandFridgeController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +15,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class startPageViewMain extends JPanel{
     private startPageViewModel viewModel;
+    private CreateUserandFridgeController registerController;
     private JPanel startScreens;
     private CardLayout screenLayout;
 
@@ -21,8 +24,9 @@ public class startPageViewMain extends JPanel{
      *
      * @param viewModel the view model for the start page
      */
-    public startPageViewMain(startPageViewModel viewModel) {
+    public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller) {
         this.viewModel = viewModel;
+        this.registerController = controller;
 
         setLayout(new BorderLayout());
 
@@ -35,9 +39,9 @@ public class startPageViewMain extends JPanel{
         JPanel startScreens = new JPanel();
         startScreens.setLayout(screenLayout);
 
-        startPageViewWelcome welcome = new startPageViewWelcome(viewModel, startScreens, screenLayout);
-        registerUserView register = new registerUserView(viewModel, startScreens, screenLayout);
-        userLoginView login = new userLoginView(viewModel, startScreens, screenLayout);
+        startPageViewWelcome welcome = new startPageViewWelcome(viewModel, registerController, startScreens, screenLayout);
+        registerUserView register = new registerUserView(viewModel, registerController, startScreens, screenLayout);
+        userLoginView login = new userLoginView(viewModel, registerController, startScreens, screenLayout);
 
         startScreens.add(welcome , "main");
         startScreens.add(register, "register");

@@ -1,9 +1,8 @@
 package presenters.startPageUI;
 
-import controllers.createUserController;
+import controllers.CreateUserandFridgeController;
 
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,10 +17,13 @@ public class registerUserView extends JPanel implements ActionListener {
     private JPanel screens;
     private CardLayout screenLayout;
 
-    public registerUserView(startPageViewModel viewModel, JPanel screens, CardLayout screenLayout) {
+    private CreateUserandFridgeController registerController;
+
+    public registerUserView(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
+        this.registerController = controller;
 
         this.username = new JTextField(15);
 
@@ -46,11 +48,11 @@ public class registerUserView extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
-            viewModel.enterMainPage();
+            viewModel.pageState = "main";
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == create_user_btn) {
-            viewModel.registerUser(username.getText());
+            registerController.create(username.getText());;
         }
     }
 }

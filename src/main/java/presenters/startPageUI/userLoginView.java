@@ -1,6 +1,6 @@
 package presenters.startPageUI;
 
-import controllers.createUserController;
+import controllers.CreateUserandFridgeController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,10 +21,13 @@ public class userLoginView extends JPanel implements ActionListener {
 
     private JTextField login_response;
 
-    public userLoginView(startPageViewModel viewModel, JPanel screens, CardLayout screenLayout) {
+    private CreateUserandFridgeController registerController;
+
+    public userLoginView(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
+        this.registerController = controller;
 
         this.username = new JTextField(15);
 
@@ -55,11 +58,11 @@ public class userLoginView extends JPanel implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
-            viewModel.enterMainPage();
+            viewModel.pageState = "main";
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == login_user_btn) {
-            viewModel.attemptLogin(username.getText());
+            registerController.create(username.getText());
         }
     }
 }

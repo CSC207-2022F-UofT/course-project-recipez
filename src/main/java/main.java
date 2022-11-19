@@ -1,7 +1,4 @@
-import controllers.createUserController;
-import presenters.mockUserRegisterPresenter;
 import presenters.startPageUI.startPageViewMain;
-import presenters.startPageUI.startPageViewWelcome;
 import presenters.startPageUI.startPageViewModel;
 import database.Database;
 import database.DatabaseGateway;
@@ -14,35 +11,16 @@ import presenters.create_user_and_fridge.CreateUserAndFridgeFormatter;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
+import presenters.startPageUI.startPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class main {
     public static void main(String[] args) {
-        JFrame application = new JFrame("RecipEZ");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int height = screenSize.height;
-        int width = screenSize.width;
-        application.setSize(550,200 );
-        application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        CardLayout cardLayout = new CardLayout();
-        JPanel screens = new JPanel(cardLayout);
-        application.add(screens);
-
-        createUserController mockRegisterController = new createUserController();
-
-        startPageViewModel startViewModel = new startPageViewModel(mockRegisterController);
-        startPageViewMain startScreen = new startPageViewMain(startViewModel);
-        screens.add(startScreen, "welcome");
-        cardLayout.show(screens, "register");
-        application.setVisible(true);
-
-
         /*
          * create username first
          * */
@@ -71,12 +49,28 @@ public class main {
          * */
         CommonFridgeFactory fridgeFactory = new CommonFridgeFactory();
         CommonUserFactory userFactory = new CommonUserFactory();
-        CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter();
+
+        JFrame application = new JFrame("RecipEZ");
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int height = screenSize.height;
+        int width = screenSize.width;
+        application.setSize(550,200 );
+        application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        CardLayout cardLayout = new CardLayout();
+        JPanel screens = new JPanel(cardLayout);
+        application.add(screens);
 
         DatabaseGateway databaseGateway = new Database("Storage");
+
+        startPageViewModelInterface startViewModel = new startPageViewModel();
+        CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
+        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController);
+        screens.add(startScreen, "welcome");
+        cardLayout.show(screens, "register");
+        application.setVisible(true);
 
 
 //        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -112,7 +106,6 @@ public class main {
 //        CommonIngredient ing = userEnterIngrediantsController.create(ingrediant_at_index1);
 //        System.out.println(" You have added" + presenter1.prepareSuccessView(ing).getName() + "new fridge is " +
 //                (presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
-
 
     }
 }

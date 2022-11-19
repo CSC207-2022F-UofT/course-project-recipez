@@ -14,7 +14,7 @@ public class UserEnterIngredientsController {
 
 
     public UserEnterIngredientResponseModel create(String ingrediant) {
-        UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingrediant);
+        UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingrediant, "user");
         return userIngrediantinteractor.create(requestModel);
     }
     }
