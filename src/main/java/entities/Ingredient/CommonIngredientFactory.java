@@ -1,4 +1,4 @@
-package entities.Ingrediant;
+package entities.Ingredient;
 
 /**
  * Class CommonIngredientFactory
@@ -11,7 +11,7 @@ public class CommonIngredientFactory implements IngredientFactory {
      * @return Takes in a String name and returns a new CommonIngredientObject
      */
     @Override
-    public Ingrediant create(String name) {
+    public Ingredient create(String name) {
         return new CommonIngredient(name);
     }
 }

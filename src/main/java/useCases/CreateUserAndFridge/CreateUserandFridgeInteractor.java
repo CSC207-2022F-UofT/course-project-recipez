@@ -3,14 +3,13 @@ package useCases.CreateUserAndFridge;
 import database.DatabaseGateway;
 import entities.Fridge.CommonFridge;
 import entities.Fridge.FridgeFactory;
-import entities.Ingrediant.CommonIngredient;
+import entities.Ingredient.CommonIngredient;
 import entities.user.CommonUser;
 import entities.user.UserFactory;
 import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * Class CreateUserandFridgeInteractor

@@ -1,4 +1,4 @@
-package entities.Ingrediant;
+package entities.Ingredient;
 
 /**
  * Interface Ingredient Factory
@@ -9,5 +9,5 @@ public interface IngredientFactory {
      * @param name
      * method implemented by CommonIngredientFactory object
      */
-    Ingrediant create(String name);
+    Ingredient create(String name);
 }

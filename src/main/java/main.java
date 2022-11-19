@@ -3,7 +3,7 @@ import controllers.UserEnterIngredientsController;
 import database.Database;
 import database.DatabaseGateway;
 import entities.Fridge.CommonFridgeFactory;
-import entities.Ingrediant.CommonIngredientFactory;
+import entities.Ingredient.CommonIngredientFactory;
 import entities.user.CommonUserFactory;
 import presenters.CreateUserandFridge.CreateUserAndFridgeFormatter;
 import presenters.CreateUserandFridge.CreateUserAndFridgePresenter;
@@ -52,11 +52,11 @@ public class main {
 /**
  * Don't know how to pass current user and current fridge
  */
-        UserEnterIngredientsInputBoundary interactor2 =
+        UserEnterIngredientsInputBoundary interactorforenteringingredients =
                 new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
 
         UserEnterIngredientsController userEnterIngrediantsController =
-                new UserEnterIngredientsController(interactor2);
+                new UserEnterIngredientsController(interactorforenteringingredients);
 
 
 //        User_Enter_Ingrediants_Input_Boundry interactor2 = new

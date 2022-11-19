@@ -1,7 +1,7 @@
 package entities.Fridge;
 
-import entities.Ingrediant.CommonIngredient;
-import entities.Ingrediant.Ingrediant;
+import entities.Ingredient.CommonIngredient;
+import entities.Ingredient.Ingredient;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class CommonFridge implements Fridge, Serializable {
      * @return the first ingredient in the fridge
      * primarily created for testing the usecase
      */
-    public Ingrediant getIngrediantx () {
+    public Ingredient getIngrediantx () {
         return this.ingredients.get(0) ;
     }
 

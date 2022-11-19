@@ -1,9 +1,9 @@
-package entities.Ingrediant;
+package entities.Ingredient;
 
 /**
  * Interface Ingredient
  */
-public interface Ingrediant {
+public interface Ingredient {
     /**
      * Method implemented by CommonIngredient Object
      */

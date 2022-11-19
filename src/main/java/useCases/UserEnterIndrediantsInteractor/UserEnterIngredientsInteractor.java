@@ -1,8 +1,8 @@
 package useCases.UserEnterIndrediantsInteractor;
 
 import database.DatabaseGateway;
-import entities.Ingrediant.CommonIngredient;
-import entities.Ingrediant.IngredientFactory;
+import entities.Ingredient.CommonIngredient;
+import entities.Ingredient.IngredientFactory;
 import presenters.enteringrediant.UserEnterIngredientPresenter;
 
 import java.time.LocalDateTime;

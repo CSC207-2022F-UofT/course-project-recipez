@@ -1,8 +1,8 @@
-package entities.Ingrediant;
+package entities.Ingredient;
 
 import java.io.Serializable;
 
-public class CommonIngredient implements Ingrediant , Serializable {
+public class CommonIngredient implements Ingredient, Serializable {
     /**
      * Class ingredient:
      * String name: name of the ingredient
