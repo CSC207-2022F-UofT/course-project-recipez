@@ -19,6 +19,8 @@ public class registerUserView extends JPanel implements ActionListener {
 
     private CreateUserandFridgeController registerController;
 
+    private JTextField register_response;
+
     public registerUserView(startPageViewModel viewModel, CreateUserandFridgeController controller,
                             JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
@@ -27,6 +29,14 @@ public class registerUserView extends JPanel implements ActionListener {
         this.registerController = controller;
 
         this.username = new JTextField(15);
+
+        this.register_response = new JTextField(30);
+        this.register_response.setEditable(false);
+        this.register_response.setOpaque(false);
+        this.register_response.setBorder(null);
+        this.register_response.setAlignmentX(CENTER_ALIGNMENT);
+
+        this.register_response.setText(viewModel.create_register_response);
 
         JLabel create_user_label = new JLabel("Enter Username: ");
         create_user_btn = new JButton("Create User");

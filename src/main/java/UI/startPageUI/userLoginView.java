@@ -31,10 +31,11 @@ public class userLoginView extends JPanel implements ActionListener {
 
         this.username = new JTextField(15);
 
-        this.login_response = new JTextField(15);
+        this.login_response = new JTextField(30);
         this.login_response.setEditable(false);
-        this.login_response.setOpaque(true);
+        this.login_response.setOpaque(false);
         this.login_response.setBorder(null);
+        this.login_response.setAlignmentX(CENTER_ALIGNMENT);
 
         this.login_response.setText(viewModel.attempt_login_response);
 
@@ -55,8 +56,8 @@ public class userLoginView extends JPanel implements ActionListener {
         JPanel response_formatter = new JPanel();
         response_formatter.add(this.login_response);
 
-        this.add(entry_formatter, BorderLayout.NORTH);
-        this.add(response_formatter, BorderLayout.SOUTH);
+        this.add(response_formatter, BorderLayout.NORTH);
+        this.add(entry_formatter, BorderLayout.CENTER);
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
