@@ -3,11 +3,9 @@ package presenters;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
+
 import java.net.MalformedURLException;
-import java.net.URL;
+
 
 
 public class ResultsPageFrame extends JFrame implements RecipeBuilderPresenter {
@@ -23,15 +21,12 @@ public class ResultsPageFrame extends JFrame implements RecipeBuilderPresenter {
         panel.setPreferredSize(new Dimension(1000, 600));
         panel.setLayout(new FlowLayout());
 
-        for (int count: RECIPEARRAYLIST){
-            Recipe recipe = RECIPEARRAYLIST.get(count);
+        for (int count: recipeResponse) {
+            Recipe recipe = recipeResponse.get(count);
             panel.add(ButtonCreator(recipe.getName,
                     recipe.getRecipe, recipe.getImg));
 
         }
-
-
-
 
         //Creates border of the results with heading "Showing Results"
         Border resultsBorder = BorderFactory.createTitledBorder("Showing Results");
