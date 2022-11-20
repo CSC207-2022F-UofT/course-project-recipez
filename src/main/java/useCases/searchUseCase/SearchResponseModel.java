@@ -2,14 +2,16 @@ package useCases.searchUseCase;
 
 import entities.Recipe;
 
-public class SearchResponseModel {
-    private final Recipe[] recipes;
+import java.util.ArrayList;
 
-    public SearchResponseModel(Recipe[] recipes) {
+public class SearchResponseModel {
+    private final ArrayList<Recipe> recipes;
+
+    public SearchResponseModel(ArrayList<Recipe> recipes) {
         this.recipes = recipes;
     }
 
-    public Recipe[] getRecipes() {
+    public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
 }

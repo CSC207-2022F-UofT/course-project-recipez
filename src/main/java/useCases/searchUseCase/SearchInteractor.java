@@ -1,9 +1,10 @@
 package useCases.searchUseCase;
 
 import database.DatabaseGateway;
-import entities.Recipe;
-import fridge.Fridge;
 import gateways.IApiGateway;
+import entities.RecipeFactory;
+import fridge.Fridge;
+import useCases.RecipeBuilderResponseModel;
 
 /**
  * Interactor for Search use case
@@ -11,9 +12,11 @@ import gateways.IApiGateway;
 public class SearchInteractor implements SearchInputBoundary {
     private final IApiGateway apiCaller;
     private final DatabaseGateway database;
-    public SearchInteractor(IApiGateway apiCaller, DatabaseGateway database) {
+    private final RecipeFactory recipeFactory;
+    public SearchInteractor(IApiGateway apiCaller, DatabaseGateway database, RecipeFactory recipeFactory) {
         this.apiCaller = apiCaller;
         this.database = database;
+        this.recipeFactory = recipeFactory;
     }
 
     /**
@@ -29,8 +32,7 @@ public class SearchInteractor implements SearchInputBoundary {
                 model.getCalories(),
                 model.getTime()
         );
-        // TODO: Convert Response to Recipe Objects
-        Recipe[] recipesOutputted = new Recipe[]{new Recipe()};
-        return new SearchResponseModel(recipesOutputted);
+        RecipeBuilderResponseModel response = new RecipeBuilderResponseModel(this.recipeFactory );
+        return new SearchResponseModel(response.createRecipe(APIResponse));
     }
 }
