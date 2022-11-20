@@ -11,6 +11,7 @@ public class UserEnterIngredientRequestModel {
     /**
      * Constructor for request model
      * @param Ingredient
+     * @param userName
      */
     public UserEnterIngredientRequestModel(String Ingredient, String userName) {
         this.Ingredient = Ingredient;

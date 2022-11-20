@@ -47,14 +47,14 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
             return userEnterIngredientPresenter.prepareFailView("Nothing");
         }
         else {
-            CommonIngredient ingrediant = (CommonIngredient) ingredientFactory.create(requestModel.getIngredient_in_String_Format());
+            CommonIngredient ingredient = (CommonIngredient) ingredientFactory.create(requestModel.getIngredient_in_String_Format());
             /**
              * Need to call some database method based on String
              */
             CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(0);
-            Curr_User.getFridge().addIngredient(ingrediant);
+            Curr_User.getFridge().addIngredient(ingredient);
             LocalDateTime now = LocalDateTime.now();
-            UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingrediant,
+            UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingredient,
                     now.toString());
             return userEnterIngredientPresenter.prepareSuccessView(responseModel);
         }
