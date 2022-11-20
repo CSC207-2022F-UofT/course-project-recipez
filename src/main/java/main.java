@@ -1,5 +1,6 @@
 import UI.startPageUI.startPageViewMain;
 import UI.startPageUI.startPageViewModel;
+import controllers.loginController;
 import database.Database;
 import database.DatabaseGateway;
 import controllers.CreateUserandFridgeController;
@@ -12,8 +13,12 @@ import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
 import UI.startPageUI.startPageViewModelInterface;
+import presenters.login.loginFormatter;
+import presenters.login.loginPresenter;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
+import use_cases.login_usecase.LoginInteractor;
+import use_cases.login_usecase.loginInputBoundary;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
 import javax.swing.*;
@@ -62,15 +67,22 @@ public class main {
 
         DatabaseGateway databaseGateway = new Database("Storage");
 
+        loginPresenter loginPresenter = new loginFormatter();
+        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
+        loginController loginController = new loginController(loginInputinteractor);
+
+
         startPageViewModelInterface startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
-        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController);
+
+        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
+
 
 
 //        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
