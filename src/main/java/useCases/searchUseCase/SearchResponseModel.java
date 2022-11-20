@@ -1,6 +1,6 @@
 package useCases.searchUseCase;
 
-import entities.Recipe;
+import entities.recipe.Recipe;
 
 import java.util.ArrayList;
 

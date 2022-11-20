@@ -1,9 +1,9 @@
 package useCases.searchUseCase;
 
 import database.DatabaseGateway;
+import entities.fridge.CommonFridge;
 import gateways.IApiGateway;
-import entities.RecipeFactory;
-import fridge.Fridge;
+import entities.recipe.RecipeFactory;
 import useCases.RecipeBuilderResponseModel;
 
 /**
@@ -25,9 +25,9 @@ public class SearchInteractor implements SearchInputBoundary {
      * @return Recipe results
      */
     public SearchResponseModel search(SearchRequestModel model) {
-        Fridge fridge = ((Fridge) database.get(model.getUsername()).get(0));
+        CommonFridge fridge = ((CommonFridge) database.get(model.getUsername()).get(0));
         String APIResponse = this.apiCaller.send(
-                String.join(",", fridge.allIngredientValues()),
+                fridge.printIngrediant().substring(0, fridge.printIngrediant().length() - 1),
                 model.getMealType(),
                 model.getCalories(),
                 model.getTime()
