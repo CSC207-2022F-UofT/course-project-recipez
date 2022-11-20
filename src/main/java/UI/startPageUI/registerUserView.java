@@ -72,7 +72,8 @@ public class registerUserView extends JPanel implements ActionListener {
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == create_user_btn) {
-            registerController.create(username.getText());;
+            register_response.rep
+            registerController.create(username.getText());
         }
     }
 }
