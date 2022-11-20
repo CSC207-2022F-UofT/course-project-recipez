@@ -74,7 +74,7 @@ public class main {
         UserEnterIngredientsInputBoundary interactorforenteringingredients =
                 new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
 
-        UserEnterIngredientsController userEnterIngrediantsController =
+        UserEnterIngredientsController userEnterIngredientsController =
                 new UserEnterIngredientsController(interactorforenteringingredients);
 
 
