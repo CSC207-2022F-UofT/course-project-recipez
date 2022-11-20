@@ -1,5 +1,8 @@
 package UI.startPageUI;
 
+/**
+ * View Model Interface
+ */
 public interface startPageViewModelInterface {
     public void registration_success(String response);
     public void registration_failure(String err_message);

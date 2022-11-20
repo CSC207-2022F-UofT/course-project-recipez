@@ -2,10 +2,12 @@ package entities.user;
 
 import entities.fridge.CommonFridge;
 
+import java.io.Serializable;
+
 /**
  * Class CommonUser
  */
-public class CommonUser implements User {
+public class CommonUser implements User, Serializable {
     String name;
     CommonFridge commonFridge;
 

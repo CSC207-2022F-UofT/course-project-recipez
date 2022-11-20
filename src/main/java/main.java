@@ -60,7 +60,7 @@ public class main {
         JPanel screens = new JPanel(cardLayout);
         application.add(screens);
 
-        DatabaseGateway databaseGateway = new Database("Storage33");
+        DatabaseGateway databaseGateway = new Database("Storage");
 
         startPageViewModelInterface startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
@@ -71,8 +71,6 @@ public class main {
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
-
-
 
 
 //        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -97,7 +95,7 @@ public class main {
         UserEnterIngredientsInputBoundary interactorforenteringingredients =
                 new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
 
-        UserEnterIngredientsController userEnterIngrediantsController =
+        UserEnterIngredientsController userEnterIngredientsController =
                 new UserEnterIngredientsController(interactorforenteringingredients);
 
 

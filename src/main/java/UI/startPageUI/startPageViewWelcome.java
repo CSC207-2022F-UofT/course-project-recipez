@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-
+/**
+ * startPageViewWelcome UI for first page user interacts with.
+ */
 public class startPageViewWelcome extends JPanel implements ActionListener{
     private final startPageViewModel viewModel;
 
@@ -19,6 +21,13 @@ public class startPageViewWelcome extends JPanel implements ActionListener{
     private JPanel screens;
     private CardLayout screenLayout;
 
+    /**
+     * Constructor for UI welcome page
+     * @param viewModel viewModel containing data for UI
+     * @param controller createUser controller
+     * @param screens stores the multiple screens in the UI
+     * @param screenLayout defines the ordering of the screens so UI can switch
+     */
     public startPageViewWelcome(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
@@ -38,6 +47,11 @@ public class startPageViewWelcome extends JPanel implements ActionListener{
 
         add(buttons, BorderLayout.CENTER);
     }
+
+    /**
+     * Switches UI to register or login view depending on UI
+     * @param e the event to be processed
+     */
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == register) {

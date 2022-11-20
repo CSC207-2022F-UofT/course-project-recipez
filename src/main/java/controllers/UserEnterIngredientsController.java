@@ -6,15 +6,15 @@ import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoun
 
 public class UserEnterIngredientsController {
 
-    public UserEnterIngredientsInputBoundary userIngrediantinteractor;
+    public UserEnterIngredientsInputBoundary userIngredientinteractor;
 
-    public UserEnterIngredientsController(UserEnterIngredientsInputBoundary userIngrediantinteractor) {
-        this.userIngrediantinteractor = userIngrediantinteractor;
+    public UserEnterIngredientsController(UserEnterIngredientsInputBoundary userIngredientinteractor) {
+        this.userIngredientinteractor = userIngredientinteractor;
     }
 
 
-    public UserEnterIngredientResponseModel create(String ingrediant) {
-        UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingrediant, "user");
-        return userIngrediantinteractor.create(requestModel);
+    public UserEnterIngredientResponseModel create(String ingredient, String user) {
+        UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingredient, user);
+        return userIngredientinteractor.create(requestModel);
     }
-    }
+}

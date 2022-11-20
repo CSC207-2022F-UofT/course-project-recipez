@@ -27,4 +27,6 @@ public class CreateUserandFridgeController{
         CreateUserandFridgeRequestModel requestModel = new CreateUserandFridgeRequestModel(user);
         return userNameInteractor.create(requestModel);
     }
-    }
+
+}
+
