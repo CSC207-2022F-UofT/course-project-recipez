@@ -6,10 +6,10 @@ import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoun
 
 public class UserEnterIngredientsController {
 
-    public UserEnterIngredientsInputBoundary userIngrediantinteractor;
+    public UserEnterIngredientsInputBoundary userIngredientinteractor;
 
-    public UserEnterIngredientsController(UserEnterIngredientsInputBoundary userIngrediantinteractor) {
-        this.userIngrediantinteractor = userIngrediantinteractor;
+    public UserEnterIngredientsController(UserEnterIngredientsInputBoundary userIngredientinteractor) {
+        this.userIngredientinteractor = userIngredientinteractor;
     }
 
 
