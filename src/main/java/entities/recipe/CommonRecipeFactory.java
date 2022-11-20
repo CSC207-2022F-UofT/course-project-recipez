@@ -1,8 +1,9 @@
-package entities;
+package entities.recipe;
+
 /**
  * Class CommonRecipeFactory implements the RecipeFactory interface
  */
-public class CommonRecipeFactory implements RecipeFactory{
+public class CommonRecipeFactory implements RecipeFactory {
     /**
      *
      * @param name : name of the recipe

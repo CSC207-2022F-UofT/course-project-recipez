@@ -1,4 +1,4 @@
-package entities;
+package entities.recipe;
 
 import java.util.Dictionary;
 import java.util.Hashtable;

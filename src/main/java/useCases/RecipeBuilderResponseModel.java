@@ -3,11 +3,10 @@ package useCases;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import entities.CommonRecipeFactory;
-import entities.Recipe;
-import entities.RecipeFactory;
+import entities.recipe.CommonRecipeFactory;
+import entities.recipe.Recipe;
+import entities.recipe.RecipeFactory;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class RecipeBuilderResponseModel {

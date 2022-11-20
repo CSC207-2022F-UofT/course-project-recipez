@@ -1,7 +1,7 @@
 package useCases;
 
-import entities.Recipe;
-import entities.RecipeFactory;
+import entities.recipe.Recipe;
+import entities.recipe.RecipeFactory;
 
 import java.util.ArrayList;
 

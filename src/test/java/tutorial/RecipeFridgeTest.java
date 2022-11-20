@@ -1,6 +1,8 @@
 package tutorial;
 //
-import entities.*;
+import entities.recipe.CommonRecipeFactory;
+import entities.recipe.Recipe;
+import entities.recipe.RecipeFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import useCases.RecipeBuilderResponseModel;

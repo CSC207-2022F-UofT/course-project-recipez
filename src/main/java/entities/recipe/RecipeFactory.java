@@ -1,4 +1,6 @@
-package entities;
+package entities.recipe;
+
+import entities.recipe.Recipe;
 
 /**
  * Interface with the basic method to create a new Recipe

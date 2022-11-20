@@ -1,7 +1,5 @@
 package useCases;
 
-import entities.RecipeFactory;
-
 /**
  *recipeBuilder class.
  *Handles the creation of recipes using API output.
