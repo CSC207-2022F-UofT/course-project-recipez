@@ -3,8 +3,9 @@ package tutorial;
 import entities.recipe.CommonRecipeFactory;
 import entities.recipe.Recipe;
 import entities.recipe.RecipeFactory;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+
 import useCases.RecipeBuilderResponseModel;
 //
 import java.util.ArrayList;
@@ -28,17 +29,17 @@ class RecipeFridgeTest {
      * Creates a Fridge and an Ingredient.
      * Test to see if final state of Fridge contents matches with expectation.
      */
-    @Test
-    public void AddToFridge() {
-        Fridge newFridge = new Fridge();
-        IngredientFactory factory = new CommonIngredientFactory();
-        ArrayList<Ingredient> test = new ArrayList<Ingredient>();
-
-
-        Ingredient Carrot = factory.create("Carrot");
-        test.add(Carrot);
-        newFridge.addIngredient(Carrot);
-        Assertions.assertEquals(newFridge.getIngredients(), test);
-    }
+//    @Test
+//    public void AddToFridge() {
+//        Fridge newFridge = new Fridge();
+//        IngredientFactory factory = new CommonIngredientFactory();
+//        ArrayList<Ingredient> test = new ArrayList<Ingredient>();
+//
+//
+//        Ingredient Carrot = factory.create("Carrot");
+//        test.add(Carrot);
+//        newFridge.addIngredient(Carrot);
+//        Assertions.assertEquals(newFridge.getIngredients(), test);
+//    }
 
 }
