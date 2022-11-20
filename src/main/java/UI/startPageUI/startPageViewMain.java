@@ -18,9 +18,9 @@ public class startPageViewMain extends JPanel{
     private CardLayout screenLayout;
 
     /**
-     * Constructor for startPageViewMain class
-     *
-     * @param viewModel the view model for the start page
+     * Constructor for the startPageViewMain class
+     * @param viewModel viewModel containing data for view to present
+     * @param controller createUserAndFridge Controller to begin use case for registering/logging in users
      */
     public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller) {
         this.viewModel = viewModel;

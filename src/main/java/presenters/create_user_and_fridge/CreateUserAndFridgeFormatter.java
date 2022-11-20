@@ -27,7 +27,7 @@ public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresente
 
     @Override
     public CreateUserandFridgeResponseModel prepareFailView(String error) {
-        this.viewModel.login_failure(error);
+        this.viewModel.registration_failure(error);
         return null;
     }
 }

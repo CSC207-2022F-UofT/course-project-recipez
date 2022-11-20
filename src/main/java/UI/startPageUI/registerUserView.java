@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
+/**
+ * View UI for user registration page
+ */
+
 public class registerUserView extends JPanel implements ActionListener {
     private startPageViewModel viewModel;
     private JTextField username;
@@ -32,12 +36,13 @@ public class registerUserView extends JPanel implements ActionListener {
 
         this.register_response = new JTextField(30);
         this.register_response.setEditable(false);
-        this.register_response.setOpaque(false);
+        this.register_response.setOpaque(true);
         this.register_response.setBorder(null);
         this.register_response.setAlignmentX(CENTER_ALIGNMENT);
 
         this.register_response.setText(viewModel.create_register_response);
 
+        setLayout(new BorderLayout());
         JLabel create_user_label = new JLabel("Enter Username: ");
         create_user_btn = new JButton("Create User");
         create_user_btn.addActionListener(this);
@@ -48,14 +53,18 @@ public class registerUserView extends JPanel implements ActionListener {
         entry_formatter.add(create_user_label);
         entry_formatter.add(username);
         entry_formatter.add(create_user_btn);
+        entry_formatter.add(back);
+        JPanel response_formatter = new JPanel();
+        response_formatter.add(this.register_response);
 
-        JPanel button_formatter = new JPanel();
-        button_formatter.add(back);
-
-        this.add(entry_formatter);
-        this.add(button_formatter);
+        this.add(response_formatter, BorderLayout.NORTH);
+        this.add(entry_formatter, BorderLayout.SOUTH);
     }
 
+    /**
+     * Called when user performs action on register page (either create User or go back)
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
