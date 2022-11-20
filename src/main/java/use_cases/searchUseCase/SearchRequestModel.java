@@ -1,4 +1,4 @@
-package useCases.searchUseCase;
+package use_cases.searchUseCase;
 
 /**
  * Input model for search use case

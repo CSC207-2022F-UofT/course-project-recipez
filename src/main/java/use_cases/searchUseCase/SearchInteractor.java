@@ -1,4 +1,4 @@
-package useCases.searchUseCase;
+package use_cases.searchUseCase;
 
 import database.DatabaseGateway;
 import entities.fridge.CommonFridge;

@@ -1,7 +1,7 @@
 package controllers;
-import useCases.searchUseCase.SearchInputBoundary;
-import useCases.searchUseCase.SearchRequestModel;
-import useCases.searchUseCase.SearchResponseModel;
+import use_cases.searchUseCase.SearchInputBoundary;
+import use_cases.searchUseCase.SearchRequestModel;
+import use_cases.searchUseCase.SearchResponseModel;
 
 /**
  * Controller for Recipe Search use case. Used when search button clicked.
