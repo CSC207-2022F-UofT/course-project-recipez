@@ -70,7 +70,13 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
             LocalDateTime now = LocalDateTime.now();
             CreateUserandFridgeResponseModel successResponseModel = new
                     CreateUserandFridgeResponseModel(curr_fridge, curr_user, now.toString());
-            return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
+
+            try{
+                return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
+            } catch (Exception e) {
+                System.out.println("exception");
+                return createUserAndFridgePresenter.prepareFailView(e.toString());
+            }
         }
     }
 

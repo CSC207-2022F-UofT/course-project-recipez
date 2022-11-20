@@ -17,4 +17,4 @@ public class UserEnterIngredientsController {
         UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingredient, user);
         return userIngredientinteractor.create(requestModel);
     }
-    }
+}
