@@ -27,7 +27,7 @@ public class SearchInteractor implements SearchInputBoundary {
     public SearchResponseModel search(SearchRequestModel model) {
         CommonFridge fridge = ((CommonFridge) database.get(model.getUsername()).get(0));
         String APIResponse = this.apiCaller.send(
-                fridge.printIngrediant().substring(0, fridge.printIngrediant().length() - 1),
+                fridge.printIngredient().substring(0, fridge.printIngredient().length() - 1),
                 model.getMealType(),
                 model.getCalories(),
                 model.getTime()
