@@ -9,9 +9,8 @@ public class CommonRecipeFactory implements RecipeFactory, Serializable {
     /**
      *
      * @param name : name of the recipe
-     * @param ingredients: list of ingredients needed for the recipe
-     * @param time: time needed for the recipe to be done
-     * @param calories: amount of calories provided by the recipe
+     * @param url: Object's url
+     * @param image: Object's image
      * @return Overrides the method, returns a common recipe object with the input name, ingredients, time, calories
      */
     @Override
