@@ -1,9 +1,11 @@
 package entities.recipe;
 
+import java.io.Serializable;
+
 /**
  * Class CommonRecipeFactory implements the RecipeFactory interface
  */
-public class CommonRecipeFactory implements RecipeFactory {
+public class CommonRecipeFactory implements RecipeFactory, Serializable {
     /**
      *
      * @param name : name of the recipe
