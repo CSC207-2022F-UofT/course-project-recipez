@@ -1,5 +1,5 @@
 package gateways;
-import entities.ApiAccountError;
+import entities.ApiRequestError;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -35,10 +35,16 @@ public class JavaHttpGateway implements IApiGateway{
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        if (response.statusCode() != 200) {
-            throw new ApiAccountError("API call unsuccessful. Account may have incorrect credentials or reached quota.");
+        switch (response.statusCode()) {
+            case 200:
+                return response.body();
+            case 401:
+                throw new ApiRequestError("API call unsuccessful. Account may have incorrect credentials or reached quota.");
+            case 400:
+                throw new ApiRequestError("API call unsuccessful. Request may contain unaccepted characters");
+            default:
+                throw new ApiRequestError("API call unsuccessful.");
         }
-        return response.body();
     }
 
     public String createRequestURL(String ingredientsList, String mealType, String calories, String time) {

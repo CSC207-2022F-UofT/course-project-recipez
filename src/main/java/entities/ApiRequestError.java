@@ -3,8 +3,8 @@ package entities;
 /**
  * Error for when API call returns failure status code
  */
-public class ApiAccountError extends Error {
-    public ApiAccountError(String message) {
+public class ApiRequestError extends Error {
+    public ApiRequestError(String message) {
         super(message);
     }
 }
