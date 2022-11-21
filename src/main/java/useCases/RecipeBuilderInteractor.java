@@ -2,6 +2,8 @@ package useCases;
 
 import entities.Recipe;
 import entities.RecipeFactory;
+import presenters.RecipeBuilderPresenter;
+
 /**
  * Class RecipeBuilderInteractor (Implements RecipeBuilderInputBoundary interface)
  */
