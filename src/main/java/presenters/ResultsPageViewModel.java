@@ -15,12 +15,12 @@ public class ResultsPageViewModel implements ResultsPageViewModelInterface {
 
 
     @Override
-    public void results_success(ArrayList<Recipe> recipes) {
+    public void resultsSuccess(ArrayList<Recipe> recipes) {
         this.recipes = recipes;
     }
 
     @Override
-    public void results_failure(String errorMessage) {
+    public void resultsFailure(String errorMessage) {
         this.errorMessage = errorMessage;
         System.out.println(this.errorMessage);
     }

@@ -1,5 +1,8 @@
 package presenters;
 
+import entities.recipe.Recipe;
+import useCases.RecipeBuilderPresenter;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;

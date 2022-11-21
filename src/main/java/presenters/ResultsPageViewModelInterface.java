@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public interface ResultsPageViewModelInterface {
-    public void results_success(ArrayList<Recipe> recipes);
-    public void results_failure(String errorMessage);
+    public void resultsSuccess(ArrayList<Recipe> recipes);
+    public void resultsFailure(String errorMessage);
 }
 
