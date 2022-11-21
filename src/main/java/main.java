@@ -67,18 +67,30 @@ public class main {
 
         DatabaseGateway databaseGateway = new Database("Storage");
 
-        loginPresenter loginPresenter = new loginFormatter();
-        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
-        loginController loginController = new loginController(loginInputinteractor);
-
 
         startPageViewModelInterface startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
+        loginPresenter loginPresenter = new loginFormatter(startViewModel);
+
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
 
-        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController);
+        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
+        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
+/**
+ * Don't know how to pass current user and current fridge
+ */
+        UserEnterIngredientsInputBoundary interactorforenteringingredients =
+                new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
+
+        UserEnterIngredientsController userEnterIngredientsController =
+                new UserEnterIngredientsController(interactorforenteringingredients);
+
+        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
+        loginController loginController = new loginController(loginInputinteractor);
+
+        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
@@ -98,17 +110,6 @@ public class main {
 //        Scanner myObj5 = new Scanner(System.in);
 //        System.out.println("Enter Ingrediant");
 //        String ingrediant_at_index1 = myObj5.nextLine();
-
-        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
-        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
-/**
- * Don't know how to pass current user and current fridge
- */
-        UserEnterIngredientsInputBoundary interactorforenteringingredients =
-                new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
-
-        UserEnterIngredientsController userEnterIngredientsController =
-                new UserEnterIngredientsController(interactorforenteringingredients);
 
 
 //        User_Enter_Ingrediants_Input_Boundry interactor2 = new
