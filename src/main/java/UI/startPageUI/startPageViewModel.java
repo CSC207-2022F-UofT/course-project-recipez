@@ -18,10 +18,11 @@ public class startPageViewModel implements startPageViewModelInterface {
 
     /**
      * Updates view for successful user registration
-     * @param response successful user registration response
+     * @param username successful user registration response
      */
-    public void registration_success(String response) {
-        this.create_register_response = response;
+    @Override
+    public void registration_success(String username) {
+        this.create_register_response = "User " + username + " successfully created!";
         System.out.println(create_register_response);
     }
 
@@ -29,6 +30,7 @@ public class startPageViewModel implements startPageViewModelInterface {
      * Updates view to display failed registration message
      * @param err_message error message from attempted user registration
      */
+    @Override
     public void registration_failure(String err_message) {
         this.create_register_response = err_message;
         System.out.println(err_message);
@@ -37,10 +39,11 @@ public class startPageViewModel implements startPageViewModelInterface {
 
     /**
      * Updates view for successful user login
-     * @param response successful user login response
+     * @param username successful user login response
      */
-    public void login_success(String response) {
-        this.attempt_login_response = response;
+    @Override
+    public void login_success(String username) {
+        this.attempt_login_response = "Welcome back " + username + "!!";
         System.out.println(attempt_login_response);
     }
 
@@ -48,8 +51,18 @@ public class startPageViewModel implements startPageViewModelInterface {
      * Updates view for failed user login
      * @param err_message error message from failed user login
      */
+    @Override
     public void login_failure(String err_message) {
         this.attempt_login_response = err_message;
-        System.out.println(err_message);
+        System.out.println(attempt_login_response);
+    }
+
+    public void backToMain() {
+        if (pageState.equals("register")) {
+            create_register_response = "";
+        } else if (pageState.equals("login")) {
+            attempt_login_response = "";
+        }
+        pageState = "main";
     }
 }

@@ -62,11 +62,15 @@ public class userLoginView extends JPanel implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
-            viewModel.pageState = "main";
+            viewModel.backToMain();
+            this.login_response.setText(viewModel.create_register_response);
+            this.username.setText("");
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == login_user_btn) {
             loginController.create(username.getText());
+            this.login_response.setText(viewModel.attempt_login_response);
+            JOptionPane.showMessageDialog(this, viewModel.attempt_login_response);
         }
     }
 }

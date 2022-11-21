@@ -36,7 +36,7 @@ public class registerUserView extends JPanel implements ActionListener {
 
         this.register_response = new JTextField(30);
         this.register_response.setEditable(false);
-        this.register_response.setOpaque(true);
+        this.register_response.setOpaque(false);
         this.register_response.setBorder(null);
         this.register_response.setAlignmentX(CENTER_ALIGNMENT);
 
@@ -68,11 +68,15 @@ public class registerUserView extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
-            viewModel.pageState = "main";
+            viewModel.backToMain();
+            this.register_response.setText(viewModel.create_register_response);
+            this.username.setText("");
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == create_user_btn) {
             registerController.create(username.getText());
+            this.register_response.setText(viewModel.create_register_response);
+            JOptionPane.showMessageDialog(this, viewModel.create_register_response);
         }
     }
 }

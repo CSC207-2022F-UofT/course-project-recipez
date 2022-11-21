@@ -67,16 +67,17 @@ public class main {
 
         DatabaseGateway databaseGateway = new Database("Storage");
 
-        loginPresenter loginPresenter = new loginFormatter();
-        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
-        loginController loginController = new loginController(loginInputinteractor);
-
 
         startPageViewModelInterface startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
+        loginPresenter loginPresenter = new loginFormatter(startViewModel);
+
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
+
+        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
+        loginController loginController = new loginController(loginInputinteractor);
 
         startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController);
         screens.add(startScreen, "welcome");
