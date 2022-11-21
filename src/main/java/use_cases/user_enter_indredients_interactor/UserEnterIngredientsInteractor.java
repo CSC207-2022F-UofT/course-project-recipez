@@ -1,6 +1,7 @@
 package use_cases.user_enter_indredients_interactor;
 
 import database.DatabaseGateway;
+import entities.fridge.CommonFridge;
 import entities.ingredient.CommonIngredient;
 import entities.ingredient.IngredientFactory;
 import entities.user.CommonUser;
@@ -51,8 +52,9 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
             /**
              * Need to call some database method based on String
              */
-            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(0);
+            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(1);
             Curr_User.getFridge().addIngredient(ingredient);
+            database.save();
             LocalDateTime now = LocalDateTime.now();
             UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingredient,
                     now.toString());

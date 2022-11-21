@@ -9,11 +9,14 @@ public class startPageViewModel implements startPageViewModelInterface {
     public String create_register_response;
     public String attempt_login_response;
 
+    public boolean loggedIn;
+
     /**
      * Constructor for ViewModel. Sets pageState to the main start page.
      */
     public startPageViewModel() {
         this.pageState = "main";
+        this.loggedIn = false;
     }
 
     /**
@@ -44,6 +47,7 @@ public class startPageViewModel implements startPageViewModelInterface {
     @Override
     public void login_success(String username) {
         this.attempt_login_response = "Welcome back " + username + "!!";
+        this.loggedIn = true;
         System.out.println(attempt_login_response);
     }
 

@@ -1,5 +1,6 @@
 package UI.startPageUI;
 
+import UI.searchPageHelpFrame;
 import controllers.CreateUserandFridgeController;
 
 import javax.swing.*;
@@ -77,6 +78,8 @@ public class registerUserView extends JPanel implements ActionListener {
             registerController.create(username.getText());
             this.register_response.setText(viewModel.create_register_response);
             JOptionPane.showMessageDialog(this, viewModel.create_register_response);
+            viewModel.pageState = "login";
+            screenLayout.show(screens, viewModel.pageState);
         }
     }
 }

@@ -1,5 +1,6 @@
 package UI;
 
+import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
 
 import javax.swing.*;
@@ -20,14 +21,17 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
     JComboBox<String> time;
     JComboBox<String> calories;
 
-    UserEnterIngredientsController controller;
+    UserEnterIngredientsController enterIngredientsController;
+
+//    SearchController searchController;
 
     String currentUser;
 
-    searchPageHelpFrame(UserEnterIngredientsController controller, String username) {
+    public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, String username) {
+        this.enterIngredientsController = ingredientsController;
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1280, 720);
-        this.controller = controller;
         this.currentUser = username;
 
         //creates the button for submitting the ingredients
@@ -111,7 +115,7 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         //to the fridge. If the fridge already has this ingredient, it pops up a message
         //says "It is already in the fridge!"*/
         if (e.getSource() == button_submit) {
-            controller.create(ingredient_input.getText(), currentUser);
+            enterIngredientsController.create(ingredient_input.getText(), currentUser);
 
 /*            else {fridgeFood.add(ingredient_input.getText());}
         }*/

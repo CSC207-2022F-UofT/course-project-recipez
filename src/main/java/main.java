@@ -76,10 +76,21 @@ public class main {
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
 
+        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
+        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
+/**
+ * Don't know how to pass current user and current fridge
+ */
+        UserEnterIngredientsInputBoundary interactorforenteringingredients =
+                new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
+
+        UserEnterIngredientsController userEnterIngredientsController =
+                new UserEnterIngredientsController(interactorforenteringingredients);
+
         loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
         loginController loginController = new loginController(loginInputinteractor);
 
-        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController);
+        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
@@ -99,17 +110,6 @@ public class main {
 //        Scanner myObj5 = new Scanner(System.in);
 //        System.out.println("Enter Ingrediant");
 //        String ingrediant_at_index1 = myObj5.nextLine();
-
-        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
-        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
-/**
- * Don't know how to pass current user and current fridge
- */
-        UserEnterIngredientsInputBoundary interactorforenteringingredients =
-                new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
-
-        UserEnterIngredientsController userEnterIngredientsController =
-                new UserEnterIngredientsController(interactorforenteringingredients);
 
 
 //        User_Enter_Ingrediants_Input_Boundry interactor2 = new
