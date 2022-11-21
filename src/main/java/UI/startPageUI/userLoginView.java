@@ -1,6 +1,7 @@
 package UI.startPageUI;
 
 import controllers.CreateUserandFridgeController;
+import controllers.loginController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,13 +22,13 @@ public class userLoginView extends JPanel implements ActionListener {
 
     private JTextField login_response;
 
-    private CreateUserandFridgeController registerController;
+    private loginController loginController;
 
-    public userLoginView(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
+    public userLoginView(startPageViewModel viewModel, loginController loginController, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
-        this.registerController = controller;
+        this.loginController = loginController;
 
         this.username = new JTextField(15);
 
@@ -65,7 +66,7 @@ public class userLoginView extends JPanel implements ActionListener {
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == login_user_btn) {
-            registerController.create(username.getText());
+            loginController.create(username.getText());
         }
     }
 }

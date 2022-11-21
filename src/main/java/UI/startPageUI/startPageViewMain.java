@@ -1,6 +1,7 @@
 package UI.startPageUI;
 
 import controllers.CreateUserandFridgeController;
+import controllers.loginController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +15,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class startPageViewMain extends JPanel{
     private startPageViewModel viewModel;
     private CreateUserandFridgeController registerController;
+    private loginController loginController;
     private JPanel startScreens;
     private CardLayout screenLayout;
 
@@ -22,9 +24,10 @@ public class startPageViewMain extends JPanel{
      * @param viewModel viewModel containing data for view to present
      * @param controller createUserAndFridge Controller to begin use case for registering/logging in users
      */
-    public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller) {
+    public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller, loginController loginController) {
         this.viewModel = viewModel;
         this.registerController = controller;
+        this.loginController = loginController;
 
         setLayout(new BorderLayout());
 
@@ -37,9 +40,9 @@ public class startPageViewMain extends JPanel{
         JPanel startScreens = new JPanel();
         startScreens.setLayout(screenLayout);
 
-        startPageViewWelcome welcome = new startPageViewWelcome(viewModel, registerController, startScreens, screenLayout);
-        registerUserView register = new registerUserView(viewModel, registerController, startScreens, screenLayout);
-        userLoginView login = new userLoginView(viewModel, registerController, startScreens, screenLayout);
+        startPageViewWelcome welcome = new startPageViewWelcome(viewModel, controller, startScreens, screenLayout);
+        registerUserView register = new registerUserView(viewModel, controller, startScreens, screenLayout);
+        userLoginView login = new userLoginView(viewModel, loginController, startScreens, screenLayout);
 
         startScreens.add(welcome , "main");
         startScreens.add(register, "register");

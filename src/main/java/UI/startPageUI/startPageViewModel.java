@@ -41,6 +41,7 @@ public class startPageViewModel implements startPageViewModelInterface {
      */
     public void login_success(String response) {
         this.attempt_login_response = response;
+        System.out.println(attempt_login_response);
     }
 
     /**
@@ -49,5 +50,6 @@ public class startPageViewModel implements startPageViewModelInterface {
      */
     public void login_failure(String err_message) {
         this.attempt_login_response = err_message;
+        System.out.println(err_message);
     }
 }
