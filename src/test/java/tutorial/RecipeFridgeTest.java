@@ -10,7 +10,7 @@ import useCases.RecipeBuilderResponseModel;
 import java.util.ArrayList;
 //
 
-class RecipeFridgeTest {
+public class RecipeFridgeTest {
     /**
      * Using a CommonRecipeFactory, RecipeBuilder, and APIOutputFormatter checks the output recipe to see if it has the correct name
      */
