@@ -18,6 +18,7 @@ public class startPageViewMain extends JPanel{
     private loginController loginController;
     private JPanel startScreens;
     private CardLayout screenLayout;
+    private boolean loggedIn;
 
     /**
      * Constructor for the startPageViewMain class
