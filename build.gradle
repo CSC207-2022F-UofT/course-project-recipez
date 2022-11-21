@@ -1,6 +1,10 @@
 plugins {
     id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+    id 'application'
 }
+
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -19,3 +23,9 @@ test {
         events "passed", "skipped", "failed"
     }
 }
+
+javafx{
+    modules = ['javafx.controls', "javafx.fxml"]
+    version = '11.0.2'
+}
+

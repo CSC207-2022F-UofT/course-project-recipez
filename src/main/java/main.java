@@ -1,5 +1,6 @@
 import UI.startPageUI.startPageViewMain;
 import UI.startPageUI.startPageViewModel;
+import controllers.loginController;
 import database.Database;
 import database.DatabaseGateway;
 import controllers.CreateUserandFridgeController;
@@ -12,8 +13,12 @@ import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
 import UI.startPageUI.startPageViewModelInterface;
+import presenters.login.loginFormatter;
+import presenters.login.loginPresenter;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
+import use_cases.login_usecase.LoginInteractor;
+import use_cases.login_usecase.loginInputBoundary;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
 import javax.swing.*;
@@ -62,15 +67,34 @@ public class main {
 
         DatabaseGateway databaseGateway = new Database("Storage");
 
+
         startPageViewModelInterface startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
+        loginPresenter loginPresenter = new loginFormatter(startViewModel);
+
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
-        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController);
+
+        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
+        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
+/**
+ * Don't know how to pass current user and current fridge
+ */
+        UserEnterIngredientsInputBoundary interactorforenteringingredients =
+                new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
+
+        UserEnterIngredientsController userEnterIngredientsController =
+                new UserEnterIngredientsController(interactorforenteringingredients);
+
+        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
+        loginController loginController = new loginController(loginInputinteractor);
+
+        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
+
 
 
 //        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -86,17 +110,6 @@ public class main {
 //        Scanner myObj5 = new Scanner(System.in);
 //        System.out.println("Enter Ingrediant");
 //        String ingrediant_at_index1 = myObj5.nextLine();
-
-        CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
-        UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();
-/**
- * Don't know how to pass current user and current fridge
- */
-        UserEnterIngredientsInputBoundary interactorforenteringingredients =
-                new UserEnterIngredientsInteractor(ingredientFactory, presenter1, databaseGateway);
-
-        UserEnterIngredientsController userEnterIngredientsController =
-                new UserEnterIngredientsController(interactorforenteringingredients);
 
 
 //        User_Enter_Ingrediants_Input_Boundry interactor2 = new

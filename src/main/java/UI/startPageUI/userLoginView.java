@@ -1,6 +1,10 @@
 package UI.startPageUI;
 
+import UI.searchPageHelpFrame;
 import controllers.CreateUserandFridgeController;
+import controllers.UserEnterIngredientsController;
+import controllers.loginController;
+import entities.user.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,13 +25,16 @@ public class userLoginView extends JPanel implements ActionListener {
 
     private JTextField login_response;
 
-    private CreateUserandFridgeController registerController;
+    private loginController loginController;
 
-    public userLoginView(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
+    private UserEnterIngredientsController ingredientsController;
+
+    public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
-        this.registerController = controller;
+        this.loginController = loginController;
+        this.ingredientsController = ingredientsController;
 
         this.username = new JTextField(15);
 
@@ -61,11 +68,19 @@ public class userLoginView extends JPanel implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
-            viewModel.pageState = "main";
+            viewModel.backToMain();
+            this.login_response.setText(viewModel.create_register_response);
+            this.username.setText("");
             screenLayout.show(screens, viewModel.pageState);
         }
         if (e.getSource() == login_user_btn) {
-            registerController.create(username.getText());
+            loginController.create(username.getText());
+            this.login_response.setText(viewModel.attempt_login_response);
+            JOptionPane.showMessageDialog(this, viewModel.attempt_login_response);
+
+            if (viewModel.loggedIn) {
+                new searchPageHelpFrame(this.ingredientsController, username.getText());
+            }
         }
     }
 }

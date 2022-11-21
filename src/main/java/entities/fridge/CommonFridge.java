@@ -54,7 +54,7 @@ public class CommonFridge implements Fridge, Serializable {
      * @return the first ingredient in the fridge
      * primarily created for testing the usecase
      */
-    public Ingredient getIngrediantx () {
+    public Ingredient getIngredientx () {
         return this.ingredients.get(0) ;
     }
 
@@ -62,7 +62,7 @@ public class CommonFridge implements Fridge, Serializable {
      *
      * @return prints out the ingredients in the fridge
      */
-    public String printIngrediant () {
+    public String printIngredient () {
         return this.ingredients.toString() ;
     }
 
