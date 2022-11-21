@@ -23,12 +23,16 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
 
     UserEnterIngredientsController enterIngredientsController;
 
-//    SearchController searchController;
+    SearchController searchController;
 
     String currentUser;
+    String mealTypeFilter;
+    String caloriesFilter;
+    String cookTimeFilter;
 
-    public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, String username) {
+    public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, SearchController searchController, String username) {
         this.enterIngredientsController = ingredientsController;
+        this.searchController = searchController;
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1280, 720);
@@ -76,18 +80,18 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
 
         //creates filter comboBoxes and add it to panel3
         String[] mealStr = {"No meal filter", "Breakfast", "Brunch", "Lunch/dinner", "Snack", "Teatime"};
-        mealType = new JComboBox<>(mealStr);
-        mealType.addActionListener(e -> System.out.println(mealType.getSelectedItem()));
+        mealType = new JComboBox<String>(mealStr);
+//        mealType.addActionListener(e -> mealTypeFilter = (mealType.getSelectedItem()));
         mealType.setBounds(50, 50, 300, 40);
 
         String[] cookTime = {"No cookTime filter", "Less than 30 minutes", "30-60 minutes", "More than 1 hour"};
-        time = new JComboBox<>(cookTime);
-        time.addActionListener(e -> System.out.println(time.getSelectedItem()));
+        time = new JComboBox<String>(cookTime);
+//        time.addActionListener(e -> System.out.println(time.getSelectedItem()));
         time.setBounds(50, 120, 300, 40);
 
         String[] dishCalories = {"No calories filter", "Less than 300 cal", "300-800 cal", "More than 800 cal"};
-        calories = new JComboBox<>(dishCalories);
-        calories.addActionListener(e -> System.out.println(calories.getSelectedItem()));
+        calories = new JComboBox<String>(dishCalories);
+//        calories.addActionListener(e -> System.out.println(calories.getSelectedItem()));
         calories.setBounds(50, 190, 300, 40);
 
         panel3.add(mealType);
@@ -129,6 +133,12 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
                         JOptionPane.PLAIN_MESSAGE);
                 //
             }*/
+        }
+        if (e.getSource() == search){
+            searchController.search(currentUser,
+                    mealType.getSelectedItem().toString(),
+                    calories.getSelectedItem().toString(),
+                    time.getSelectedItem().toString());
         }
     }
 }

@@ -1,5 +1,6 @@
 import UI.startPageUI.startPageViewMain;
 import UI.startPageUI.startPageViewModel;
+import controllers.SearchController;
 import controllers.loginController;
 import database.Database;
 import database.DatabaseGateway;
@@ -7,7 +8,11 @@ import controllers.CreateUserandFridgeController;
 import controllers.UserEnterIngredientsController;
 import entities.fridge.CommonFridgeFactory;
 import entities.ingredient.CommonIngredientFactory;
+import entities.recipe.CommonRecipeFactory;
+import entities.recipe.RecipeFactory;
 import entities.user.CommonUserFactory;
+import gateways.IApiGateway;
+import gateways.JavaHttpGateway;
 import presenters.create_user_and_fridge.CreateUserAndFridgeFormatter;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
@@ -19,6 +24,8 @@ import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
 import use_cases.login_usecase.LoginInteractor;
 import use_cases.login_usecase.loginInputBoundary;
+import use_cases.searchUseCase.SearchInputBoundary;
+import use_cases.searchUseCase.SearchInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
 import javax.swing.*;
@@ -54,6 +61,7 @@ public class main {
          * */
         CommonFridgeFactory fridgeFactory = new CommonFridgeFactory();
         CommonUserFactory userFactory = new CommonUserFactory();
+        CommonRecipeFactory recipeFactory = new CommonRecipeFactory();
 
         JFrame application = new JFrame("RecipEZ");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -90,7 +98,11 @@ public class main {
         loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
         loginController loginController = new loginController(loginInputinteractor);
 
-        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController);
+        IApiGateway apiGateway = new JavaHttpGateway();
+        SearchInputBoundary searchInteractor = new SearchInteractor(apiGateway, databaseGateway, recipeFactory);
+        SearchController searchController = new SearchController(searchInteractor);
+
+        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
