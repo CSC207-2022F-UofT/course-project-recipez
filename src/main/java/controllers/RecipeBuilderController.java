@@ -16,7 +16,7 @@ public class RecipeBuilderController {
         this.recipeBuilderInput = recipeBuilderInput;
     }
 
-    RecipeBuilderResponseModel create(String[] APIOutput) {
+    RecipeBuilderResponseModel create(String APIOutput) {
         RecipeBuilder requestModel = new RecipeBuilder(APIOutput);
 
         return recipeBuilderInput.createRecipe(requestModel);

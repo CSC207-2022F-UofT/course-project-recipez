@@ -1,8 +1,6 @@
-package entities;
+package entities.recipe;
 
-import java.util.ArrayList;
 import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.Hashtable;
 
 public class CommonRecipe implements Recipe {
@@ -12,12 +10,12 @@ public class CommonRecipe implements Recipe {
      */
     private Dictionary<String, Object> dictionary;
 
-    public CommonRecipe(Object name, Object ingredients, Object time, Object calories) {
+    public CommonRecipe(Object name, Object url, Object image) {
         this.dictionary = new Hashtable<>();
         this.dictionary.put("Name", name);
-        this.dictionary.put("IngredientList", ingredients);
-        this.dictionary.put("TimeToPrepare", time);
-        this.dictionary.put("Calories", calories);
+        this.dictionary.put("URL", url);
+        this.dictionary.put("Image", image);
+
 
     }
 
