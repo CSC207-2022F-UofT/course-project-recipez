@@ -1,6 +1,8 @@
 # RecipEz CSC207 Project
+RecipEz as the name suggests, is an easy, all-in-one recipe generator that lets you type in ingredients one by one and then suggests recipes based on the entered ingredients.
 
-## Specifications & The Required Dependencies
+
+## Specifications 
 - Make sure you are using Java 11. The SDK in the project structure must use 'coretto-11' in order to run the project. 
 - JUnit 4.13.1 is required to run the unit tests 
 
