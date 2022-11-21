@@ -7,7 +7,7 @@ import useCases.RecipeBuilderResponseModel;
  * Class RecipeBuilderController
  */
 public class RecipeBuilderController {
-    final RecipeBuilderInputBoundary recipeBuilderInput;
+    private final RecipeBuilderInputBoundary recipeBuilderInput;
     /**
      * Constructor
      * @param recipeBuilderInput : input for Recipe Builder

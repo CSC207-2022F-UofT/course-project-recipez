@@ -1,4 +1,6 @@
-package useCases;
+package presenters;
+
+import useCases.RecipeBuilderResponseModel;
 
 public interface RecipeBuilderPresenter {
     RecipeBuilderResponseModel prepareSuccessView(RecipeBuilderResponseModel recipeResponse);
