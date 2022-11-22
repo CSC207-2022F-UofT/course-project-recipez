@@ -8,6 +8,7 @@ import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class searchPageHelpFrame extends JFrame implements ActionListener {
     //This class contains the code to build the searchpage interface, and implements ActionListener
@@ -136,9 +137,9 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         }
         if (e.getSource() == search){
             searchController.search(currentUser,
-                    mealType.getSelectedItem().toString(),
-                    calories.getSelectedItem().toString(),
-                    time.getSelectedItem().toString());
+                    Objects.requireNonNull(mealType.getSelectedItem()).toString(),
+                    Objects.requireNonNull(calories.getSelectedItem()).toString(),
+                    Objects.requireNonNull(time.getSelectedItem()).toString());
         }
     }
 }
