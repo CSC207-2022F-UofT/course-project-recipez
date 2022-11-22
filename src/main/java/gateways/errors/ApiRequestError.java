@@ -1,4 +1,4 @@
-package entities;
+package gateways.errors;
 
 /**
  * Error for when API call returns failure status code

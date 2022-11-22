@@ -1,5 +1,5 @@
 package gateways;
-import entities.ApiRequestError;
+import gateways.errors.ApiRequestError;
 
 import java.net.URI;
 import java.net.http.HttpClient;
