@@ -63,7 +63,11 @@ public class CommonFridge implements Fridge, Serializable {
      * @return prints out the ingredients in the fridge
      */
     public String printIngredient () {
-        return this.ingredients.toString() ;
+        String[] ingredientNamesArray = new String[this.ingredients.size()];
+        for (int i = 0; i < this.ingredients.size(); i++) {
+            ingredientNamesArray[i] = this.ingredients.get(i).getName();
+        };
+        return String.join(",", ingredientNamesArray);
     }
 
 

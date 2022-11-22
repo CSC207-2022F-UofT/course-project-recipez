@@ -27,11 +27,13 @@ public class SearchInteractor implements SearchInputBoundary {
     public SearchResponseModel search(SearchRequestModel model) {
         CommonFridge fridge = ((CommonFridge) database.get(model.getUsername()).get(0));
         String APIResponse = this.apiCaller.send(
-                fridge.printIngredient().substring(0, fridge.printIngredient().length() - 1),
+                fridge.printIngredient(),
                 model.getMealType(),
                 model.getCalories(),
                 model.getTime()
         );
+        // Print Statement to show API response without results page
+        System.out.println("API Response: " + APIResponse);
         RecipeBuilderResponseModel response = new RecipeBuilderResponseModel(this.recipeFactory );
         return new SearchResponseModel(response.createRecipe(APIResponse));
     }
