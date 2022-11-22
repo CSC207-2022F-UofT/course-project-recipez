@@ -95,7 +95,7 @@ public class JavaHttpGateway implements IApiGateway{
         }
 
         if (convertCookTime.containsKey(time)) {
-            filterFields.append(convertCookTime.get(mealType));
+            filterFields.append(convertCookTime.get(time));
         }
 
         return filterFields.toString();
