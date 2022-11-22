@@ -2,7 +2,7 @@ package useCases;
 
 import entities.recipe.Recipe;
 import entities.recipe.RecipeFactory;
-import presenters.RecipeBuilderPresenter;
+import presenters.recipeBuilder.RecipeBuilderPresenter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package presenters;
+package UI.resultPage;
 
 import javax.swing.*;
 import java.awt.*;

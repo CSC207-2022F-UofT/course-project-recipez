@@ -1,5 +1,6 @@
-package presenters;
+package presenters.recipeBuilder;
 
+import UI.resultPage.ResultsPageViewModelInterface;
 import useCases.RecipeBuilderResponseModel;
 
 public class RecipeBuilderFormatter implements RecipeBuilderPresenter{

@@ -1,4 +1,4 @@
-package presenters;
+package UI.resultPage;
 
 import entities.recipe.Recipe;
 

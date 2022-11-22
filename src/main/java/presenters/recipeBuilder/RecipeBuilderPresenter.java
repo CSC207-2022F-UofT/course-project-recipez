@@ -1,4 +1,4 @@
-package presenters;
+package presenters.recipeBuilder;
 
 import useCases.RecipeBuilderResponseModel;
 

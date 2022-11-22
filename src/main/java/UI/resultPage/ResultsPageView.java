@@ -1,4 +1,4 @@
-package presenters;
+package UI.resultPage;
 
 import UI.searchPageHelpFrame;
 import controllers.RecipeBuilderController;
