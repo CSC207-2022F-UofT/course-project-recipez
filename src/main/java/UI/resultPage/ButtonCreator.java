@@ -1,4 +1,4 @@
-package presenters;
+package UI.resultPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,11 +17,15 @@ public class ButtonCreator {
     private final String recipeUrl;
 
     public ButtonCreator(String recipeName, String recipeUrl, String imageUrl) {
+
         this.recipeName = recipeName;
         this.recipeUrl = recipeUrl;
         this.imageUrl = imageUrl;
     }
 
+    /**
+     * @return Converts Recipe object into a JButton
+     */
     public JButton makeButton() throws MalformedURLException {
         JButton button = new JButton(this.recipeName);
 
@@ -37,6 +41,7 @@ public class ButtonCreator {
         button.setIcon(resizedIcon); //Adding ImageIcon to the button
 
         String urlString = this.recipeUrl;
+        //Opens the link to recipe when the JButton is clicked
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
