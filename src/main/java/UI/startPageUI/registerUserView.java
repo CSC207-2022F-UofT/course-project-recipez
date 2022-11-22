@@ -79,6 +79,7 @@ public class registerUserView extends JPanel implements ActionListener {
             this.register_response.setText(viewModel.create_register_response);
             JOptionPane.showMessageDialog(this, viewModel.create_register_response);
             viewModel.pageState = "login";
+            viewModel.attempt_login_response = "";
             screenLayout.show(screens, viewModel.pageState);
         }
     }

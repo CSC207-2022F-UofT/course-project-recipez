@@ -73,7 +73,7 @@ public class userLoginView extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
             viewModel.backToMain();
-            this.login_response.setText(viewModel.create_register_response);
+            this.login_response.setText(viewModel.attempt_login_response);
             this.username.setText("");
             screenLayout.show(screens, viewModel.pageState);
         }
