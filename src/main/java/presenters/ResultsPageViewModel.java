@@ -22,6 +22,7 @@ public class ResultsPageViewModel implements ResultsPageViewModelInterface {
     @Override
     public void resultsFailure(String errorMessage) {
         this.errorMessage = errorMessage;
+        this.recipes = new ArrayList<>(); //Makes an empty ArrayList for the if condition in ResultsPageView
         System.out.println(this.errorMessage);
     }
 }
