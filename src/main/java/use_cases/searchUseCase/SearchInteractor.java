@@ -32,6 +32,8 @@ public class SearchInteractor implements SearchInputBoundary {
                 model.getCalories(),
                 model.getTime()
         );
+        // Print Statement to show API response without results page
+        System.out.println("API Response: " + APIResponse);
         RecipeBuilderResponseModel response = new RecipeBuilderResponseModel(this.recipeFactory );
         return new SearchResponseModel(response.createRecipe(APIResponse));
     }
