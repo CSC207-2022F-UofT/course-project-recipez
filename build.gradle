@@ -1,14 +1,20 @@
 plugins {
     id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+    id 'application'
 }
+
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'junit:junit:4.13.2'
-    testImplementation('org.junit.jupiter:junit-jupiter:5.9.0')
+    implementation 'junit:junit:4.13.1'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
+    implementation 'com.google.code.gson:gson:2.10'
+
 }
 
 test {
@@ -17,3 +23,9 @@ test {
         events "passed", "skipped", "failed"
     }
 }
+
+javafx{
+    modules = ['javafx.controls', "javafx.fxml"]
+    version = '11.0.2'
+}
+
