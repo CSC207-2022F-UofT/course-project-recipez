@@ -1,4 +1,4 @@
-package useCases;
+package use_cases.recipeBuilder;
 
 /**
  * Interface input boundary for RecipeBuilder Use case

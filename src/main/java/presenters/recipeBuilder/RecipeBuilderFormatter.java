@@ -1,7 +1,7 @@
 package presenters.recipeBuilder;
 
 import UI.resultPage.ResultsPageViewModelInterface;
-import useCases.RecipeBuilderResponseModel;
+import use_cases.recipeBuilder.RecipeBuilderResponseModel;
 
 public class RecipeBuilderFormatter implements RecipeBuilderPresenter{
     /**

@@ -1,8 +1,8 @@
 package controllers;
 
-import useCases.RecipeBuilder;
-import useCases.RecipeBuilderInputBoundary;
-import useCases.RecipeBuilderResponseModel;
+import use_cases.recipeBuilder.RecipeBuilder;
+import use_cases.recipeBuilder.RecipeBuilderInputBoundary;
+import use_cases.recipeBuilder.RecipeBuilderResponseModel;
 /**
  * Class RecipeBuilderController
  */

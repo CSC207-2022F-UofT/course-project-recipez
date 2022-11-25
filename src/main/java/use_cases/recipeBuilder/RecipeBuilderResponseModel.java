@@ -1,4 +1,4 @@
-package useCases;
+package use_cases.recipeBuilder;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -18,7 +18,7 @@ public class RecipeBuilderResponseModel {
     }
     public ArrayList<Recipe> createRecipe(String apiOutput){
         RecipeFactory factory = new CommonRecipeFactory();
-        ArrayList<Recipe> formattedRecipes = new ArrayList<Recipe>();
+        ArrayList<Recipe> formattedRecipes = new ArrayList<>();
         try {
             JsonObject jsonObject = JsonParser.parseString(apiOutput).getAsJsonObject();
             JsonArray recipes = jsonObject.get("hits").getAsJsonArray();
@@ -32,7 +32,7 @@ public class RecipeBuilderResponseModel {
             }
             return formattedRecipes;
         } catch(Exception e) {
-            return new ArrayList<Recipe>();
+            return new ArrayList<>();
         }
     }
 }

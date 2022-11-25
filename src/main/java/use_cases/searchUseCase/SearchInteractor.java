@@ -4,7 +4,7 @@ import database.DatabaseGateway;
 import entities.fridge.CommonFridge;
 import gateways.IApiGateway;
 import entities.recipe.RecipeFactory;
-import useCases.RecipeBuilderResponseModel;
+import use_cases.recipeBuilder.RecipeBuilderResponseModel;
 
 /**
  * Interactor for Search use case

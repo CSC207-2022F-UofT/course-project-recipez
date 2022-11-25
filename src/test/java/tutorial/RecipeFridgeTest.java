@@ -5,7 +5,7 @@ import entities.recipe.Recipe;
 import entities.recipe.RecipeFactory;
 import org.junit.jupiter.api.Test;
 
-import useCases.RecipeBuilderResponseModel;
+import use_cases.recipeBuilder.RecipeBuilderResponseModel;
 //
 import java.util.ArrayList;
 //
