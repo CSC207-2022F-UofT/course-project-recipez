@@ -10,7 +10,6 @@ public class UserEnterIngredientFormatter implements UserEnterIngredientPresente
 
     @Override
     public UserEnterIngredientResponseModel prepareSuccessView(UserEnterIngredientResponseModel userEnterIngredientResponseModel) {
-        LocalDateTime responseTime = LocalDateTime.parse(userEnterIngredientResponseModel.getCreationTime());
         return userEnterIngredientResponseModel;
     }
 
