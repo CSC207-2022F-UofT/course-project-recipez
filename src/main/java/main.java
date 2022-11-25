@@ -23,10 +23,10 @@ import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInteractor;
 import use_cases.login_usecase.LoginInteractor;
 import use_cases.login_usecase.loginInputBoundary;
-import use_cases.searchUseCase.SearchInputBoundary;
-import use_cases.searchUseCase.SearchInteractor;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
+import use_cases.searchusecase.SearchInputBoundary;
+import use_cases.searchusecase.SearchInteractor;
+import use_cases.enter_indredients_usecase.UserEnterIngredientsInteractor;
+import use_cases.enter_indredients_usecase.UserEnterIngredientsInputBoundary;
 import javax.swing.*;
 import java.awt.*;
 

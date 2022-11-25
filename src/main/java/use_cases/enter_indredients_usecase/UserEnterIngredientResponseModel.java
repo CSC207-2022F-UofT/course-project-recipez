@@ -1,4 +1,4 @@
-package use_cases.user_enter_indredients_interactor;
+package use_cases.enter_indredients_usecase;
 
 import entities.ingredient.CommonIngredient;
 
@@ -8,22 +8,13 @@ import entities.ingredient.CommonIngredient;
 public class UserEnterIngredientResponseModel {
 
     public CommonIngredient commonIngredient;
-    public String enterIngredientTime;
 
     /**
      * Constructor for this response model.
      * @param commonIngredient object
-     * @param enterIngredientTime object
      */
-    public UserEnterIngredientResponseModel(CommonIngredient commonIngredient, String enterIngredientTime) {
+    public UserEnterIngredientResponseModel(CommonIngredient commonIngredient) {
         this.commonIngredient = commonIngredient;
-        this.enterIngredientTime = enterIngredientTime;
     }
 
-    /**
-     * @return creation time, of when ingredient is entered
-     */
-    public String getCreationTime() {
-        return enterIngredientTime;
-    }
 }

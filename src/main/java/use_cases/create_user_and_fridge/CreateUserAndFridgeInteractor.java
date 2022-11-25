@@ -8,7 +8,7 @@ import entities.user.CommonUser;
 import entities.user.UserFactory;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 
 /**
@@ -59,9 +59,8 @@ public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBo
             list.add(curr_user);
             database.store(requestModel.getUserName(), list);
 
-            LocalDateTime now = LocalDateTime.now();
             CreateUserAndFridgeResponseModel successResponseModel = new
-                    CreateUserAndFridgeResponseModel(curr_fridge, curr_user, now.toString());
+                    CreateUserAndFridgeResponseModel(curr_fridge, curr_user);
 
             try{
                 return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);

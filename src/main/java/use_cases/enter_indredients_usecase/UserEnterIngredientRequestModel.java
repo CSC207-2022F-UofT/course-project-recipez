@@ -1,4 +1,4 @@
-package use_cases.user_enter_indredients_interactor;
+package use_cases.enter_indredients_usecase;
 
 /**
  * Request Model for entering ingredient UseCase

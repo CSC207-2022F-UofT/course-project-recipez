@@ -19,8 +19,6 @@ public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresente
 
     @Override
     public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
-        LocalDateTime responseTime = LocalDateTime.parse(responseModel.getCreationTime());
-        responseModel.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
         this.viewModel.registration_success(responseModel.getCommonUser().getName());
         return responseModel;
     }

@@ -1,4 +1,4 @@
-package use_cases.user_enter_indredients_interactor;
+package use_cases.enter_indredients_usecase;
 
 import database.DatabaseGateway;
 import entities.ingredient.CommonIngredient;
@@ -6,7 +6,7 @@ import entities.ingredient.IngredientFactory;
 import entities.user.CommonUser;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
 
-import java.time.LocalDateTime;
+
 import java.util.Objects;
 
 /**
@@ -46,9 +46,7 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
             CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(1);
             Curr_User.getFridge().addIngredient(ingredient);
             database.save();
-            LocalDateTime now = LocalDateTime.now();
-            UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingredient,
-                    now.toString());
+            UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingredient);
             return userEnterIngredientPresenter.prepareSuccessView(responseModel);
         }
     }

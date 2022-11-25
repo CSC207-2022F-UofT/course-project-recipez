@@ -9,25 +9,14 @@ import entities.user.CommonUser;
 public class CreateUserAndFridgeResponseModel {
     public CommonFridge commonFridge;
     public CommonUser commonUser;
-    public String UserAndFridgeCreationTime;
 
     /**
      * @param commonFridge : The user's fridge
      * @param commonUser : The user currently using the program
-     * @param UserAndFridgeCreationTime : The creation time for the user
      */
-    public CreateUserAndFridgeResponseModel(CommonFridge commonFridge, CommonUser commonUser,
-                                            String UserAndFridgeCreationTime) {
+    public CreateUserAndFridgeResponseModel(CommonFridge commonFridge, CommonUser commonUser) {
         this.commonFridge = commonFridge;
         this.commonUser = commonUser;
-        this.UserAndFridgeCreationTime = UserAndFridgeCreationTime;
-    }
-
-    /**
-     * @return The time when user and fridge is created
-     */
-    public String getCreationTime() {
-        return UserAndFridgeCreationTime;
     }
 
     /**
