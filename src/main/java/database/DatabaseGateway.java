@@ -1,7 +1,5 @@
 package database;
 
-import java.util.ArrayList;
-
 /**
  * Interface that defines interaction with the Database.
  */
@@ -11,9 +9,9 @@ public interface DatabaseGateway {
      * Adds a new object given a unique key to the database.
      *
      * @param key    The unique string identifier of the object that is stored in the database.
-     * @param object The list of object(s) that is stored in the database.
+     * @param storageObjects   The Storage Objects Struct class to storage the Fridge and User
      */
-    void store(String key, ArrayList<Object> object);
+    void store(String key, StorageObjects storageObjects);
 
     /**
      * Remove an object from the database.
@@ -32,7 +30,7 @@ public interface DatabaseGateway {
      *
      * @param key The unique string identifier of that object.
      */
-    ArrayList<Object> get(String key);
+    StorageObjects get(String key);
 
     /**
      * Deletes the storage file associated with the database.
