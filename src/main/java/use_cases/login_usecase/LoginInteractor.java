@@ -5,8 +5,6 @@ import entities.fridge.CommonFridge;
 import entities.user.CommonUser;
 import presenters.login.loginPresenter;
 
-import javax.xml.crypto.Data;
-
 public class LoginInteractor implements loginInputBoundary{
 
 
@@ -31,10 +29,10 @@ public class LoginInteractor implements loginInputBoundary{
         else {
             CommonUser curr_user = (CommonUser) database.get(requestModel.getUserName()).get(1);
             CommonFridge curr_fridge = (CommonFridge) database.get(requestModel.getUserName()).get(0);
-            loginResponseModel loginsuccess = new loginResponseModel(curr_fridge, curr_user);
+            loginResponseModel Login_Success = new loginResponseModel(curr_fridge, curr_user);
 
             try{
-                return loginPresenter.prepareSuccessView(loginsuccess);
+                return loginPresenter.prepareSuccessView(Login_Success);
             } catch (Exception e) {
                 System.out.println("exception");
                 return loginPresenter.prepareFailView(e.toString());

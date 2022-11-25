@@ -1,7 +1,7 @@
 package presenters.create_user_and_fridge;
 
 import UI.startPageUI.startPageViewModelInterface;
-import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,7 +18,7 @@ public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresente
     }
 
     @Override
-    public CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel) {
+    public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
         LocalDateTime responseTime = LocalDateTime.parse(responseModel.getCreationTime());
         responseModel.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
         this.viewModel.registration_success(responseModel.getCommonUser().getName());
@@ -26,7 +26,7 @@ public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresente
     }
 
     @Override
-    public CreateUserandFridgeResponseModel prepareFailView(String error) {
+    public CreateUserAndFridgeResponseModel prepareFailView(String error) {
         this.viewModel.registration_failure(error);
         return null;
     }

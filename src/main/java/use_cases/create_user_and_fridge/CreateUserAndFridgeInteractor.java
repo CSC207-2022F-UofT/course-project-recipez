@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- * Class CreateUserandFridgeInteractor
+ * Class CreateUserAndFridgeInteractor
  */
-public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBoundary {
+public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBoundary {
     UserFactory userFactory;
     FridgeFactory fridgeFactory;
     CreateUserAndFridgePresenter createUserAndFridgePresenter;
@@ -27,7 +27,7 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
      * @param createUserAndFridgePresenter : Creates a presenter with success or fail view
      */
 
-    public CreateUserandFridgeInteractor(UserFactory userFactory, FridgeFactory fridgeFactory, CreateUserAndFridgePresenter
+    public CreateUserAndFridgeInteractor(UserFactory userFactory, FridgeFactory fridgeFactory, CreateUserAndFridgePresenter
                                          createUserAndFridgePresenter, DatabaseGateway database ) {
         this.userFactory = userFactory;
         this.fridgeFactory = fridgeFactory;
@@ -42,10 +42,7 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
      *                     Use the presenter to prepare a success view
      */
     @Override
-    public CreateUserandFridgeResponseModel create(CreateUserandFridgeRequestModel requestModel) {
-/**
- * Need some method here that already checks if database has it
- */
+    public CreateUserAndFridgeResponseModel create(CreateUserAndFridgeRequestModel requestModel) {
         if (database.hasKey(requestModel.getUserName())) {
             return createUserAndFridgePresenter.prepareFailView("User already exists.");
         }
@@ -53,23 +50,18 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
             return createUserAndFridgePresenter.prepareFailView("Nothing");
         }
         else {
-            ArrayList<CommonIngredient> tesst = new ArrayList<>();
-            CommonFridge curr_fridge = (CommonFridge) fridgeFactory.create(tesst);
+            ArrayList<CommonIngredient> arr_list = new ArrayList<>();
+            CommonFridge curr_fridge = (CommonFridge) fridgeFactory.create(arr_list);
             CommonUser curr_user = (CommonUser) userFactory.create(requestModel.getUserName(), curr_fridge);
 
-            ArrayList list = new ArrayList<>();
+            ArrayList<Object> list = new ArrayList<>();
             list.add(curr_fridge);
             list.add(curr_user);
             database.store(requestModel.getUserName(), list);
 
-            /**
-             * Add erics method and somehow do database.save()
-             */
-            // Need to add erics method
-            //            database.save();
             LocalDateTime now = LocalDateTime.now();
-            CreateUserandFridgeResponseModel successResponseModel = new
-                    CreateUserandFridgeResponseModel(curr_fridge, curr_user, now.toString());
+            CreateUserAndFridgeResponseModel successResponseModel = new
+                    CreateUserAndFridgeResponseModel(curr_fridge, curr_user, now.toString());
 
             try{
                 return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
@@ -79,20 +71,4 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
             }
         }
     }
-
-//    @Override
-//    public String create(CreateUserandFridgeRequestModel requestModel) {
-//        if (Objects.equals(requestModel.getUserName(), "")) {
-//            return createUserAndFridgePresenter.prepareFailView("Nothing entered");
-//        }
-//        else {
-//            ArrayList<CommonIngrediant> temporary = new ArrayList<>();
-//            Fridge fridge = fridgeFactory.create(temporary);
-//            User user = userFactory.create("Shaffaan", (CommonFridge) fridge);
-//
-//            CreateUserandFridgeResponseModel user_created_successfully =
-//                    new CreateUserandFridgeResponseModel(user.getName());
-//            return createUserAndFridgePresenter.prepareSuccessView(user_created_successfully);
-//        }
-//    }
 }

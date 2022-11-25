@@ -12,8 +12,8 @@ public class UserEnterIngredientResponseModel {
 
     /**
      * Constructor for this response model.
-     * @param commonIngredient
-     * @param enterIngredientTime
+     * @param commonIngredient object
+     * @param enterIngredientTime object
      */
     public UserEnterIngredientResponseModel(CommonIngredient commonIngredient, String enterIngredientTime) {
         this.commonIngredient = commonIngredient;
@@ -25,9 +25,5 @@ public class UserEnterIngredientResponseModel {
      */
     public String getCreationTime() {
         return enterIngredientTime;
-    }
-
-    public void setCreationTime(String creationTime) {
-        this.enterIngredientTime = enterIngredientTime;
     }
 }

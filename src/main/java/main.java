@@ -9,7 +9,6 @@ import controllers.UserEnterIngredientsController;
 import entities.fridge.CommonFridgeFactory;
 import entities.ingredient.CommonIngredientFactory;
 import entities.recipe.CommonRecipeFactory;
-import entities.recipe.RecipeFactory;
 import entities.user.CommonUserFactory;
 import gateways.IApiGateway;
 import gateways.JavaHttpGateway;
@@ -21,7 +20,7 @@ import UI.startPageUI.startPageViewModelInterface;
 import presenters.login.loginFormatter;
 import presenters.login.loginPresenter;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
-import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeInteractor;
 import use_cases.login_usecase.LoginInteractor;
 import use_cases.login_usecase.loginInputBoundary;
 import use_cases.searchUseCase.SearchInputBoundary;
@@ -80,7 +79,7 @@ public class main {
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
         loginPresenter loginPresenter = new loginFormatter(startViewModel);
 
-        CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(userFactory, fridgeFactory,
+        CreateUserAndFridgeInputBoundary interactor = new CreateUserAndFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
         CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
 
