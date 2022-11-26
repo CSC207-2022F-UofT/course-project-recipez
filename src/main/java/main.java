@@ -20,6 +20,7 @@ import presenters.enter_ingredient.UserEnterIngredientPresenter;
 import UI.startPageUI.startPageViewModelInterface;
 import presenters.login.loginFormatter;
 import presenters.login.loginPresenter;
+import presenters.search.*;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
 import use_cases.login_usecase.LoginInteractor;
