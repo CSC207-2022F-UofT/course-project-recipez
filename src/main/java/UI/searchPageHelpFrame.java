@@ -1,5 +1,6 @@
 package UI;
 
+import UI.resultPage.ResultsPageView;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
 
@@ -140,6 +141,7 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
                     Objects.requireNonNull(mealType.getSelectedItem()).toString(),
                     Objects.requireNonNull(calories.getSelectedItem()).toString(),
                     Objects.requireNonNull(time.getSelectedItem()).toString());
+                    new ResultsPageView(//ResultsPageViewModel);
         }
     }
 }

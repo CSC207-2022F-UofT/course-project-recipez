@@ -23,12 +23,11 @@ public class ResultsPageView extends JFrame {
 
     /**
      *
-     * @param recipeController controller for results page, i.e recipebuilder
      * @param viewModel Data Structure used for results page
      */
-    ResultsPageView(RecipeBuilderController recipeController, ResultsPageViewModel viewModel)
+    ResultsPageView(ResultsPageViewModel viewModel)
             throws MalformedURLException {
-        this.recipeController = recipeController;
+
         this.viewModel = viewModel;
 
 
