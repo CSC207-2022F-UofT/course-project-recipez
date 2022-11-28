@@ -1,6 +1,6 @@
 package entities.user;
 
-import entities.fridge.CommonFridge;
+import entities.fridge.Fridge;
 
 /**
  * Interface user
@@ -9,5 +9,5 @@ import entities.fridge.CommonFridge;
 public interface User {
     boolean ingredientIsValid();
     String getName();
-    CommonFridge getFridge();
+    Fridge getFridge();
 }

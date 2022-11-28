@@ -22,7 +22,7 @@ public class RecipeBuilderResponseModel {
         try {
             JsonObject jsonObject = JsonParser.parseString(apiOutput).getAsJsonObject();
             JsonArray recipes = jsonObject.get("hits").getAsJsonArray();
-            int count = jsonObject.get("count").getAsInt();
+            int count = jsonObject.get("to").getAsInt();
 
             for(int i = 0; i < count; i++) {
                 JsonObject n = recipes.get(i).getAsJsonObject();

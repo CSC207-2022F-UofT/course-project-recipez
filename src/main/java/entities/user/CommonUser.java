@@ -1,6 +1,6 @@
 package entities.user;
 
-import entities.fridge.CommonFridge;
+import entities.fridge.Fridge;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class CommonUser implements User, Serializable {
     String name;
-    CommonFridge commonFridge;
+    Fridge Fridge;
 
     /**
      * Constructor for the user class
@@ -17,9 +17,9 @@ public class CommonUser implements User, Serializable {
      * @ param Fridge "Unique fridge of the user, user stores the ingredients in this fridge" (at the start fridge is
      * just empty)
      * */
-    public CommonUser(String name, CommonFridge commonFridge) {
+    public CommonUser(String name, Fridge fridge) {
         this.name = name;
-        this.commonFridge = commonFridge;
+        this.Fridge = fridge;
     }
 
     /**
@@ -44,7 +44,7 @@ public class CommonUser implements User, Serializable {
      * @return the fridge of the user
      */
     @Override
-    public CommonFridge getFridge() {
-        return this.commonFridge;
+    public Fridge getFridge() {
+        return this.Fridge;
     }
 }

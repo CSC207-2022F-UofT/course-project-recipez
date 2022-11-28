@@ -1,6 +1,6 @@
 package entities.fridge;
 
-import entities.ingredient.CommonIngredient;
+import entities.ingredient.Ingredient;
 
 import java.util.ArrayList;
 
@@ -9,5 +9,5 @@ import java.util.ArrayList;
  * Creates a fridge object for every new user
  */
 public interface FridgeFactory {
-    Fridge create(ArrayList<CommonIngredient> ingredients);
+    Fridge create(ArrayList<Ingredient> ingredients);
 }

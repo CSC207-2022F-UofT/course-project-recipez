@@ -4,14 +4,13 @@ import database.DatabaseGateway;
 import database.StorageObjects;
 import entities.fridge.CommonFridge;
 import entities.fridge.FridgeFactory;
-import entities.ingredient.CommonIngredient;
+import entities.ingredient.Ingredient;
 import entities.user.CommonUser;
 import entities.user.UserFactory;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Class CreateUserandFridgeInteractor
@@ -45,9 +44,7 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
      */
     @Override
     public CreateUserandFridgeResponseModel create(CreateUserandFridgeRequestModel requestModel) {
-/**
- * Need some method here that already checks if database has it
- */
+        //Need some method here that already checks if database has it
         if (database.hasKey(requestModel.getUserName())) {
             return createUserAndFridgePresenter.prepareFailView("User already exists.");
         }
@@ -55,16 +52,13 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
             return createUserAndFridgePresenter.prepareFailView("Nothing");
         }
         else {
-            ArrayList<CommonIngredient> tesst = new ArrayList<>();
+            ArrayList<Ingredient> tesst = new ArrayList<>();
             CommonFridge curr_fridge = (CommonFridge) fridgeFactory.create(tesst);
             CommonUser curr_user = (CommonUser) userFactory.create(requestModel.getUserName(), curr_fridge);
 
             StorageObjects storageObjects = new StorageObjects(curr_user, curr_fridge);
             database.store(requestModel.getUserName(), storageObjects);
-
-            /**
-             * Add erics method and somehow do database.save()
-             */
+            //Add erics method and somehow do database.save()
             // Need to add erics method
             //            database.save();
             LocalDateTime now = LocalDateTime.now();

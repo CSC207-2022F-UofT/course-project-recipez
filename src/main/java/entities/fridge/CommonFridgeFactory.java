@@ -1,6 +1,6 @@
 package entities.fridge;
 
-import entities.ingredient.CommonIngredient;
+import entities.ingredient.Ingredient;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class CommonFridgeFactory implements FridgeFactory {
      * fridge object for the user with ingredients inside
      */
     @Override
-    public Fridge create(ArrayList<CommonIngredient> ingredients) {
+    public Fridge create(ArrayList<Ingredient> ingredients) {
         return new CommonFridge(ingredients);
     }
 }

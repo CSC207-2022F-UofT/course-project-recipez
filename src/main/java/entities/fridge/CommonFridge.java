@@ -1,6 +1,5 @@
 package entities.fridge;
 
-import entities.ingredient.CommonIngredient;
 import entities.ingredient.Ingredient;
 
 import java.io.Serializable;
@@ -13,13 +12,13 @@ public class CommonFridge implements Fridge, Serializable {
      * User can make changes to the ingredients list by adding or removing an ingredient.
      * Existing user can set their Ingredient to their previous ingredients list.
      */
-    private ArrayList<CommonIngredient> ingredients;
+    private ArrayList<Ingredient> ingredients;
     /**
      * Constructor for the Fridge class
      * @ param ingredients: list of ingredients
      * */
 
-    public CommonFridge(ArrayList<CommonIngredient> ingrediants) {
+    public CommonFridge(ArrayList<Ingredient> ingrediants) {
         this.ingredients = ingrediants;
     }
 
@@ -29,23 +28,23 @@ public class CommonFridge implements Fridge, Serializable {
      * list of ingredients is created and initialised inside fridge
      */
 
-    public void setIngredients(ArrayList<CommonIngredient> ingredients) {
+    public void setIngredients(ArrayList<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
     /**
      *
-     * @param item which is a CommonIngredient
+     * @param item which is a Ingredient
      * Add an ingredient to Ingredient
      */
-    public void addIngredient (CommonIngredient item) {
+    public void addIngredient (Ingredient item) {
         ingredients.add(item);
     }
     /**
      *
-     * @param item which is a CommonIngredient
+     * @param item which is a Ingredient
      * Remove an ingredient from Fridge
      */
-    public void removeIngredient (CommonIngredient item) {
+    public void removeIngredient (Ingredient item) {
         ingredients.remove(item);
     }
 
