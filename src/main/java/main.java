@@ -1,3 +1,5 @@
+import UI.resultPage.ResultsPageViewModel;
+import UI.resultPage.ResultsPageViewModelInterface;
 import UI.startPageUI.startPageViewMain;
 import UI.startPageUI.startPageViewModel;
 import controllers.SearchController;
@@ -20,12 +22,14 @@ import presenters.enter_ingredient.UserEnterIngredientPresenter;
 import UI.startPageUI.startPageViewModelInterface;
 import presenters.login.loginFormatter;
 import presenters.login.loginPresenter;
+import presenters.search.*;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
 import use_cases.login_usecase.LoginInteractor;
 import use_cases.login_usecase.loginInputBoundary;
 import use_cases.searchUseCase.SearchInputBoundary;
 import use_cases.searchUseCase.SearchInteractor;
+import use_cases.searchUseCase.SearchResponseModel;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
 import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
 import javax.swing.*;
@@ -76,7 +80,7 @@ public class main {
         DatabaseGateway databaseGateway = new Database("Storage");
 
 
-        startPageViewModelInterface startViewModel = new startPageViewModel();
+        startPageViewModel startViewModel = new startPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
         loginPresenter loginPresenter = new loginFormatter(startViewModel);
 
@@ -99,10 +103,12 @@ public class main {
         loginController loginController = new loginController(loginInputinteractor);
 
         IApiGateway apiGateway = new JavaHttpGateway();
-        SearchInputBoundary searchInteractor = new SearchInteractor(apiGateway, databaseGateway, recipeFactory);
+        ResultsPageViewModelInterface resultViewModel = new ResultsPageViewModel();
+        SearchPresenter searchPresenter = new SearchFormatter(resultViewModel);
+        SearchInputBoundary searchInteractor = new SearchInteractor(apiGateway, databaseGateway, recipeFactory, searchPresenter);
         SearchController searchController = new SearchController(searchInteractor);
 
-        startPageViewMain startScreen = new startPageViewMain((startPageViewModel) startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController);
+        startPageViewMain startScreen = new startPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
