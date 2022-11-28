@@ -38,10 +38,9 @@ public class SearchInteractor implements SearchInputBoundary {
                 model.getCalories(),
                 model.getTime()
         );
-        SearchResponseModel searchResponseModel = new SearchResponseModel(recipeFactory);
-        ArrayList<Recipe> recipeOutput = searchResponseModel.getRecipe(APIResponse);
+        SearchResponseModel searchResponseModel = new SearchResponseModel(recipeFactory, APIResponse);
 
-        if (recipeOutput == null) {
+        if (APIResponse == null) {
             return searchPresenter.prepareFailView("API Output was incompatible.");
         }
         // Print Statement to show API response without results page

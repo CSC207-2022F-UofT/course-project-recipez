@@ -11,28 +11,14 @@ import java.util.ArrayList;
 
 public class SearchResponseModel {
     RecipeFactory recipeFactory;
+    private final String apiOutput;
 
-    public SearchResponseModel(RecipeFactory recipeFactory) {
+    public SearchResponseModel(RecipeFactory recipeFactory, String apiOutput) {
         this.recipeFactory = recipeFactory;
+        this.apiOutput = apiOutput;
     }
 
-    public ArrayList<Recipe> getRecipe(String apiOutput){
-        RecipeFactory factory = new CommonRecipeFactory();
-        ArrayList<Recipe> formattedRecipes = new ArrayList<>();
-        try {
-            JsonObject jsonObject = JsonParser.parseString(apiOutput).getAsJsonObject();
-            JsonArray recipes = jsonObject.get("hits").getAsJsonArray();
-            int count = jsonObject.get("count").getAsInt();
-
-            for(int i = 0; i < count; i++) {
-                JsonObject n = recipes.get(i).getAsJsonObject();
-                JsonObject p = n.get("recipe").getAsJsonObject();
-                formattedRecipes.add(factory.create(p.get("label").getAsString(),p.get("url").getAsString(),p.get("image")));
-
-            }
-            return formattedRecipes;
-        } catch(Exception e) {
-            return new ArrayList<>();
-        }
+    public String getApiOutput() {
+        return apiOutput;
     }
 }
