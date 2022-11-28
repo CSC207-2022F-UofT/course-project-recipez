@@ -13,6 +13,14 @@ public class ResultsPageViewModel implements ResultsPageViewModelInterface {
     public ArrayList<Recipe> recipes;
     public String errorMessage;
 
+    /**
+     * Constructor for ViewModel.
+     */
+    public ResultsPageViewModel() {
+        this.recipes = new ArrayList<>();
+        this.errorMessage = null;
+
+    }
 
     @Override
     public void resultsSuccess(ArrayList<Recipe> recipes) {
@@ -22,7 +30,6 @@ public class ResultsPageViewModel implements ResultsPageViewModelInterface {
     @Override
     public void resultsFailure(String errorMessage) {
         this.errorMessage = errorMessage;
-        this.recipes = new ArrayList<>(); //Makes an empty ArrayList for the if condition in ResultsPageView
         System.out.println(this.errorMessage);
     }
 }
