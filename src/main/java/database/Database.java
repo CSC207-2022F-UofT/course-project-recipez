@@ -11,7 +11,7 @@ public class Database implements Serializable, DatabaseGateway {
 
     // Instance variables
     private final File storageFile;
-    private HashMap<String, ArrayList<Object>> database;
+    private HashMap<String, StorageObjects> database;
 
     /**
      * Constructor used to initialize the Database given a String filepath
@@ -25,7 +25,7 @@ public class Database implements Serializable, DatabaseGateway {
         try {
             // Enters the if branch is the new file is successfully created. Otherwise, we load from the existing file.
             if (storageFile.createNewFile()) {
-                this.database = new HashMap<String, ArrayList<Object>>();
+                this.database = new HashMap<>();
                 save();
             } else {
                 load();
@@ -60,7 +60,7 @@ public class Database implements Serializable, DatabaseGateway {
     private void load() {
         try {
             ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(storageFile)));
-            this.database = (HashMap<String, ArrayList<Object>>) in.readObject();
+            this.database = (HashMap<String, StorageObjects>) in.readObject();
             in.close();
         } catch (Exception e) {
             throw new RuntimeException("The database loading system is malfunctioning");
@@ -71,11 +71,11 @@ public class Database implements Serializable, DatabaseGateway {
      * Store's the object of any type given a unique key in the Database.
      *
      * @param key    The unique string identifier of the object that is stored in the database.
-     * @param object The list of object(s) that is stored in the database.
+     * @param storageObjects   The object struct class that is stored in the database.
      */
     @Override
-    public void store(String key, ArrayList<Object> object) {
-        this.database.put(key, object);
+    public void store(String key, StorageObjects storageObjects) {
+        this.database.put(key, storageObjects);
         save();
     }
 
@@ -97,7 +97,7 @@ public class Database implements Serializable, DatabaseGateway {
      * @return the list object(s) of any type that is stored in the Database.
      */
     @Override
-    public ArrayList<Object> get(String key) {
+    public StorageObjects get(String key) {
         return this.database.get(key);
     }
 
@@ -106,7 +106,12 @@ public class Database implements Serializable, DatabaseGateway {
      */
     @Override
     public void deleteStorageFile() {
-        this.storageFile.delete();
+        boolean result = this.storageFile.delete();
+        if (result) {
+            System.out.println("Storage file deleted successfully");
+        } else {
+            System.out.println("Storage file was not deleted successfully");
+        }
     }
 
     /**

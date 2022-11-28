@@ -29,8 +29,8 @@ public class LoginInteractor implements loginInputBoundary{
             return loginPresenter.prepareFailView("Nothing");
         }
         else {
-            CommonUser curr_user = (CommonUser) database.get(requestModel.getUserName()).get(1);
-            CommonFridge curr_fridge = (CommonFridge) database.get(requestModel.getUserName()).get(0);
+            CommonUser curr_user = (CommonUser) database.get(requestModel.getUserName()).getUser();
+            CommonFridge curr_fridge = (CommonFridge) database.get(requestModel.getUserName()).getFridge();
             loginResponseModel loginsuccess = new loginResponseModel(curr_fridge, curr_user);
 
             try{

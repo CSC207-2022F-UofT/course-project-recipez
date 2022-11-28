@@ -52,7 +52,7 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
             /**
              * Need to call some database method based on String
              */
-            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(1);
+            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).getUser();
             Curr_User.getFridge().addIngredient(ingredient);
             database.save();
             LocalDateTime now = LocalDateTime.now();
