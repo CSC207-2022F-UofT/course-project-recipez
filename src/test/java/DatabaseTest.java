@@ -66,7 +66,7 @@ public class DatabaseTest {
 
        // list.add(fridge);
 
-        database.store(username, list);
+        //database.store(username, list);
 
         database.remove(username);
 
