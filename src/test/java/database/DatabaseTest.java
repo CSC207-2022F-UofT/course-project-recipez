@@ -145,8 +145,6 @@ public class DatabaseTest {
         assertTrue(Files.exists(path));
     }
 
-
-
     /**
      * A tear down method after each test, which destroys the storage file.
      */
