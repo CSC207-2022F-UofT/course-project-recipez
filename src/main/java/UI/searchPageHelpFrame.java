@@ -1,5 +1,7 @@
 package UI;
 
+import UI.resultPage.ResultsPageView;
+import UI.resultPage.ResultsPageViewModel;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
 
@@ -8,6 +10,7 @@ import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
 import java.util.Objects;
 
 public class searchPageHelpFrame extends JFrame implements ActionListener {
@@ -31,9 +34,12 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
     String caloriesFilter;
     String cookTimeFilter;
 
-    public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, SearchController searchController, String username) {
+    ResultsPageViewModel resultsPageViewModel;
+
+    public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, SearchController searchController, String username, ResultsPageViewModel resultPageViewModel) {
         this.enterIngredientsController = ingredientsController;
         this.searchController = searchController;
+        this.resultsPageViewModel = resultPageViewModel;
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1280, 720);
@@ -136,10 +142,20 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
             }*/
         }
         if (e.getSource() == search){
-            searchController.search(currentUser,
-                    Objects.requireNonNull(mealType.getSelectedItem()).toString(),
-                    Objects.requireNonNull(calories.getSelectedItem()).toString(),
-                    Objects.requireNonNull(time.getSelectedItem()).toString());
+
+            try {
+                ResultsPageView pageView = new ResultsPageView(resultsPageViewModel);
+                searchController.search(currentUser,
+                        Objects.requireNonNull(mealType.getSelectedItem()).toString(),
+                        Objects.requireNonNull(calories.getSelectedItem()).toString(),
+                        Objects.requireNonNull(time.getSelectedItem()).toString());
+
+                pageView.updateView();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
         }
+
+
     }
 }

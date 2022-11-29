@@ -1,5 +1,6 @@
 package UI.startPageUI;
 
+import UI.resultPage.ResultsPageViewModel;
 import controllers.CreateUserandFridgeController;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
@@ -23,17 +24,20 @@ public class startPageViewMain extends JPanel{
     private JPanel startScreens;
     private CardLayout screenLayout;
 
+    private ResultsPageViewModel resultsPageViewModel;
+
     /**
      * Constructor for the startPageViewMain class
      * @param viewModel viewModel containing data for view to present
      * @param controller createUserAndFridge Controller to begin use case for registering/logging in users
      */
-    public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController) {
+    public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, ResultsPageViewModel resultsPageViewModel) {
         this.viewModel = viewModel;
         this.registerController = controller;
         this.loginController = loginController;
         this.ingredientsController = ingredientsController;
         this.searchController = searchController;
+        this.resultsPageViewModel = resultsPageViewModel;
 
         setLayout(new BorderLayout());
 
@@ -48,7 +52,7 @@ public class startPageViewMain extends JPanel{
 
         startPageViewWelcome welcome = new startPageViewWelcome(viewModel, controller, startScreens, screenLayout);
         registerUserView register = new registerUserView(viewModel, controller, startScreens, screenLayout);
-        userLoginView login = new userLoginView(viewModel, loginController, ingredientsController, searchController, startScreens, screenLayout);
+        userLoginView login = new userLoginView(viewModel, loginController, ingredientsController, searchController, startScreens, screenLayout, resultsPageViewModel);
 
         startScreens.add(welcome , "main");
         startScreens.add(register, "register");

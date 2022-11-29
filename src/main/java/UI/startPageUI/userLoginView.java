@@ -1,5 +1,6 @@
 package UI.startPageUI;
 
+import UI.resultPage.ResultsPageViewModel;
 import UI.searchPageHelpFrame;
 import controllers.CreateUserandFridgeController;
 import controllers.SearchController;
@@ -32,13 +33,16 @@ public class userLoginView extends JPanel implements ActionListener {
 
     private SearchController searchController;
 
-    public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout) {
+    private ResultsPageViewModel resultsPageViewModel;
+
+    public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout, ResultsPageViewModel resultsPageViewModel) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
         this.loginController = loginController;
         this.ingredientsController = ingredientsController;
         this.searchController = searchController;
+        this.resultsPageViewModel = resultsPageViewModel;
 
         this.username = new JTextField(15);
 
@@ -83,7 +87,7 @@ public class userLoginView extends JPanel implements ActionListener {
             JOptionPane.showMessageDialog(this, viewModel.attempt_login_response);
 
             if (viewModel.loggedIn) {
-                new searchPageHelpFrame(this.ingredientsController, this.searchController, username.getText());
+                new searchPageHelpFrame(this.ingredientsController, this.searchController, username.getText(), resultsPageViewModel);
             }
         }
     }
