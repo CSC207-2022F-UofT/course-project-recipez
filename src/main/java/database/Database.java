@@ -124,5 +124,10 @@ public class Database implements Serializable, DatabaseGateway {
     public boolean hasKey(String key) {
         return this.database.containsKey(key);
     }
+
+    @Override
+    public String toString() {
+        return storageFile.toString() + database.toString();
+    }
 }
 
