@@ -125,6 +125,11 @@ public class Database implements Serializable, DatabaseGateway {
         return this.database.containsKey(key);
     }
 
+    /**
+     * A toString method
+     *
+     * @return a String concatenation of the storageFile String and the hashmap to String.
+     */
     @Override
     public String toString() {
         return storageFile.toString() + database.toString();
