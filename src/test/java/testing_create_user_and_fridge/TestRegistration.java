@@ -45,9 +45,6 @@ public class TestRegistration {
             }
         };
 
-        /**
-         * All of this is usually created in the main file
-         */
         FridgeFactory testingFridgeFactory = new CommonFridgeFactory();
         UserFactory testingUserFactory = new CommonUserFactory();
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(testingUserFactory,
@@ -57,6 +54,9 @@ public class TestRegistration {
         testingDatabase.deleteStorageFile();
     }
 
+    /**
+     * Manually create a user along with fridge and test that use case returns that user already exists
+     */
     @Test
     void UserExists() {
         DatabaseGateway testingDatabase = new Database("Test_Storage");
@@ -78,9 +78,6 @@ public class TestRegistration {
         UserFactory testingUserFactory = new CommonUserFactory();
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(testingUserFactory,
                 testingFridgeFactory, testingPresenter, testingDatabase);
-        /**
-         * Manually add the user first then test
-         */
         ArrayList<CommonIngredient> ingredients = new ArrayList<>();
         CommonFridge testFridge = (CommonFridge) testingFridgeFactory.create(ingredients);
         CommonUser testUser = (CommonUser) testingUserFactory.create("demetriusSr", testFridge);
@@ -90,12 +87,11 @@ public class TestRegistration {
         interactor.create(inputData);
 
 
-
-        //CreateUserandFridgeRequestModel inputDate = new CreateUserandFridgeRequestModel("demetriusjr");
-        //interactor.create(inputDate);
-
     }
 
+    /**
+     * Return error if nothing is entered
+     */
     @Test
     void UserDoesNotExist() {
         DatabaseGateway testingDatabase = new Database("Test_Storage");
@@ -112,12 +108,14 @@ public class TestRegistration {
                 return null;
             }
         };
+
         FridgeFactory testingFridgeFactory = new CommonFridgeFactory();
         UserFactory testingUserFactory = new CommonUserFactory();
         CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(testingUserFactory,
                 testingFridgeFactory, testingPresenter, testingDatabase);
         CreateUserandFridgeRequestModel inputData = new CreateUserandFridgeRequestModel("");
         interactor.create(inputData);
+        testingDatabase.deleteStorageFile();
 
     }
 

@@ -48,11 +48,11 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
 /**
  * Need some method here that already checks if database has it
  */
-        if (database.hasKey(requestModel.getUserName())) {
-            return createUserAndFridgePresenter.prepareFailView("User already exists.");
+        if (requestModel.getUserName().isEmpty()) {
+            return createUserAndFridgePresenter.prepareFailView("Nothing Entered");
         }
-        else if (requestModel.getUserName().isEmpty()) {
-            return createUserAndFridgePresenter.prepareFailView("Nothing");
+        else if (database.hasKey(requestModel.getUserName())) {
+            return createUserAndFridgePresenter.prepareFailView("User already exists.");
         }
         else {
             ArrayList<CommonIngredient> tesst = new ArrayList<>();

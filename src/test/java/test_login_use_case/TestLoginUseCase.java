@@ -1,4 +1,4 @@
-package testing_login_use_case;
+package test_login_use_case;
 
 import database.Database;
 import database.DatabaseGateway;
