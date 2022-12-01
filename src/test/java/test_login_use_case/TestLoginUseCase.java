@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestingLoginUseCase {
+public class TestLoginUseCase {
     /**
      * Test if a user already exists
      */
@@ -46,9 +46,6 @@ public class TestingLoginUseCase {
             }
         };
 
-        /**
-         * Since we are testing for login, we have to manually enter our data in the data base
-         */
         FridgeFactory testingFridgeFactory = new CommonFridgeFactory();
         ArrayList<CommonIngredient> ingredients = new ArrayList<>();
         CommonFridge testFridge = (CommonFridge) testingFridgeFactory.create(ingredients);
@@ -62,6 +59,10 @@ public class TestingLoginUseCase {
         loginRequestModel inputData = new loginRequestModel("demetriusjr");
         testing_login.create(inputData);
     }
+
+    /**
+     * Check if user does not exist program gives expected result
+     */
     @Test
     void nonexistentTest(){
 
@@ -88,11 +89,13 @@ public class TestingLoginUseCase {
 
 
     }
+
+    /**
+     * Expected Result when nothing is entered
+     */
     @Test
     void nothingTest(){
-
         DatabaseGateway testingDatabase = new Database("Test_Storage");
-
         loginPresenter testingPresenter = new loginPresenter() {
             @Override
             public loginResponseModel prepareSuccessView(loginResponseModel responseModel) {
@@ -107,7 +110,6 @@ public class TestingLoginUseCase {
         loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
         loginRequestModel inputData = new loginRequestModel("");
         testing_login.create(inputData);
-
 
     }
 
