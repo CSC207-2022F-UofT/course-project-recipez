@@ -29,6 +29,13 @@ public interface Fridge {
      * @param item which is a CommonIngredient
      * implemented by fridge class
      */
-    void removeIngredient (CommonIngredient item) ;
+    void removeIngredient (CommonIngredient item);
 
+    /**
+     * Used for unit testing purposes
+     * the UUID allows for the object to have a unique ID.
+     *
+     * @return the ID as an int
+     */
+    int getUUID();
 }
