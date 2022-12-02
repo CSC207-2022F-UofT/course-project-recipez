@@ -5,7 +5,6 @@ import entities.fridge.CommonFridge;
 import gateways.IApiGateway;
 import entities.recipe.RecipeFactory;
 import presenters.search.SearchPresenter;
-import use_cases.searchusecase.SearchResponseModel;
 /**
  * Interactor for Search use case
  */

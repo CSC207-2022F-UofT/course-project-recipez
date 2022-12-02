@@ -11,7 +11,6 @@ import controllers.UserEnterIngredientsController;
 import entities.fridge.CommonFridgeFactory;
 import entities.ingredient.CommonIngredientFactory;
 import entities.recipe.CommonRecipeFactory;
-import entities.recipe.RecipeFactory;
 import entities.user.CommonUserFactory;
 import gateways.IApiGateway;
 import gateways.JavaHttpGateway;
