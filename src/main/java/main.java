@@ -86,30 +86,5 @@ public class main {
         cardLayout.show(screens, "register");
         application.setVisible(true);
 
-
-
-//        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-//        System.out.println("Enter Username");
-//        String userName = myObj.nextLine();
-
-//        CommonUser shaffaan = createUserandFridgeController.create(userName);
-//        System.out.println("the user is " +
-//                presenter.prepareSuccessView(shaffaan).getName() + " the current" +
-//                        " fridge is ");
-//        System.out.println((presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
-
-//        Scanner myObj5 = new Scanner(System.in);
-//        System.out.println("Enter Ingrediant");
-//        String ingrediant_at_index1 = myObj5.nextLine();
-
-
-//        User_Enter_Ingrediants_Input_Boundry interactor2 = new
-//                UserEnterIngredientsInteractor(shaffaan, shaffaan.getFridge(),ingredientFactory,presenter1);
-//        User_Enter_Ingrediants_Controller userEnterIngrediantsController = new User_Enter_Ingrediants_Controller(interactor2);
-
-//        CommonIngredient ing = userEnterIngrediantsController.create(ingrediant_at_index1);
-//        System.out.println(" You have added" + presenter1.prepareSuccessView(ing).getName() + "new fridge is " +
-//                (presenter.prepareSuccessView(shaffaan).getFridge().printIngrediant()));
-
     }
 }
