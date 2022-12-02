@@ -59,12 +59,6 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
 
             StorageObjects storageObjects = new StorageObjects(curr_user, curr_fridge);
             database.store(requestModel.getUserName(), storageObjects);
-
-            /**
-             * Add erics method and somehow do database.save()
-             */
-            // Need to add erics method
-            //            database.save();
             LocalDateTime now = LocalDateTime.now();
             CreateUserandFridgeResponseModel successResponseModel = new
                     CreateUserandFridgeResponseModel(curr_fridge, curr_user, now.toString());
@@ -77,20 +71,4 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
             }
         }
     }
-
-//    @Override
-//    public String create(CreateUserandFridgeRequestModel requestModel) {
-//        if (Objects.equals(requestModel.getUserName(), "")) {
-//            return createUserAndFridgePresenter.prepareFailView("Nothing entered");
-//        }
-//        else {
-//            ArrayList<CommonIngrediant> temporary = new ArrayList<>();
-//            Fridge fridge = fridgeFactory.create(temporary);
-//            User user = userFactory.create("Shaffaan", (CommonFridge) fridge);
-//
-//            CreateUserandFridgeResponseModel user_created_successfully =
-//                    new CreateUserandFridgeResponseModel(user.getName());
-//            return createUserAndFridgePresenter.prepareSuccessView(user_created_successfully);
-//        }
-//    }
 }
