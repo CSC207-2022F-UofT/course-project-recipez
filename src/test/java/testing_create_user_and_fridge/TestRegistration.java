@@ -13,9 +13,9 @@ import entities.user.UserFactory;
 import org.junit.jupiter.api.Test;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
-import use_cases.create_user_and_fridge.CreateUserandFridgeInteractor;
-import use_cases.create_user_and_fridge.CreateUserandFridgeRequestModel;
-import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeInteractor;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeRequestModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class TestRegistration {
 
         CreateUserAndFridgePresenter testingPresenter = new CreateUserAndFridgePresenter() {
             @Override
-            public CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel) {
+            public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
                 assertEquals("demetriusjr", responseModel.getCommonUser().getName());
                 // Fridge is empty right now
                 assertEquals("", responseModel.getCommonUser().getFridge().printIngredient());
@@ -40,16 +40,16 @@ public class TestRegistration {
             }
 
             @Override
-            public CreateUserandFridgeResponseModel prepareFailView(String error) {
+            public CreateUserAndFridgeResponseModel prepareFailView(String error) {
                 return null;
             }
         };
 
         FridgeFactory testingFridgeFactory = new CommonFridgeFactory();
         UserFactory testingUserFactory = new CommonUserFactory();
-        CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(testingUserFactory,
+        CreateUserAndFridgeInputBoundary interactor = new CreateUserAndFridgeInteractor(testingUserFactory,
                 testingFridgeFactory, testingPresenter, testingDatabase);
-        CreateUserandFridgeRequestModel inputData = new CreateUserandFridgeRequestModel("demetriusjr");
+        CreateUserAndFridgeRequestModel inputData = new CreateUserAndFridgeRequestModel("demetriusjr");
         interactor.create(inputData);
         testingDatabase.deleteStorageFile();
     }
@@ -63,12 +63,12 @@ public class TestRegistration {
         CreateUserAndFridgePresenter testingPresenter = new CreateUserAndFridgePresenter() {
 
             @Override
-            public CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel) {
+            public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
                 return null;
             }
 
             @Override
-            public CreateUserandFridgeResponseModel prepareFailView(String error) {
+            public CreateUserAndFridgeResponseModel prepareFailView(String error) {
                 assertEquals("User already exists.", error);
                 return null;
             }
@@ -76,14 +76,14 @@ public class TestRegistration {
         };
         FridgeFactory testingFridgeFactory = new CommonFridgeFactory();
         UserFactory testingUserFactory = new CommonUserFactory();
-        CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(testingUserFactory,
+        CreateUserAndFridgeInputBoundary interactor = new CreateUserAndFridgeInteractor(testingUserFactory,
                 testingFridgeFactory, testingPresenter, testingDatabase);
         ArrayList<CommonIngredient> ingredients = new ArrayList<>();
         CommonFridge testFridge = (CommonFridge) testingFridgeFactory.create(ingredients);
         CommonUser testUser = (CommonUser) testingUserFactory.create("demetriusSr", testFridge);
         StorageObjects objects = new StorageObjects(testUser, testFridge);
         testingDatabase.store("demetriusSr", objects);
-        CreateUserandFridgeRequestModel inputData = new CreateUserandFridgeRequestModel("demetriusSr");
+        CreateUserAndFridgeRequestModel inputData = new CreateUserAndFridgeRequestModel("demetriusSr");
         interactor.create(inputData);
 
 
@@ -98,12 +98,12 @@ public class TestRegistration {
 
         CreateUserAndFridgePresenter testingPresenter = new CreateUserAndFridgePresenter() {
             @Override
-            public CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel) {
+            public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
                 return null;
             }
 
             @Override
-            public CreateUserandFridgeResponseModel prepareFailView(String error) {
+            public CreateUserAndFridgeResponseModel prepareFailView(String error) {
                 assertEquals("Nothing Entered", error);
                 return null;
             }
@@ -111,9 +111,9 @@ public class TestRegistration {
 
         FridgeFactory testingFridgeFactory = new CommonFridgeFactory();
         UserFactory testingUserFactory = new CommonUserFactory();
-        CreateUserAndFridgeInputBoundary interactor = new CreateUserandFridgeInteractor(testingUserFactory,
+        CreateUserAndFridgeInputBoundary interactor = new CreateUserAndFridgeInteractor(testingUserFactory,
                 testingFridgeFactory, testingPresenter, testingDatabase);
-        CreateUserandFridgeRequestModel inputData = new CreateUserandFridgeRequestModel("");
+        CreateUserAndFridgeRequestModel inputData = new CreateUserAndFridgeRequestModel("");
         interactor.create(inputData);
         testingDatabase.deleteStorageFile();
 
