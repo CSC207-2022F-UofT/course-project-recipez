@@ -1,7 +1,6 @@
 package UI.startPageUI;
 
-import UI.searchPageHelpFrame;
-import controllers.CreateUserandFridgeController;
+import controllers.CreateUserAndFridgeController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,11 +21,11 @@ public class registerUserView extends JPanel implements ActionListener {
     private JPanel screens;
     private CardLayout screenLayout;
 
-    private CreateUserandFridgeController registerController;
+    private CreateUserAndFridgeController registerController;
 
     private JTextField register_response;
 
-    public registerUserView(startPageViewModel viewModel, CreateUserandFridgeController controller,
+    public registerUserView(startPageViewModel viewModel, CreateUserAndFridgeController controller,
                             JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;

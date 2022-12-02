@@ -6,7 +6,7 @@ import controllers.SearchController;
 import controllers.loginController;
 import database.Database;
 import database.DatabaseGateway;
-import controllers.CreateUserandFridgeController;
+import controllers.CreateUserAndFridgeController;
 import controllers.UserEnterIngredientsController;
 import entities.fridge.CommonFridgeFactory;
 import entities.ingredient.CommonIngredientFactory;
@@ -57,7 +57,7 @@ public class main {
 
         CreateUserAndFridgeInputBoundary interactor = new CreateUserAndFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
-        CreateUserandFridgeController createUserandFridgeController = new CreateUserandFridgeController(interactor);
+        CreateUserAndFridgeController createUserandFridgeController = new CreateUserAndFridgeController(interactor);
 
         CommonIngredientFactory ingredientFactory = new CommonIngredientFactory();
         UserEnterIngredientPresenter presenter1 = new UserEnterIngredientFormatter();

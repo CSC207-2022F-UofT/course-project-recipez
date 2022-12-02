@@ -7,20 +7,23 @@ import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 /**
  * Controller Class
  */
-public class CreateUserandFridgeController{
+public class CreateUserAndFridgeController {
 
     public CreateUserAndFridgeInputBoundary userNameInteractor;
 
     /**
      * Constructor for this controller class
-     * @param userNameInteractor
+     *
+     * @param userNameInteractor CreateUserAndFridgeInputBoundary interactor
      */
-    public CreateUserandFridgeController(CreateUserAndFridgeInputBoundary userNameInteractor) {
+    public CreateUserAndFridgeController(CreateUserAndFridgeInputBoundary userNameInteractor) {
         this.userNameInteractor = userNameInteractor;
     }
 
     /**
-     * @param user
+     * Creates CreateUserAndFridgeResponseModel given a user as a String.
+     *
+     * @param user as a String
      * @return calls the create method of the interactor
      */
     public CreateUserAndFridgeResponseModel create(String user) {

@@ -1,7 +1,6 @@
 package entities.fridge;
 
 import entities.ingredient.CommonIngredient;
-import entities.ingredient.Ingredient;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,8 +18,8 @@ public class CommonFridge implements Fridge, Serializable {
      * @ param ingredients: list of ingredients
      * */
 
-    public CommonFridge(ArrayList<CommonIngredient> ingrediants) {
-        this.ingredients = ingrediants;
+    public CommonFridge(ArrayList<CommonIngredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     /**
@@ -40,23 +39,6 @@ public class CommonFridge implements Fridge, Serializable {
     public void addIngredient (CommonIngredient item) {
         ingredients.add(item);
     }
-    /**
-     *
-     * @param item which is a CommonIngredient
-     * Remove an ingredient from Fridge
-     */
-    public void removeIngredient (CommonIngredient item) {
-        ingredients.remove(item);
-    }
-
-    /**
-     *
-     * @return the first ingredient in the fridge
-     * primarily created for testing the usecase
-     */
-    public Ingredient getIngredientx () {
-        return this.ingredients.get(0) ;
-    }
 
     /**
      *
@@ -66,7 +48,7 @@ public class CommonFridge implements Fridge, Serializable {
         String[] ingredientNamesArray = new String[this.ingredients.size()];
         for (int i = 0; i < this.ingredients.size(); i++) {
             ingredientNamesArray[i] = this.ingredients.get(i).getName();
-        };
+        }
         return String.join(",", ingredientNamesArray);
     }
 

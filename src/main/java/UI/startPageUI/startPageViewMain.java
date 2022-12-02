@@ -1,7 +1,7 @@
 package UI.startPageUI;
 
 import UI.resultPage.ResultsPageViewModel;
-import controllers.CreateUserandFridgeController;
+import controllers.CreateUserAndFridgeController;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
 import controllers.loginController;
@@ -17,7 +17,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class startPageViewMain extends JPanel{
     private startPageViewModel viewModel;
-    private CreateUserandFridgeController registerController;
+    private CreateUserAndFridgeController registerController;
     private loginController loginController;
     private UserEnterIngredientsController ingredientsController;
     private SearchController searchController;
@@ -31,7 +31,7 @@ public class startPageViewMain extends JPanel{
      * @param viewModel viewModel containing data for view to present
      * @param controller createUserAndFridge Controller to begin use case for registering/logging in users
      */
-    public startPageViewMain(startPageViewModel viewModel, CreateUserandFridgeController controller, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, ResultsPageViewModel resultsPageViewModel) {
+    public startPageViewMain(startPageViewModel viewModel, CreateUserAndFridgeController controller, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, ResultsPageViewModel resultsPageViewModel) {
         this.viewModel = viewModel;
         this.registerController = controller;
         this.loginController = loginController;

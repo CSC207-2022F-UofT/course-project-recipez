@@ -2,11 +2,9 @@ package UI.startPageUI;
 
 import UI.resultPage.ResultsPageViewModel;
 import UI.searchPageHelpFrame;
-import controllers.CreateUserandFridgeController;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
 import controllers.loginController;
-import entities.user.User;
 
 import javax.swing.*;
 import java.awt.*;

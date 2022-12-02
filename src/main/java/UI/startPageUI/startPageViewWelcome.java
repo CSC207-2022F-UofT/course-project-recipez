@@ -1,6 +1,6 @@
 package UI.startPageUI;
 
-import controllers.CreateUserandFridgeController;
+import controllers.CreateUserAndFridgeController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +15,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class startPageViewWelcome extends JPanel implements ActionListener{
     private final startPageViewModel viewModel;
 
-    private CreateUserandFridgeController registerController;
+    private CreateUserAndFridgeController registerController;
     private final JButton register;
     private final JButton login;
     private JPanel screens;
@@ -28,7 +28,7 @@ public class startPageViewWelcome extends JPanel implements ActionListener{
      * @param screens stores the multiple screens in the UI
      * @param screenLayout defines the ordering of the screens so UI can switch
      */
-    public startPageViewWelcome(startPageViewModel viewModel, CreateUserandFridgeController controller, JPanel screens, CardLayout screenLayout) {
+    public startPageViewWelcome(startPageViewModel viewModel, CreateUserAndFridgeController controller, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
