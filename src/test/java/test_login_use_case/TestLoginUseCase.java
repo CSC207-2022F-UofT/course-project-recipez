@@ -58,6 +58,7 @@ public class TestLoginUseCase {
         //loginResponseModel inputData = new loginResponseModel(testFridge ,testUser);
         loginRequestModel inputData = new loginRequestModel("demetriusjr");
         testing_login.create(inputData);
+        testingDatabase.deleteStorageFile();
     }
 
     /**
@@ -86,6 +87,7 @@ public class TestLoginUseCase {
         loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
         loginRequestModel inputData = new loginRequestModel("demetriusSr");
         testing_login.create(inputData);
+        testingDatabase.deleteStorageFile();
 
 
     }
@@ -110,7 +112,7 @@ public class TestLoginUseCase {
         loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
         loginRequestModel inputData = new loginRequestModel("");
         testing_login.create(inputData);
-
+        testingDatabase.deleteStorageFile();
     }
 
 }
