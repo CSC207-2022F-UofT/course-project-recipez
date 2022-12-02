@@ -1,4 +1,4 @@
-package use_cases.searchUseCase;
+package use_cases.searchusecase;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -9,6 +9,9 @@ import entities.recipe.RecipeFactory;
 
 import java.util.ArrayList;
 
+/**
+ * Output model for search use case
+ */
 public class SearchResponseModel {
     RecipeFactory recipeFactory;
     private final String apiOutput;

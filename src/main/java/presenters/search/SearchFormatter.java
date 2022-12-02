@@ -5,11 +5,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import entities.recipe.CommonRecipeFactory;
-import entities.recipe.Recipe;
 import entities.recipe.RecipeFactory;
-import use_cases.searchUseCase.SearchResponseModel;
+import use_cases.searchusecase.SearchResponseModel;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 public class SearchFormatter implements SearchPresenter {
     /**
@@ -24,7 +24,7 @@ public class SearchFormatter implements SearchPresenter {
     @Override
     public SearchResponseModel prepareSuccessView(SearchResponseModel searchResponse) {
         RecipeFactory factory = new CommonRecipeFactory();
-        ArrayList<Recipe> formattedRecipes = new ArrayList<>();
+        ArrayList<Dictionary<String, Object>> formattedRecipes = new ArrayList<>();
 
         JsonObject jsonObject = JsonParser.parseString(searchResponse.getApiOutput()).getAsJsonObject();
         JsonArray recipes = jsonObject.get("hits").getAsJsonArray();
@@ -33,7 +33,7 @@ public class SearchFormatter implements SearchPresenter {
         for(int j = 0; j < count; j++) {
             JsonObject n = recipes.get(j).getAsJsonObject();
             JsonObject p = n.get("recipe").getAsJsonObject();
-            formattedRecipes.add(factory.create(p.get("label").getAsString(),p.get("url").getAsString(),p.get("image")));
+            formattedRecipes.add(factory.create(p.get("label").getAsString(),p.get("url").getAsString(),p.get("image")).getRecipeInfo());
 
         }
 
