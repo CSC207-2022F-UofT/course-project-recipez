@@ -45,9 +45,7 @@ public class CreateUserandFridgeInteractor implements CreateUserAndFridgeInputBo
      */
     @Override
     public CreateUserandFridgeResponseModel create(CreateUserandFridgeRequestModel requestModel) {
-/**
- * Need some method here that already checks if database has it
- */
+
         if (requestModel.getUserName().isEmpty()) {
             return createUserAndFridgePresenter.prepareFailView("Nothing Entered");
         }
