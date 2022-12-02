@@ -5,6 +5,9 @@ import entities.fridge.CommonFridge;
 import entities.user.CommonUser;
 import presenters.login.loginPresenter;
 
+
+import java.util.Objects;
+
 public class LoginInteractor implements loginInputBoundary{
 
 
@@ -20,11 +23,11 @@ public class LoginInteractor implements loginInputBoundary{
 
     @Override
     public loginResponseModel create(loginRequestModel requestModel) {
-        if (!database.hasKey(requestModel.getUserName())) {
-            return loginPresenter.prepareFailView("Account does not exist");
+        if (Objects.equals(requestModel.getUserName(), "")) {
+            return loginPresenter.prepareFailView("Nothing Entered");
         }
-        else if (requestModel.getUserName().isEmpty()) {
-            return loginPresenter.prepareFailView("Nothing");
+        else if (!database.hasKey(requestModel.getUserName())) {
+            return loginPresenter.prepareFailView("Account does not exist");
         }
         else {
 

@@ -44,12 +44,14 @@ public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBo
      *                     Use the presenter to prepare a success view
      */
     @Override
+
     public CreateUserAndFridgeResponseModel create(CreateUserAndFridgeRequestModel requestModel) {
-        if (database.hasKey(requestModel.getUserName())) {
-            return createUserAndFridgePresenter.prepareFailView("User already exists.");
+
+        if (requestModel.getUserName().isEmpty()) {
+            return createUserAndFridgePresenter.prepareFailView("Nothing Entered");
         }
-        else if (requestModel.getUserName().isEmpty()) {
-            return createUserAndFridgePresenter.prepareFailView("Nothing");
+        else if (database.hasKey(requestModel.getUserName())) {
+            return createUserAndFridgePresenter.prepareFailView("User already exists.");
         }
         else {
             ArrayList<CommonIngredient> arr_list = new ArrayList<>();
