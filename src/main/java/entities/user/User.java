@@ -7,7 +7,6 @@ import entities.fridge.CommonFridge;
  * implemented by CommonUser class
  */
 public interface User {
-    boolean ingredientIsValid();
     String getName();
     CommonFridge getFridge();
 }

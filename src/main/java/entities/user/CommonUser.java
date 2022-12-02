@@ -23,16 +23,6 @@ public class CommonUser implements User, Serializable {
     }
 
     /**
-     * Checks if entered ingredient is valid
-     * @return A boolean value based on validity of ingredient
-     */
-    @Override
-    //need to somehow implement this method
-    public boolean ingredientIsValid() {
-        return true;
-    }
-
-    /**
      * @return The name of the user
      */
     @Override
