@@ -14,10 +14,9 @@ import java.net.MalformedURLException;
 import java.util.Objects;
 
 public class searchPageHelpFrame extends JFrame implements ActionListener {
-    //This class contains the code to build the searchpage interface, and implements ActionListener
+    //This class contains the code to build the searchPage interface, and implements ActionListener
     //so that it enables button click and drop down box function.
     JButton button_submit;
-    JButton open_fridge;
     JButton search;
     JTextField ingredient_input;
 
@@ -30,9 +29,6 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
     SearchController searchController;
 
     String currentUser;
-    String mealTypeFilter;
-    String caloriesFilter;
-    String cookTimeFilter;
 
     ResultsPageViewModel resultsPageViewModel;
 
@@ -50,7 +46,7 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         button_submit.addActionListener(this);
         button_submit.setBounds(560, 100, 280, 50);
 
-        //creates the textfield for user to input
+        //creates the textField for user to input
         ingredient_input = new JTextField();
         ingredient_input.setPreferredSize(new Dimension(300, 25));
         ingredient_input.setBounds(60, 100, 500, 50);
@@ -61,7 +57,7 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         label1.setBounds(60, 50, 800, 50);
         label1.setFont(new Font(null, Font.PLAIN, 25));
 
-        //creates panel1 and add label1, submit button, and textfield to it
+        //creates panel1 and add label1, submit button, and textField to it
         JPanel panel1 = new JPanel();
         panel1.setBounds(0, 0, 840, 240);
         panel1.add(label1);
@@ -69,16 +65,11 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         panel1.add(ingredient_input);
         panel1.setLayout(null);
 
-        //create open_fridge button which pops up a messagebox of what ingredients fridge has.
-        open_fridge = new JButton("open your fridge");
-        open_fridge.setBounds(300, 80, 240, 80);
-        open_fridge.addActionListener(this);
-
         //sets up panel2 and add open_fridge button to it
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 240, 840, 480);
         panel2.setLayout(null);
-        panel2.add(open_fridge);
+//        panel2.add(open_fridge);
 
         //sets up panel3
         JPanel panel3 = new JPanel();
@@ -87,18 +78,15 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
 
         //creates filter comboBoxes and add it to panel3
         String[] mealStr = {"No meal filter", "Breakfast", "Brunch", "Lunch/dinner", "Snack", "Teatime"};
-        mealType = new JComboBox<String>(mealStr);
-//        mealType.addActionListener(e -> mealTypeFilter = (mealType.getSelectedItem()));
+        mealType = new JComboBox<>(mealStr);
         mealType.setBounds(50, 50, 300, 40);
 
         String[] cookTime = {"No cookTime filter", "Less than 30 minutes", "30-60 minutes", "More than 1 hour"};
-        time = new JComboBox<String>(cookTime);
-//        time.addActionListener(e -> System.out.println(time.getSelectedItem()));
+        time = new JComboBox<>(cookTime);
         time.setBounds(50, 120, 300, 40);
 
         String[] dishCalories = {"No calories filter", "Less than 300 cal", "300-800 cal", "More than 800 cal"};
-        calories = new JComboBox<String>(dishCalories);
-//        calories.addActionListener(e -> System.out.println(calories.getSelectedItem()));
+        calories = new JComboBox<>(dishCalories);
         calories.setBounds(50, 190, 300, 40);
 
         panel3.add(mealType);
@@ -123,23 +111,12 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         /*When user clicks the submit button, it adds whatever ingredients they put in
-        //to the fridge. If the fridge already has this ingredient, it pops up a message
-        //says "It is already in the fridge!"*/
+        to the fridge. If the fridge already has this ingredient, it pops up a message
+        says "It is already in the fridge!"*/
         if (e.getSource() == button_submit) {
             enterIngredientsController.create(ingredient_input.getText(), currentUser);
+            ingredient_input.setText("");
 
-/*            else {fridgeFood.add(ingredient_input.getText());}
-        }*/
-            //When user clicks the open_fridge button, they can see what food they have
-            //inside the fridge.
-            /*if (e.getSource() == open_fridge) {
-                JOptionPane.showMessageDialog(
-                        null,
-                        fridgeFood.toString(),
-                        "Fridge",
-                        JOptionPane.PLAIN_MESSAGE);
-                //
-            }*/
         }
         if (e.getSource() == search){
 
