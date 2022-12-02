@@ -16,4 +16,14 @@ public class CommonIngredientFactoryTest {
         Ingredient ing = factory.create("Beef");
         Assertions.assertNotNull(ing);
     }
+
+    /**
+     * Test for creating a CommonIngredient with empty string name
+     */
+    @Test
+    public void CreateEmptyIngredientTest() {
+        CommonIngredientFactory factory = new CommonIngredientFactory();
+        Ingredient ing = factory.create("");
+        Assertions.assertNotNull(ing);
+    }
 }

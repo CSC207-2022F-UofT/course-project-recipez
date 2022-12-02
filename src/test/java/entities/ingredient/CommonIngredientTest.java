@@ -15,4 +15,13 @@ public class CommonIngredientTest {
         Ingredient ing = new CommonIngredient("Salmon");
         Assertions.assertEquals("Salmon", ing.getName());
     }
+
+    /**
+     * Test for getting name from an ingredient with empty name
+     */
+    @Test
+    public void getEmptyNameTest() {
+        Ingredient ing = new CommonIngredient("");
+        Assertions.assertEquals("", ing.getName());
+    }
 }
