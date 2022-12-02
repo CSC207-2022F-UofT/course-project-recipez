@@ -1,14 +1,10 @@
-package use_cases.searchUseCase;
+package use_cases.searchusecase;
 
 import database.DatabaseGateway;
 import entities.fridge.CommonFridge;
-import entities.recipe.Recipe;
 import gateways.IApiGateway;
 import entities.recipe.RecipeFactory;
 import presenters.search.SearchPresenter;
-
-import java.util.ArrayList;
-
 /**
  * Interactor for Search use case
  */

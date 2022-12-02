@@ -1,8 +1,8 @@
 package controllers;
 
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
-import use_cases.create_user_and_fridge.CreateUserandFridgeRequestModel;
-import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeRequestModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
 /**
  * Controller Class
@@ -23,8 +23,8 @@ public class CreateUserandFridgeController{
      * @param user
      * @return calls the create method of the interactor
      */
-    public CreateUserandFridgeResponseModel create(String user) {
-        CreateUserandFridgeRequestModel requestModel = new CreateUserandFridgeRequestModel(user);
+    public CreateUserAndFridgeResponseModel create(String user) {
+        CreateUserAndFridgeRequestModel requestModel = new CreateUserAndFridgeRequestModel(user);
         return userNameInteractor.create(requestModel);
     }
 

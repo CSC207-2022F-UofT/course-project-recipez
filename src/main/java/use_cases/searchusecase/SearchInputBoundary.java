@@ -1,4 +1,4 @@
-package use_cases.searchUseCase;
+package use_cases.searchusecase;
 
 public interface SearchInputBoundary {
     SearchResponseModel search(SearchRequestModel requestModel) ;
