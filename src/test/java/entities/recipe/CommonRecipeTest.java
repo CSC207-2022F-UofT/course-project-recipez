@@ -1,4 +1,4 @@
-package entities;
+package entities.recipe;
 
 import entities.recipe.CommonRecipeFactory;
 import entities.recipe.Recipe;
