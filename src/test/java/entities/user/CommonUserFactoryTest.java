@@ -24,4 +24,16 @@ public class CommonUserFactoryTest {
         User user = user_factory.create("D.Jr", fridge);
         Assertions.assertNotNull(user);
     }
+
+    @Test
+    void test_create_empty_name(){
+        CommonIngredientFactory ing_factory = new CommonIngredientFactory();
+        Ingredient duck = ing_factory.create("duck");
+        ArrayList<CommonIngredient> ing = new ArrayList<>();
+        ing.add((CommonIngredient) duck);
+        CommonFridge fridge = new CommonFridge(ing);
+        CommonUserFactory user_factory = new CommonUserFactory();
+        User user = user_factory.create("", fridge);
+        Assertions.assertNotNull(user);
+    }
 }
