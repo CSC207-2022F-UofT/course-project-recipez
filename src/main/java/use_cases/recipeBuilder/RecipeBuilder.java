@@ -1,4 +1,4 @@
-package useCases;
+package use_cases.recipeBuilder;
 
 /**
  *recipeBuilder class.

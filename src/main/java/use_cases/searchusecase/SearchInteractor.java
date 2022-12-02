@@ -2,9 +2,12 @@ package use_cases.searchusecase;
 
 import database.DatabaseGateway;
 import entities.fridge.CommonFridge;
+import entities.recipe.Recipe;
 import gateways.IApiGateway;
 import entities.recipe.RecipeFactory;
-import useCases.RecipeBuilderResponseModel;
+import presenters.search.SearchPresenter;
+
+import java.util.ArrayList;
 
 /**
  * Interactor for Search use case
@@ -13,10 +16,13 @@ public class SearchInteractor implements SearchInputBoundary {
     private final IApiGateway apiCaller;
     private final DatabaseGateway database;
     private final RecipeFactory recipeFactory;
-    public SearchInteractor(IApiGateway apiCaller, DatabaseGateway database, RecipeFactory recipeFactory) {
+    private final SearchPresenter searchPresenter;
+
+    public SearchInteractor(IApiGateway apiCaller, DatabaseGateway database, RecipeFactory recipeFactory, SearchPresenter searchPresenter) {
         this.apiCaller = apiCaller;
         this.database = database;
         this.recipeFactory = recipeFactory;
+        this.searchPresenter = searchPresenter;
     }
 
     /**
@@ -32,9 +38,13 @@ public class SearchInteractor implements SearchInputBoundary {
                 model.getCalories(),
                 model.getTime()
         );
+        SearchResponseModel searchResponseModel = new SearchResponseModel(recipeFactory, APIResponse);
+
+        if (APIResponse == null) {
+            return searchPresenter.prepareFailView("API Output was incompatible.");
+        }
         // Print Statement to show API response without results page
         System.out.println("API Response: " + APIResponse);
-        RecipeBuilderResponseModel response = new RecipeBuilderResponseModel(this.recipeFactory );
-        return new SearchResponseModel(response.createRecipe(APIResponse));
+        return searchPresenter.prepareSuccessView(searchResponseModel);
     }
 }
