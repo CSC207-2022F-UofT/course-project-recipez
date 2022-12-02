@@ -1,4 +1,4 @@
-package use_cases.user_enter_indredients_interactor;
+package use_cases.enter_indredients_usecase;
 
 /**
  * Request Model for entering ingredient UseCase
@@ -10,8 +10,8 @@ public class UserEnterIngredientRequestModel {
 
     /**
      * Constructor for request model
-     * @param Ingredient
-     * @param userName
+     * @param Ingredient the ingredient user wants to add
+     * @param userName the username of the user
      */
     public UserEnterIngredientRequestModel(String Ingredient, String userName) {
         this.Ingredient = Ingredient;
@@ -28,9 +28,6 @@ public class UserEnterIngredientRequestModel {
         return this.UserName;
     }
 
-    void setIngredient(String Ingredient) {
-        this.Ingredient = Ingredient;
-    }
 
 
 }

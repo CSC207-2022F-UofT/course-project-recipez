@@ -5,7 +5,7 @@ import entities.fridge.CommonFridge;
 import entities.user.CommonUser;
 import presenters.login.loginPresenter;
 
-import javax.xml.crypto.Data;
+
 import java.util.Objects;
 
 public class LoginInteractor implements loginInputBoundary{
@@ -30,12 +30,13 @@ public class LoginInteractor implements loginInputBoundary{
             return loginPresenter.prepareFailView("Account does not exist");
         }
         else {
+
             CommonUser curr_user = (CommonUser) database.get(requestModel.getUserName()).getUser();
             CommonFridge curr_fridge = (CommonFridge) database.get(requestModel.getUserName()).getFridge();
-            loginResponseModel loginsuccess = new loginResponseModel(curr_fridge, curr_user);
+            loginResponseModel Login_Success = new loginResponseModel(curr_fridge, curr_user);
 
             try{
-                return loginPresenter.prepareSuccessView(loginsuccess);
+                return loginPresenter.prepareSuccessView(Login_Success);
             } catch (Exception e) {
                 System.out.println("exception");
                 return loginPresenter.prepareFailView(e.toString());

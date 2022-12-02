@@ -1,16 +1,16 @@
 package use_cases.create_user_and_fridge;
 
 /**
- * Class CreateUserandFridgeRequestModel
+ * Class CreateUserAndFridgeRequestModel
  */
 
-public class CreateUserandFridgeRequestModel {
+public class CreateUserAndFridgeRequestModel {
     public String user;
 
     /**
      * @param user : Constructor for this class, sets the string user to user entered
      */
-    public CreateUserandFridgeRequestModel(String user) {
+    public CreateUserAndFridgeRequestModel(String user) {
         this.user = user;
     }
 
@@ -19,12 +19,5 @@ public class CreateUserandFridgeRequestModel {
      */
     String getUserName() {
         return user;
-    }
-
-    /**
-     * @param
-     */
-    void setUser(String user) {
-        this.user = user;
     }
 }

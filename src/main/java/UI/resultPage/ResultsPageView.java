@@ -1,10 +1,6 @@
 package UI.resultPage;
 
 
-import controllers.RecipeBuilderController;
-import entities.recipe.Recipe;
-
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -17,18 +13,13 @@ import java.util.Dictionary;
  */
 public class ResultsPageView extends JFrame {
 
-    RecipeBuilderController recipeController;
-
     ResultsPageViewModel viewModel;
 
     /**
      *
-     * @param recipeController controller for results page, i.e recipebuilder
      * @param viewModel Data Structure used for results page
      */
-    ResultsPageView(RecipeBuilderController recipeController, ResultsPageViewModel viewModel)
-            throws MalformedURLException {
-        this.recipeController = recipeController;
+    public ResultsPageView(ResultsPageViewModel viewModel) {
         this.viewModel = viewModel;
 
 
@@ -36,11 +27,22 @@ public class ResultsPageView extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1280, 720);
         this.setLayout(new FlowLayout(FlowLayout.CENTER,20, 20));
+        this.setVisible(true);
+
+    }
+
+    public void updateView() throws MalformedURLException {
 
         //Creates results panel
         JPanel panel = new JPanel();
-        panel.setPreferredSize(new Dimension(1000, 600));
+        panel.setPreferredSize(new Dimension(1000, 560));
         panel.setLayout(new FlowLayout());
+        panel.setBackground(new Color(234, 221, 202));
+
+        //Enable scrolling for results panel
+        JScrollPane scrollPane = new JScrollPane(panel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        this.getContentPane().add(scrollPane);
 
         //Shows error message if recipes dictionary is empty
         if (viewModel.recipes.isEmpty()) {
@@ -50,11 +52,11 @@ public class ResultsPageView extends JFrame {
 
         // Adds each of the recipes as buttons if no error
         else {
-            for (Recipe count : viewModel.recipes) {
-                Dictionary<String, Object> recipeDict = count.getRecipeInfo();
-                JButton button = new ButtonCreator(recipeDict.get("Name").toString(),
-                        recipeDict.get("URL").toString(),
-                        recipeDict.get("Image").toString()).makeButton();
+            for (Dictionary<String, Object> count : viewModel.recipes) {
+                String imgUrl = count.get("Image").toString();
+                imgUrl = imgUrl.substring(1, imgUrl.length() - 1);
+                JButton button = new ButtonCreator(count.get("Name").toString(), count.get("URL").toString(),
+                        imgUrl).makeButton();
                 panel.add(button);
             }
         }
@@ -63,8 +65,7 @@ public class ResultsPageView extends JFrame {
         Border resultsBorder = BorderFactory.createTitledBorder("Showing Results");
         panel.setBorder(resultsBorder);
 
-
-        this.setVisible(true);
         this.add(panel);
     }
+
 }
