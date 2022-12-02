@@ -1,6 +1,7 @@
 package use_cases.create_user_and_fridge;
 
 import database.DatabaseGateway;
+import database.StorageObjects;
 import entities.fridge.CommonFridge;
 import entities.fridge.FridgeFactory;
 import entities.ingredient.CommonIngredient;
@@ -10,6 +11,7 @@ import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Class CreateUserAndFridgeInteractor
@@ -53,11 +55,8 @@ public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBo
             ArrayList<CommonIngredient> arr_list = new ArrayList<>();
             CommonFridge curr_fridge = (CommonFridge) fridgeFactory.create(arr_list);
             CommonUser curr_user = (CommonUser) userFactory.create(requestModel.getUserName(), curr_fridge);
-
-            ArrayList<Object> list = new ArrayList<>();
-            list.add(curr_fridge);
-            list.add(curr_user);
-            database.store(requestModel.getUserName(), list);
+            StorageObjects storageObjects = new StorageObjects(curr_user, curr_fridge);
+            database.store(requestModel.getUserName(), storageObjects);
 
             CreateUserAndFridgeResponseModel successResponseModel = new
                     CreateUserAndFridgeResponseModel(curr_fridge, curr_user);

@@ -43,7 +43,7 @@ public class UserEnterIngredientsInteractor implements UserEnterIngredientsInput
         }
         else {
             CommonIngredient ingredient = (CommonIngredient) ingredientFactory.create(requestModel.getIngredient_in_String_Format());
-            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).get(1);
+            CommonUser Curr_User = (CommonUser) database.get(requestModel.getUserName()).getUser();
             Curr_User.getFridge().addIngredient(ingredient);
             database.save();
             UserEnterIngredientResponseModel responseModel = new UserEnterIngredientResponseModel(ingredient);
