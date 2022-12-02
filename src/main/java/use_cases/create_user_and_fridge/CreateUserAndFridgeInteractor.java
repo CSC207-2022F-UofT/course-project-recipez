@@ -59,15 +59,10 @@ public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBo
             CommonUser curr_user = (CommonUser) userFactory.create(requestModel.getUserName(), curr_fridge);
             StorageObjects storageObjects = new StorageObjects(curr_user, curr_fridge);
             database.store(requestModel.getUserName(), storageObjects);
-<<<<<<< HEAD:src/main/java/use_cases/create_user_and_fridge/CreateUserandFridgeInteractor.java
-            LocalDateTime now = LocalDateTime.now();
-            CreateUserandFridgeResponseModel successResponseModel = new
-                    CreateUserandFridgeResponseModel(curr_fridge, curr_user, now.toString());
-=======
+
 
             CreateUserAndFridgeResponseModel successResponseModel = new
                     CreateUserAndFridgeResponseModel(curr_fridge, curr_user);
->>>>>>> main:src/main/java/use_cases/create_user_and_fridge/CreateUserAndFridgeInteractor.java
 
             try{
                 return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
