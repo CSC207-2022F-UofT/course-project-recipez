@@ -8,12 +8,14 @@ import entities.ingredient.CommonIngredientFactory;
 import entities.ingredient.Ingredient;
 import entities.ingredient.IngredientFactory;
 import entities.recipe.CommonRecipeFactory;
+import entities.recipe.Recipe;
 import entities.recipe.RecipeFactory;
 import entities.user.CommonUserFactory;
 import entities.user.User;
 import entities.user.UserFactory;
 import gateways.IApiGateway;
 import gateways.JavaHttpGateway;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import use_cases.searchUseCase.SearchInputBoundary;
@@ -61,9 +63,12 @@ public class SearchTest{
         SearchRequestModel request = new SearchRequestModel("Bob","Lunch/Dinner","300-800 cal", "Less than 30 minutes");
         SearchResponseModel response = interactor.search(request);
         System.out.println(response.getRecipes());
+        ArrayList <Recipe> results = response.getRecipes();
+        Assertions.assertEquals(results.get(0).getRecipeInfo().get("Name"), "Carrot Bread");
 
-}
-// Similar test but with multiple ingredient objects in Fridge
+    }
+    // Similar test but with multiple ingredient objects in Fridge
+
     @Test
     public void SearchWithMultipleIngredients() {
 
@@ -73,6 +78,8 @@ public class SearchTest{
         SearchRequestModel request = new SearchRequestModel("Bob","Brunch","300-800 cal", "Less than 30 minutes");
         SearchResponseModel response = interactor.search(request);
         System.out.println(response.getRecipes());
+        ArrayList <Recipe> results = response.getRecipes();
+        Assertions.assertEquals(results.get(0).getRecipeInfo().get("Name"), "Potato Gratin with Cream, Onion, Carrot, and Herbs");
 
     }
 
@@ -83,21 +90,11 @@ public class SearchTest{
         SearchRequestModel request = new SearchRequestModel("Bob","Brunch","300-800 cal", "Less than 30 minutes");
         SearchResponseModel response = interactor.search(request);
         System.out.println(response.getRecipes());
+        ArrayList <Recipe> results = response.getRecipes();
+        Assertions.assertEquals(results.get(0).getRecipeInfo().get("Name"), "Homemade Brown Sugar Recipe");
 
     }
 
-    //Checks how the API handles ingredients in Fridge with illegal characters in their name
-    /**
-     * Commented out Test because it will fail until we do something about illegal entries
-    @Test
-    public void SearchIllegalCharacters() {
-        BobFridge.addIngredient(ingFact.create("!3r42sdaf!##"));
-        SearchRequestModel request = new SearchRequestModel("Bob","Brunch","300-800 cal", "Less than 30 minutes");
-        SearchResponseModel response = interactor.search(request);
-        System.out.println(response.getRecipes());
-
-    }
-    **/
 
     //Checks how the API behaves when it receives legal input which shouldn't yield any results
     @Test
@@ -106,6 +103,8 @@ public class SearchTest{
         SearchRequestModel request = new SearchRequestModel("Bob","Brunch","300-800 cal", "Less than 30 minutes");
         SearchResponseModel response = interactor.search(request);
         System.out.println(response.getRecipes());
+        ArrayList <Recipe> results = response.getRecipes();
+        Assertions.assertEquals(results.size(), 0);
 
     }
     //Checks how the API handles multiple ingredients in Fridge with the same name
@@ -116,6 +115,8 @@ public class SearchTest{
         SearchRequestModel request = new SearchRequestModel("Bob","Brunch","300-800 cal", "Less than 30 minutes");
         SearchResponseModel response = interactor.search(request);
         System.out.println(response.getRecipes());
+        ArrayList <Recipe> results = response.getRecipes();
+        Assertions.assertEquals(results.get(0).getRecipeInfo().get("Name"), "Sweet And Sour Pork");
 
     }
 

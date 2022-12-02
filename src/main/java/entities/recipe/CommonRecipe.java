@@ -34,4 +34,9 @@ public class CommonRecipe implements Recipe {
     public void printDictionary() {
         System.out.println(this.dictionary);
     }
+
+    @Override
+    public boolean equals(String recipeName){
+        return this.dictionary.get("Name").equals(recipeName);
+    }
 }
