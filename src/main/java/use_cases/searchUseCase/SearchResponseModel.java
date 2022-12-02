@@ -9,6 +9,9 @@ import entities.recipe.RecipeFactory;
 
 import java.util.ArrayList;
 
+/**
+ * Output model for search use case
+ */
 public class SearchResponseModel {
     RecipeFactory recipeFactory;
     private final String apiOutput;
