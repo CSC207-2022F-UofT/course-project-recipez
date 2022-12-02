@@ -15,23 +15,9 @@ public class CommonRecipe implements Recipe {
         this.dictionary.put("Name", name);
         this.dictionary.put("URL", url);
         this.dictionary.put("Image", image);
-
-
-    }
-
-    /**
-     * Method for retrieving dictionary containing recipe information.
-     * Returns a dictionary with keys, "Name", "IngredientList", "TimeToPrepare", "Cost", and "Description".
-     */
-    public void setDictionary(Dictionary<String, Object> setDict) {
-        this.dictionary = setDict;
     }
 
     public Dictionary<String, Object> getRecipeInfo() {
         return this.dictionary;
-    }
-
-    public void printDictionary() {
-        System.out.println(this.dictionary);
     }
 }
