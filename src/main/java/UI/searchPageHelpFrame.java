@@ -59,11 +59,6 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         panel1.add(ingredient_input);
         panel1.setLayout(null);
 
-        //create open_fridge button which pops up a messagebox of what ingredients fridge has.
-//        open_fridge = new JButton("open your fridge");
-//        open_fridge.setBounds(300, 80, 240, 80);
-//        open_fridge.addActionListener(this);
-
         //sets up panel2 and add open_fridge button to it
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 240, 840, 480);
@@ -122,7 +117,6 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
                     Objects.requireNonNull(mealType.getSelectedItem()).toString(),
                     Objects.requireNonNull(calories.getSelectedItem()).toString(),
                     Objects.requireNonNull(time.getSelectedItem()).toString());
-
         }
     }
 }
