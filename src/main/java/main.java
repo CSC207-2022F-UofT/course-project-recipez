@@ -80,7 +80,7 @@ public class main {
         SearchInputBoundary searchInteractor = new SearchInteractor(apiGateway, databaseGateway, recipeFactory, searchPresenter);
         SearchController searchController = new SearchController(searchInteractor);
 
-        startPageViewMain startScreen = new startPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController);
+        startPageViewMain startScreen = new startPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController, (ResultsPageViewModel) resultViewModel);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
