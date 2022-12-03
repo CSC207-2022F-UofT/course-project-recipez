@@ -11,9 +11,8 @@ import entities.user.CommonUser;
 import org.junit.jupiter.api.*;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientRequestModel;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientResponseModel;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInteractor;
+import use_cases.enter_indredients_usecase.UserEnterIngredientRequestModel;
+import use_cases.enter_indredients_usecase.UserEnterIngredientsInteractor;
 
 import java.util.ArrayList;
 
@@ -60,10 +59,9 @@ public class TestEnterIngredient {
     @Test
     public void enterOneIngredient() {
         UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel("ingredient", "name");
-        UserEnterIngredientResponseModel responseModel = enterIngredientsInteractor.create(requestModel);
+        enterIngredientsInteractor.create(requestModel);
 
         Assertions.assertEquals(fridge.printIngredient(), "ingredient");
-        Assertions.assertEquals(responseModel.commonIngredient.getName(), "ingredient");
     }
 
     /**
@@ -74,9 +72,8 @@ public class TestEnterIngredient {
         UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel("ingredient", "name");
         UserEnterIngredientRequestModel requestModel2 = new UserEnterIngredientRequestModel("ingredient2", "name");
         enterIngredientsInteractor.create(requestModel);
-        UserEnterIngredientResponseModel responseModel = enterIngredientsInteractor.create(requestModel2);
+        enterIngredientsInteractor.create(requestModel2);
 
         Assertions.assertEquals(fridge.printIngredient(), "ingredient,ingredient2");
-        Assertions.assertEquals(responseModel.commonIngredient.getName(), "ingredient2");
     }
 }
