@@ -1,6 +1,5 @@
 package database;
 
-import entities.fridge.CommonFridge;
 import entities.fridge.Fridge;
 import entities.user.User;
 

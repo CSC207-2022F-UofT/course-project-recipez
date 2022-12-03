@@ -17,20 +17,16 @@ public class CommonRecipe implements Recipe {
         this.dictionary.put("Image", image);
     }
 
-    /**
-     * Method for retrieving dictionary containing recipe information.
-     * Returns a dictionary with keys, "Name", "URL", "Image".
-     */
-    public void setDictionary(Dictionary<String, Object> setDict) {
-        this.dictionary = setDict;
-    }
-
     public Dictionary<String, Object> getRecipeInfo() {
         return this.dictionary;
     }
 
-    public String toString() {
-        System.out.println(this.dictionary);
-        return null;
+    /**
+     * Method for retrieving dictionary containing recipe information.
+     * Returns a dictionary with keys, "Name", "IngredientList", "TimeToPrepare", "Cost", and "Description".
+     */
+    @Override
+    public void setDictionary(Dictionary<String, Object> setDict) {
+        this.dictionary = setDict;
     }
 }

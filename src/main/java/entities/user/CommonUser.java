@@ -8,8 +8,8 @@ import java.io.Serializable;
  * Class CommonUser
  */
 public class CommonUser implements User, Serializable {
-    String name;
-    CommonFridge commonFridge;
+    final String name;
+    final CommonFridge commonFridge;
 
     /**
      * Constructor for the user class
@@ -20,16 +20,6 @@ public class CommonUser implements User, Serializable {
     public CommonUser(String name, CommonFridge commonFridge) {
         this.name = name;
         this.commonFridge = commonFridge;
-    }
-
-    /**
-     * Checks if entered ingredient is valid
-     * @return A boolean value based on validity of ingredient
-     */
-    @Override
-    //need to somehow implement this method
-    public boolean ingredientIsValid() {
-        return true;
     }
 
     /**

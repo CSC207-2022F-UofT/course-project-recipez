@@ -12,10 +12,10 @@ public class startPageViewModel implements startPageViewModelInterface {
     public boolean loggedIn;
 
     /**
-     * Constructor for ViewModel. Sets pageState to the main start page.
+     * Constructor for ViewModel. Sets pageState to the Main start page.
      */
     public startPageViewModel() {
-        this.pageState = "main";
+        this.pageState = "Main";
         this.loggedIn = false;
     }
 
@@ -67,6 +67,6 @@ public class startPageViewModel implements startPageViewModelInterface {
         } else if (pageState.equals("login")) {
             attempt_login_response = "";
         }
-        pageState = "main";
+        pageState = "Main";
     }
 }

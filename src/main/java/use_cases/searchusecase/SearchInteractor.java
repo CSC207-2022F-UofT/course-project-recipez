@@ -5,6 +5,7 @@ import entities.fridge.CommonFridge;
 import gateways.IApiGateway;
 import entities.recipe.RecipeFactory;
 import presenters.search.SearchPresenter;
+import entities.recipe.Recipe;
 /**
  * Interactor for Search use case
  */
@@ -23,10 +24,10 @@ public class SearchInteractor implements SearchInputBoundary {
 
     /**
      * Searches for recipes that can be made with inputted ingredients
+     *
      * @param model The user's search input
-     * @return Recipe results
      */
-    public SearchResponseModel search(SearchRequestModel model) {
+    public void search(SearchRequestModel model) {
         CommonFridge fridge = ((CommonFridge) database.get(model.getUsername()).getFridge());
         String APIResponse = this.apiCaller.send(
                 fridge.printIngredient(),
@@ -37,10 +38,11 @@ public class SearchInteractor implements SearchInputBoundary {
         SearchResponseModel searchResponseModel = new SearchResponseModel(recipeFactory, APIResponse);
 
         if (APIResponse == null) {
-            return searchPresenter.prepareFailView("API Output was incompatible.");
+            searchPresenter.prepareFailView("API Output was incompatible.");
+            return;
         }
         // Print Statement to show API response without results page
         System.out.println("API Response: " + APIResponse);
-        return searchPresenter.prepareSuccessView(searchResponseModel);
+        searchPresenter.prepareSuccessView(searchResponseModel);
     }
 }

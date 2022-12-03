@@ -5,7 +5,7 @@ package use_cases.create_user_and_fridge;
  */
 
 public class CreateUserAndFridgeRequestModel {
-    public String user;
+    public final String user;
 
     /**
      * @param user : Constructor for this class, sets the string user to user entered

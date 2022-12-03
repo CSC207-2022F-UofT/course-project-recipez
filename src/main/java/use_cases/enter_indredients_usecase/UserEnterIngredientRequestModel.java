@@ -5,8 +5,8 @@ package use_cases.enter_indredients_usecase;
  */
 public class UserEnterIngredientRequestModel {
 
-    public String Ingredient;
-    public String UserName;
+    public final String Ingredient;
+    public final String UserName;
 
     /**
      * Constructor for request model

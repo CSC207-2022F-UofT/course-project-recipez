@@ -1,7 +1,5 @@
 package UI.resultPage;
 
-import entities.recipe.Recipe;
-
 import java.util.ArrayList;
 import java.util.Dictionary;
 

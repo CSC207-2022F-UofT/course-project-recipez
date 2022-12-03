@@ -5,9 +5,10 @@ import entities.ingredient.CommonIngredient;
 /**
  * Response Model for Entering ingredient use case
  */
+@SuppressWarnings("ALL")
 public class UserEnterIngredientResponseModel {
 
-    public CommonIngredient commonIngredient;
+    public final CommonIngredient commonIngredient;
 
     /**
      * Constructor for this response model.

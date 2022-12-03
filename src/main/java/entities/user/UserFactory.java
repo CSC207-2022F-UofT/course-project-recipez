@@ -9,9 +9,9 @@ import entities.fridge.CommonFridge;
 public interface UserFactory {
     /**
      * Method implemented by CommonUserFactory
-     * @param name
-     * @param commonFridge
-     * @return
+     * @param name as a string
+     * @param commonFridge is the commonFridge
+     * @return the User
      */
     User create(String name, CommonFridge commonFridge);
 }

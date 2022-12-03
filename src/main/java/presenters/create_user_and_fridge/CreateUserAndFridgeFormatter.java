@@ -3,11 +3,14 @@ package presenters.create_user_and_fridge;
 import UI.startPageUI.startPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
-/**
+@SuppressWarnings("ALL")
+ /**
  * Implements the Presenter (using dependency injection), More it has methods that are used by viewModel
  */
 public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresenter {
-    private startPageViewModelInterface viewModel;
+
+    private final startPageViewModelInterface viewModel;
+
 
     /**
      * @param viewModel Constructor for this class

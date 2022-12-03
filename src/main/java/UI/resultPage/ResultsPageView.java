@@ -13,7 +13,7 @@ import java.util.Dictionary;
  */
 public class ResultsPageView extends JFrame {
 
-    ResultsPageViewModel viewModel;
+    final ResultsPageViewModel viewModel;
 
     /**
      *
