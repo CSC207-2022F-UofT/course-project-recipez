@@ -21,7 +21,7 @@ public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresente
      */
     @Override
     public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
-        this.viewModel.registration_success(responseModel.getCommonUser().getName());
+        this.viewModel.registration_success(responseModel.getCommonUserName());
         return responseModel;
     }
 

@@ -13,7 +13,7 @@ public class loginFormatter implements loginPresenter{
     }
     @Override
     public loginResponseModel prepareSuccessView(loginResponseModel responseModel) {
-        viewModel.login_success(responseModel.getCommonUser().getName());
+        viewModel.login_success(responseModel.getCommonUserName());
         return responseModel;
     }
 
