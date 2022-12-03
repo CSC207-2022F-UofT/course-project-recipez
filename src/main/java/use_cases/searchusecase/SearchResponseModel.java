@@ -1,6 +1,12 @@
 package use_cases.searchusecase;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import entities.recipe.RecipeFactory;
+
+import java.util.ArrayList;
+import java.util.Dictionary;
 
 /**
  * Output model for search use case
