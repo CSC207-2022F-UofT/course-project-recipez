@@ -6,6 +6,7 @@ import entities.user.CommonUser;
 /**
  * loginResponseModel class
  */
+@SuppressWarnings({"ALL", "unused"})
 public class loginResponseModel {
 
     public final CommonFridge commonFridge;

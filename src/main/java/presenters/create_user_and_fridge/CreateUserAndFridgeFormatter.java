@@ -3,6 +3,7 @@ package presenters.create_user_and_fridge;
 import UI.startPageUI.startPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
+@SuppressWarnings("ALL")
 public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresenter {
 
     private final startPageViewModelInterface viewModel;

@@ -5,6 +5,7 @@ import entities.recipe.RecipeFactory;
 /**
  * Output model for search use case
  */
+@SuppressWarnings({"ALL", "unused"})
 public class SearchResponseModel {
     final RecipeFactory recipeFactory;
     private final String apiOutput;

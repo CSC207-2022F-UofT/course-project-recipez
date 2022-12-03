@@ -44,13 +44,13 @@ public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBo
      */
     @Override
 
-    public CreateUserAndFridgeResponseModel create(CreateUserAndFridgeRequestModel requestModel) {
+    public void create(CreateUserAndFridgeRequestModel requestModel) {
 
         if (requestModel.getUserName().isEmpty()) {
-            return createUserAndFridgePresenter.prepareFailView("Nothing Entered");
+            createUserAndFridgePresenter.prepareFailView("Nothing Entered");
         }
         else if (database.hasKey(requestModel.getUserName())) {
-            return createUserAndFridgePresenter.prepareFailView("User already exists.");
+            createUserAndFridgePresenter.prepareFailView("User already exists.");
         }
         else {
             ArrayList<CommonIngredient> arr_list = new ArrayList<>();
@@ -63,10 +63,10 @@ public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBo
                     CreateUserAndFridgeResponseModel(curr_fridge, curr_user);
 
             try{
-                return createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
+                createUserAndFridgePresenter.prepareSuccessView(successResponseModel);
             } catch (Exception e) {
                 System.out.println("exception");
-                return createUserAndFridgePresenter.prepareFailView(e.toString());
+                createUserAndFridgePresenter.prepareFailView(e.toString());
             }
         }
     }

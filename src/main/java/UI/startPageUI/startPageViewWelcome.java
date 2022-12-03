@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * startPageViewWelcome UI for first page user interacts with.
  */
+@SuppressWarnings("ALL")
 public class startPageViewWelcome extends JPanel implements ActionListener{
     private final startPageViewModel viewModel;
 

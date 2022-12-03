@@ -6,6 +6,7 @@ import entities.user.CommonUser;
 /**
  * Class Create User and Fridge Response Model
  */
+@SuppressWarnings("ALL")
 public class CreateUserAndFridgeResponseModel {
     public final CommonFridge commonFridge;
     public final CommonUser commonUser;

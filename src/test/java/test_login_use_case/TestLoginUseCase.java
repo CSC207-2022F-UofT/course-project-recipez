@@ -32,17 +32,15 @@ public class TestLoginUseCase {
 
         loginPresenter testingPresenter = new loginPresenter() {
             @Override
-            public loginResponseModel prepareSuccessView(loginResponseModel responseModel) {
+            public void prepareSuccessView(loginResponseModel responseModel) {
                 assertEquals("demetriusjr", responseModel.getCommonUser().getName());
                 assertTrue(testingDatabase.hasKey("demetriusjr"));
                 testingDatabase.deleteStorageFile();
-                return null;
             }
 
             @Override
-            public loginResponseModel prepareFailView(String error) {
+            public void prepareFailView(String error) {
                 assertEquals(error, "Account does not exist");
-                return null;
             }
         };
 
@@ -71,17 +69,15 @@ public class TestLoginUseCase {
 
         loginPresenter testingPresenter = new loginPresenter() {
             @Override
-            public loginResponseModel prepareSuccessView(loginResponseModel responseModel) {
+            public void prepareSuccessView(loginResponseModel responseModel) {
                 assertEquals("demetriusjr", responseModel.getCommonUser().getName());
                 assertTrue(testingDatabase.hasKey("demetriusjr"));
                 testingDatabase.deleteStorageFile();
-                return null;
             }
 
             @Override
-            public loginResponseModel prepareFailView(String error) {
+            public void prepareFailView(String error) {
                 assertEquals(error, "Account does not exist");
-                return null;
             }
         };
         loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
@@ -100,13 +96,11 @@ public class TestLoginUseCase {
         DatabaseGateway testingDatabase = new Database("Test_Storage");
         loginPresenter testingPresenter = new loginPresenter() {
             @Override
-            public loginResponseModel prepareSuccessView(loginResponseModel responseModel) {
-                return null;
+            public void prepareSuccessView(loginResponseModel responseModel) {
             }
             @Override
-            public loginResponseModel prepareFailView(String error) {
+            public void prepareFailView(String error) {
                 assertEquals(error, "Nothing Entered");
-                return null;
             }
         };
         loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);

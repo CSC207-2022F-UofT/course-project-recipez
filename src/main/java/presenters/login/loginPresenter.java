@@ -2,9 +2,10 @@ package presenters.login;
 
 import use_cases.login_usecase.loginResponseModel;
 
+@SuppressWarnings("SameReturnValue")
 public interface loginPresenter {
 
-    loginResponseModel prepareSuccessView(loginResponseModel responseModel);
+    void prepareSuccessView(loginResponseModel responseModel);
 
-    loginResponseModel prepareFailView(String error);
+    void prepareFailView(String error);
 }
