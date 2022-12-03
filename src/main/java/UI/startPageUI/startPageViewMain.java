@@ -9,22 +9,11 @@ import controllers.loginController;
 import javax.swing.*;
 import java.awt.*;
 
-import static javax.swing.JOptionPane.showMessageDialog;
-
 /**
  * Facade for UI start page. Manages if start page is in welcome, register, or login state.
  */
 
 public class startPageViewMain extends JPanel{
-    private startPageViewModel viewModel;
-    private CreateUserAndFridgeController registerController;
-    private loginController loginController;
-    private UserEnterIngredientsController ingredientsController;
-    private SearchController searchController;
-    private JPanel startScreens;
-    private CardLayout screenLayout;
-
-    private ResultsPageViewModel resultsPageViewModel;
 
     /**
      * Constructor for the startPageViewMain class
@@ -32,12 +21,6 @@ public class startPageViewMain extends JPanel{
      * @param controller createUserAndFridge Controller to begin use case for registering/logging in users
      */
     public startPageViewMain(startPageViewModel viewModel, CreateUserAndFridgeController controller, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, ResultsPageViewModel resultsPageViewModel) {
-        this.viewModel = viewModel;
-        this.registerController = controller;
-        this.loginController = loginController;
-        this.ingredientsController = ingredientsController;
-        this.searchController = searchController;
-        this.resultsPageViewModel = resultsPageViewModel;
 
         setLayout(new BorderLayout());
 
@@ -54,7 +37,7 @@ public class startPageViewMain extends JPanel{
         registerUserView register = new registerUserView(viewModel, controller, startScreens, screenLayout);
         userLoginView login = new userLoginView(viewModel, loginController, ingredientsController, searchController, startScreens, screenLayout, resultsPageViewModel);
 
-        startScreens.add(welcome , "main");
+        startScreens.add(welcome , "Main");
         startScreens.add(register, "register");
         startScreens.add(login, "login");
 

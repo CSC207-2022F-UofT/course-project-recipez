@@ -10,27 +10,26 @@ import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
 import java.util.Objects;
 
 public class searchPageHelpFrame extends JFrame implements ActionListener {
     //This class contains the code to build the searchPage interface, and implements ActionListener
     //so that it enables button click and drop down box function.
-    JButton button_submit;
-    JButton search;
-    JTextField ingredient_input;
+    final JButton button_submit;
+    final JButton search;
+    final JTextField ingredient_input;
 
-    JComboBox<String> mealType;
-    JComboBox<String> time;
-    JComboBox<String> calories;
+    final JComboBox<String> mealType;
+    final JComboBox<String> time;
+    final JComboBox<String> calories;
 
-    UserEnterIngredientsController enterIngredientsController;
+    final UserEnterIngredientsController enterIngredientsController;
 
-    SearchController searchController;
+    final SearchController searchController;
 
-    String currentUser;
+    final String currentUser;
 
-    ResultsPageViewModel resultsPageViewModel;
+    final ResultsPageViewModel resultsPageViewModel;
 
     public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, SearchController searchController, String username, ResultsPageViewModel resultPageViewModel) {
         this.enterIngredientsController = ingredientsController;
@@ -69,7 +68,7 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 240, 840, 480);
         panel2.setLayout(null);
-//        panel2.add(open_fridge);
+
 
         //sets up panel3
         JPanel panel3 = new JPanel();

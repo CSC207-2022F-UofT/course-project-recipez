@@ -5,7 +5,7 @@ import use_cases.login_usecase.loginResponseModel;
 
 public class loginFormatter implements loginPresenter{
 
-    private startPageViewModelInterface viewModel;
+    private final startPageViewModelInterface viewModel;
     public loginFormatter(startPageViewModelInterface viewModel) {
         this.viewModel = viewModel;
     }

@@ -3,15 +3,9 @@ package presenters.create_user_and_fridge;
 import UI.startPageUI.startPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresenter {
-//    @Override
-//    public CommonUser prepareSuccessView(CommonUser user) {
-//        return user;
-//    }
-    private startPageViewModelInterface viewModel;
+
+    private final startPageViewModelInterface viewModel;
 
     public CreateUserAndFridgeFormatter(startPageViewModelInterface viewModel) {
         this.viewModel = viewModel;

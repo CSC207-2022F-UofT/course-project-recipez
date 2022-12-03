@@ -7,23 +7,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static javax.swing.JOptionPane.showMessageDialog;
-
 /**
  * View UI for user registration page
  */
 
 public class registerUserView extends JPanel implements ActionListener {
-    private startPageViewModel viewModel;
-    private JTextField username;
-    private JButton back;
-    private JButton create_user_btn;
-    private JPanel screens;
-    private CardLayout screenLayout;
+    private final startPageViewModel viewModel;
+    private final JTextField username;
+    private final JButton back;
+    private final JButton create_user_btn;
+    private final JPanel screens;
+    private final CardLayout screenLayout;
 
-    private CreateUserAndFridgeController registerController;
+    private final CreateUserAndFridgeController registerController;
 
-    private JTextField register_response;
+    private final JTextField register_response;
 
     public registerUserView(startPageViewModel viewModel, CreateUserAndFridgeController controller,
                             JPanel screens, CardLayout screenLayout) {

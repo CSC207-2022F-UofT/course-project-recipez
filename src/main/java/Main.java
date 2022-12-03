@@ -1,5 +1,4 @@
 import UI.resultPage.ResultsPageViewModel;
-import UI.resultPage.ResultsPageViewModelInterface;
 import UI.startPageUI.startPageViewMain;
 import UI.startPageUI.startPageViewModel;
 import controllers.SearchController;
@@ -32,7 +31,7 @@ import use_cases.searchusecase.SearchInteractor;
 import javax.swing.*;
 import java.awt.*;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         final int screenHeight = 200;
         final int screenWidth = 550;
@@ -42,7 +41,6 @@ public class main {
         CommonRecipeFactory recipeFactory = new CommonRecipeFactory();
 
         JFrame application = new JFrame("RecipEZ");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         application.setSize(screenWidth,screenHeight);
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         CardLayout cardLayout = new CardLayout();
@@ -72,12 +70,12 @@ public class main {
         loginController loginController = new loginController(loginInputinteractor);
 
         IApiGateway apiGateway = new JavaHttpGateway();
-        ResultsPageViewModelInterface resultViewModel = new ResultsPageViewModel();
+        ResultsPageViewModel resultViewModel = new ResultsPageViewModel();
         SearchPresenter searchPresenter = new SearchFormatter(resultViewModel);
         SearchInputBoundary searchInteractor = new SearchInteractor(apiGateway, databaseGateway, recipeFactory, searchPresenter);
         SearchController searchController = new SearchController(searchInteractor);
 
-        startPageViewMain startScreen = new startPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController, (ResultsPageViewModel) resultViewModel);
+        startPageViewMain startScreen = new startPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController, resultViewModel);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);

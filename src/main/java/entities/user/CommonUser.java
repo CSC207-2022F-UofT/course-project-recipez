@@ -8,8 +8,8 @@ import java.io.Serializable;
  * Class CommonUser
  */
 public class CommonUser implements User, Serializable {
-    String name;
-    CommonFridge commonFridge;
+    final String name;
+    final CommonFridge commonFridge;
 
     /**
      * Constructor for the user class

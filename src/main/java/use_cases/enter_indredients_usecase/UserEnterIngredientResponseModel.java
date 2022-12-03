@@ -7,7 +7,7 @@ import entities.ingredient.CommonIngredient;
  */
 public class UserEnterIngredientResponseModel {
 
-    public CommonIngredient commonIngredient;
+    public final CommonIngredient commonIngredient;
 
     /**
      * Constructor for this response model.

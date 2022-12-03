@@ -11,15 +11,14 @@ import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Class CreateUserAndFridgeInteractor
  */
 public class CreateUserAndFridgeInteractor implements CreateUserAndFridgeInputBoundary {
-    UserFactory userFactory;
-    FridgeFactory fridgeFactory;
-    CreateUserAndFridgePresenter createUserAndFridgePresenter;
+    final UserFactory userFactory;
+    final FridgeFactory fridgeFactory;
+    final CreateUserAndFridgePresenter createUserAndFridgePresenter;
 
     final DatabaseGateway database;
 

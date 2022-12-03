@@ -22,7 +22,7 @@ public class SearchFormatter implements SearchPresenter {
     }
 
     @Override
-    public SearchResponseModel prepareSuccessView(SearchResponseModel searchResponse) {
+    public void prepareSuccessView(SearchResponseModel searchResponse) {
         RecipeFactory factory = new CommonRecipeFactory();
         ArrayList<Dictionary<String, Object>> formattedRecipes = new ArrayList<>();
 
@@ -39,13 +39,11 @@ public class SearchFormatter implements SearchPresenter {
 
         this.viewModelInterface.resultsSuccess(formattedRecipes);
         System.out.println(formattedRecipes);
-        return searchResponse;
     }
 
     @Override
-    public SearchResponseModel prepareFailView(String error) {
+    public void prepareFailView(String error) {
         this.viewModelInterface.resultsFailure(error);
         System.out.println(error);
-        return null;
     }
 }

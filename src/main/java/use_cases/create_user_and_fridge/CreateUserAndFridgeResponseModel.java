@@ -7,8 +7,8 @@ import entities.user.CommonUser;
  * Class Create User and Fridge Response Model
  */
 public class CreateUserAndFridgeResponseModel {
-    public CommonFridge commonFridge;
-    public CommonUser commonUser;
+    public final CommonFridge commonFridge;
+    public final CommonUser commonUser;
 
     /**
      * @param commonFridge : The user's fridge

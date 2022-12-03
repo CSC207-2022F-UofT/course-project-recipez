@@ -12,25 +12,16 @@ public class CommonFridge implements Fridge, Serializable {
      * User can make changes to the ingredients list by adding or removing an ingredient.
      * Existing user can set their Ingredient to their previous ingredients list.
      */
-    private ArrayList<CommonIngredient> ingredients;
+    private final ArrayList<CommonIngredient> ingredients;
     /**
      * Constructor for the Fridge class
      * @ param ingredients: list of ingredients
-     * */
-
+     *
+     */
     public CommonFridge(ArrayList<CommonIngredient> ingredients) {
         this.ingredients = ingredients;
     }
 
-    /**
-     *
-     * @param ingredients which is an ArrayList<CommonIngredient>
-     * list of ingredients is created and initialised inside fridge
-     */
-
-    public void setIngredients(ArrayList<CommonIngredient> ingredients) {
-        this.ingredients = ingredients;
-    }
     /**
      *
      * @param item which is a CommonIngredient
@@ -52,14 +43,6 @@ public class CommonFridge implements Fridge, Serializable {
         return String.join(",", ingredientNamesArray);
     }
 
-
-    /**
-     * Print the list of ingredients in Ingredient
-     * */
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 
     /**
      * Used for unit testing purposes

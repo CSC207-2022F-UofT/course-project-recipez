@@ -1,7 +1,5 @@
 package UI.resultPage;
 
-import entities.recipe.Recipe;
-
 import java.util.ArrayList;
 import java.util.Dictionary;
 
@@ -10,7 +8,7 @@ import java.util.Dictionary;
  */
 
 public interface ResultsPageViewModelInterface {
-    public void resultsSuccess(ArrayList<Dictionary<String, Object>> recipes);
-    public void resultsFailure(String errorMessage);
+    void resultsSuccess(ArrayList<Dictionary<String, Object>> recipes);
+    void resultsFailure(String errorMessage);
 }
 

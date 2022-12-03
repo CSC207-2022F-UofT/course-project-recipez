@@ -13,25 +13,25 @@ import java.awt.event.ActionListener;
 
 public class userLoginView extends JPanel implements ActionListener {
 
-    private startPageViewModel viewModel;
-    private JTextField username;
+    private final startPageViewModel viewModel;
+    private final JTextField username;
 
-    private JPanel screens;
-    private CardLayout screenLayout;
+    private final JPanel screens;
+    private final CardLayout screenLayout;
 
-    private JButton back;
+    private final JButton back;
 
-    private JButton login_user_btn;
+    private final JButton login_user_btn;
 
-    private JTextField login_response;
+    private final JTextField login_response;
 
-    private loginController loginController;
+    private final loginController loginController;
 
-    private UserEnterIngredientsController ingredientsController;
+    private final UserEnterIngredientsController ingredientsController;
 
-    private SearchController searchController;
+    private final SearchController searchController;
 
-    private ResultsPageViewModel resultsPageViewModel;
+    private final ResultsPageViewModel resultsPageViewModel;
 
     public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout, ResultsPageViewModel resultsPageViewModel) {
         this.viewModel = viewModel;

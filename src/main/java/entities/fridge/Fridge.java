@@ -2,20 +2,12 @@ package entities.fridge;
 
 import entities.ingredient.CommonIngredient;
 
-import java.util.ArrayList;
-
 /**
  * interface Fridge
  * ArrayList<Ingredient> ingredients: list of available ingredients that user added.
  * All commonFridge objects implement fridge
  */
 public interface Fridge {
-
-    /**
-     * Method : set ingredients
-     * @param ingredients which is an ArrayList<CommonIngredient>
-     */
-    void setIngredients(ArrayList<CommonIngredient> ingredients);
 
     /**
      *

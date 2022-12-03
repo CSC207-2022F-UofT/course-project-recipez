@@ -4,8 +4,8 @@ package UI.startPageUI;
  * View Model Interface
  */
 public interface startPageViewModelInterface {
-    public void registration_success(String response);
-    public void registration_failure(String err_message);
-    public void login_success(String response);
-    public void login_failure(String err_message);
+    void registration_success(String response);
+    void registration_failure(String err_message);
+    void login_success(String response);
+    void login_failure(String err_message);
 }
