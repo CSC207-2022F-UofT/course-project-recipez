@@ -2,12 +2,13 @@ package UI.resultPage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Creates a button
+ */
 public class ButtonCreator {
 
     private final String imageUrl;
@@ -42,15 +43,11 @@ public class ButtonCreator {
 
         String urlString = this.recipeUrl;
         //Opens the link to recipe when the JButton is clicked
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Desktop.getDesktop().browse(java.net.URI.create(urlString));
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-
-
+        button.addActionListener(e -> {
+            try {
+                Desktop.getDesktop().browse(java.net.URI.create(urlString));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
         return button;

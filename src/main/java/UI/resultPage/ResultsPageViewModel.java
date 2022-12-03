@@ -1,8 +1,7 @@
 package UI.resultPage;
 
-import entities.recipe.Recipe;
-
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 /**
  * View Model for Results Page UI. Interface Adapters Layer.
@@ -10,12 +9,16 @@ import java.util.ArrayList;
 
 public class ResultsPageViewModel implements ResultsPageViewModelInterface {
 
-    public ArrayList<Recipe> recipes;
+    public ArrayList<Dictionary<String, Object>> recipes;
     public String errorMessage;
 
+    public ResultsPageViewModel() {
+        this.recipes = new ArrayList<>();
+        this.errorMessage = null;
+    }
 
     @Override
-    public void resultsSuccess(ArrayList<Recipe> recipes) {
+    public void resultsSuccess(ArrayList<Dictionary<String, Object>> recipes) {
         this.recipes = recipes;
     }
 

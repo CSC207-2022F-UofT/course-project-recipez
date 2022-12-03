@@ -1,9 +1,13 @@
 package presenters.create_user_and_fridge;
 
-import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
+@SuppressWarnings("ALL")
+/**
+ * Presenter Interface
+ */
 public interface CreateUserAndFridgePresenter {
-        CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel);
+        CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel);
 
-        CreateUserandFridgeResponseModel prepareFailView(String error);
+        CreateUserAndFridgeResponseModel prepareFailView(String error);
 }

@@ -1,22 +1,23 @@
 package presenters.enter_ingredient;
 
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientResponseModel;
+import use_cases.enter_indredients_usecase.UserEnterIngredientResponseModel;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
+@SuppressWarnings("ALL")
+/**
+ * Implements the Presenter (using dependency injection), More it has methods that are used by viewModel
+ */
 public class UserEnterIngredientFormatter implements UserEnterIngredientPresenter {
 
-
+    /**
+     * Format for Enter Ingredient Response for success view and fail view
+     */
     @Override
-    public UserEnterIngredientResponseModel prepareSuccessView(UserEnterIngredientResponseModel userEnterIngredientResponseModel) {
-        LocalDateTime responseTime = LocalDateTime.parse(userEnterIngredientResponseModel.getCreationTime());
-        userEnterIngredientResponseModel.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-        return userEnterIngredientResponseModel;
+    public void prepareSuccessView(UserEnterIngredientResponseModel userEnterIngredientResponseModel) {
     }
-
+    /**
+     * @param error : The error that needs to be displayed
+     */
     @Override
-    public UserEnterIngredientResponseModel prepareFailView(String error) {
-        return null;
+    public void prepareFailView(String error) {
     }
 }

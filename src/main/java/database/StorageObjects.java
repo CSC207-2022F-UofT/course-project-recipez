@@ -26,8 +26,6 @@ public class StorageObjects implements Serializable {
     /**
      * Constructor
      */
-    // Supress warnings if we want to use an empty constructor in the future.
-    @SuppressWarnings("all")
     public StorageObjects() {}
 
     /**

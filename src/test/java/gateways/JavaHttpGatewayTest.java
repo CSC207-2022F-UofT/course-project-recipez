@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test Cases for the APICaller class
  */
+@SuppressWarnings("ALL")
 public class JavaHttpGatewayTest {
     /**
      * Test for Recipe Search API call with ingredient list only expecting one result

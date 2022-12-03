@@ -1,33 +1,26 @@
 package entities.fridge;
 
-import entities.ingredient.Ingredient;
-
-import java.util.ArrayList;
+import entities.ingredient.CommonIngredient;
 
 /**
  * interface Fridge
  * ArrayList<Ingredient> ingredients: list of available ingredients that user added.
- * All commonfridge objects implement fridge
+ * All commonFridge objects implement fridge
  */
 public interface Fridge {
-
-    /**
-     * Method : set ingredients
-     * @param ingredients which is an ArrayList<Ingredient>
-     */
-    void setIngredients(ArrayList<Ingredient> ingredients);
 
     /**
      *
      * @param item which is a CommonIngredient
      * implemented by fridge class
      */
-    void  addIngredient (Ingredient item);
+    void  addIngredient (CommonIngredient item);
 
     /**
-     * @param item which is a CommonIngredient
-     * implemented by fridge class
+     * Used for unit testing purposes
+     * the UUID allows for the object to have a unique ID.
+     *
+     * @return the ID as an int
      */
-    void removeIngredient (Ingredient item) ;
-
+    int getUUID();
 }

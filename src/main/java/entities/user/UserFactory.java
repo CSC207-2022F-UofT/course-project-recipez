@@ -1,6 +1,6 @@
 package entities.user;
 
-import entities.fridge.Fridge;
+import entities.fridge.CommonFridge;
 
 /**
  * Interface UserFactory
@@ -9,9 +9,9 @@ import entities.fridge.Fridge;
 public interface UserFactory {
     /**
      * Method implemented by CommonUserFactory
-     * @param name
-     * @param Fridge
-     * @return
+     * @param name as a string
+     * @param commonFridge is the commonFridge
+     * @return the User
      */
-    User create(String name, Fridge Fridge);
+    User create(String name, CommonFridge commonFridge);
 }

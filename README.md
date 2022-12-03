@@ -11,7 +11,7 @@ RecipEz as the name suggests, is an easy, all-in-one recipe generator that lets 
 git clone https://github.com/CSC207-2022F-UofT/course-project-recipez.git
 cd course-project-recipez
 ```
-Then to start the RecipEz program, go to the "main.java" file and click run.
+Then to start the RecipEz program, go to the "Main.java" file and click run.
 
 ## About Us
 

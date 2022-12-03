@@ -1,20 +1,19 @@
 package controllers;
 
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientResponseModel;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientRequestModel;
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientsInputBoundary;
+import use_cases.enter_indredients_usecase.UserEnterIngredientRequestModel;
+import use_cases.enter_indredients_usecase.UserEnterIngredientsInputBoundary;
 
 public class UserEnterIngredientsController {
 
-    public UserEnterIngredientsInputBoundary userIngredientinteractor;
+    public final UserEnterIngredientsInputBoundary userIngredientinteractor;
 
     public UserEnterIngredientsController(UserEnterIngredientsInputBoundary userIngredientinteractor) {
         this.userIngredientinteractor = userIngredientinteractor;
     }
 
 
-    public UserEnterIngredientResponseModel create(String ingredient, String user) {
+    public void create(String ingredient, String user) {
         UserEnterIngredientRequestModel requestModel = new UserEnterIngredientRequestModel(ingredient, user);
-        return userIngredientinteractor.create(requestModel);
+        userIngredientinteractor.create(requestModel);
     }
 }

@@ -1,11 +1,10 @@
 package UI.startPageUI;
 
+import UI.resultPage.ResultsPageViewModel;
 import UI.searchPageHelpFrame;
-import controllers.CreateUserandFridgeController;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
 import controllers.loginController;
-import entities.user.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,31 +13,34 @@ import java.awt.event.ActionListener;
 
 public class userLoginView extends JPanel implements ActionListener {
 
-    private startPageViewModel viewModel;
-    private JTextField username;
+    private final startPageViewModel viewModel;
+    private final JTextField username;
 
-    private JPanel screens;
-    private CardLayout screenLayout;
+    private final JPanel screens;
+    private final CardLayout screenLayout;
 
-    private JButton back;
+    private final JButton back;
 
-    private JButton login_user_btn;
+    private final JButton login_user_btn;
 
-    private JTextField login_response;
+    private final JTextField login_response;
 
-    private loginController loginController;
+    private final loginController loginController;
 
-    private UserEnterIngredientsController ingredientsController;
+    private final UserEnterIngredientsController ingredientsController;
 
-    private SearchController searchController;
+    private final SearchController searchController;
 
-    public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout) {
+    private final ResultsPageViewModel resultsPageViewModel;
+
+    public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout, ResultsPageViewModel resultsPageViewModel) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
         this.loginController = loginController;
         this.ingredientsController = ingredientsController;
         this.searchController = searchController;
+        this.resultsPageViewModel = resultsPageViewModel;
 
         this.username = new JTextField(15);
 
@@ -83,7 +85,7 @@ public class userLoginView extends JPanel implements ActionListener {
             JOptionPane.showMessageDialog(this, viewModel.attempt_login_response);
 
             if (viewModel.loggedIn) {
-                new searchPageHelpFrame(this.ingredientsController, this.searchController, username.getText());
+                new searchPageHelpFrame(this.ingredientsController, this.searchController, username.getText(), resultsPageViewModel);
             }
         }
     }

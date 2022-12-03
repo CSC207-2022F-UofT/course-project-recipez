@@ -1,10 +1,14 @@
 package presenters.enter_ingredient;
 
-import use_cases.user_enter_indredients_interactor.UserEnterIngredientResponseModel;
+import use_cases.enter_indredients_usecase.UserEnterIngredientResponseModel;
 
+@SuppressWarnings("ALL")
+/**
+ * Presenter class for entering ingredient presenter
+ */
 public interface UserEnterIngredientPresenter {
 
-    UserEnterIngredientResponseModel prepareSuccessView(UserEnterIngredientResponseModel userEnterIngredientResponseModel);
+    void prepareSuccessView(UserEnterIngredientResponseModel userEnterIngredientResponseModel);
 
-    UserEnterIngredientResponseModel prepareFailView(String error);
+    void prepareFailView(String error);
 }

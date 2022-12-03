@@ -7,7 +7,7 @@ public class CommonIngredient implements Ingredient, Serializable {
      * Class ingredient:
      * String name: name of the ingredient
      */
-    final String name;
+    private final String name;
     /**
      * Constructor for the Ingredient class
      * @param name: name of the ingredient
@@ -23,5 +23,4 @@ public class CommonIngredient implements Ingredient, Serializable {
     public String getName() {
         return this.name;
     }
-
 }

@@ -1,32 +1,38 @@
 package presenters.create_user_and_fridge;
 
 import UI.startPageUI.startPageViewModelInterface;
-import use_cases.create_user_and_fridge.CreateUserandFridgeResponseModel;
+import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
+@SuppressWarnings("ALL")
+ /**
+ * Implements the Presenter (using dependency injection), More it has methods that are used by viewModel
+ */
 public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresenter {
-//    @Override
-//    public CommonUser prepareSuccessView(CommonUser user) {
-//        return user;
-//    }
-    private startPageViewModelInterface viewModel;
 
+    private final startPageViewModelInterface viewModel;
+
+
+    /**
+     * @param viewModel Constructor for this class
+     */
     public CreateUserAndFridgeFormatter(startPageViewModelInterface viewModel) {
         this.viewModel = viewModel;
     }
 
+    /**
+     * Returns a response model
+     */
     @Override
-    public CreateUserandFridgeResponseModel prepareSuccessView(CreateUserandFridgeResponseModel responseModel) {
-        LocalDateTime responseTime = LocalDateTime.parse(responseModel.getCreationTime());
-        responseModel.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-        this.viewModel.registration_success(responseModel.getCommonUser().getName());
+    public CreateUserAndFridgeResponseModel prepareSuccessView(CreateUserAndFridgeResponseModel responseModel) {
+        this.viewModel.registration_success(responseModel.getCommonUserName());
         return responseModel;
     }
 
+    /**
+     * @param error : The error message that needs to be displayed
+     */
     @Override
-    public CreateUserandFridgeResponseModel prepareFailView(String error) {
+    public CreateUserAndFridgeResponseModel prepareFailView(String error) {
         this.viewModel.registration_failure(error);
         return null;
     }
