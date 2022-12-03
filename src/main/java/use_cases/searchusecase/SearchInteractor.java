@@ -1,11 +1,11 @@
-package use_cases.searchusecase;
+package use_cases.searchUseCase;
 
 import database.DatabaseGateway;
 import entities.fridge.CommonFridge;
 import gateways.IApiGateway;
 import entities.recipe.RecipeFactory;
 import presenters.search.SearchPresenter;
-import entities.recipe.Recipe;
+
 /**
  * Interactor for Search use case
  */
@@ -27,7 +27,7 @@ public class SearchInteractor implements SearchInputBoundary {
      *
      * @param model The user's search input
      */
-    public void search(SearchRequestModel model) {
+    public SearchResponseModel search(SearchRequestModel model) {
         CommonFridge fridge = ((CommonFridge) database.get(model.getUsername()).getFridge());
         String APIResponse = this.apiCaller.send(
                 fridge.printIngredient(),
@@ -39,10 +39,11 @@ public class SearchInteractor implements SearchInputBoundary {
 
         if (APIResponse == null) {
             searchPresenter.prepareFailView("API Output was incompatible.");
-            return;
+            return searchResponseModel;
         }
         // Print Statement to show API response without results page
         System.out.println("API Response: " + APIResponse);
         searchPresenter.prepareSuccessView(searchResponseModel);
+        return searchResponseModel;
     }
 }

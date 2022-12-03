@@ -1,8 +1,8 @@
-package use_cases.searchusecase;
+package use_cases.searchUseCase;
 
 /**
  * SearchInputBoundary interface
  */
 public interface SearchInputBoundary {
-    void search(SearchRequestModel requestModel);
+    SearchResponseModel search(SearchRequestModel requestModel);
 }

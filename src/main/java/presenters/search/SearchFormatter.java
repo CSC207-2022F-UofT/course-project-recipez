@@ -7,7 +7,7 @@ import com.google.gson.JsonParser;
 import entities.recipe.CommonRecipeFactory;
 import entities.recipe.RecipeFactory;
 import org.jetbrains.annotations.NotNull;
-import use_cases.searchusecase.SearchResponseModel;
+import use_cases.searchUseCase.SearchResponseModel;
 
 import java.util.ArrayList;
 import java.util.Dictionary;

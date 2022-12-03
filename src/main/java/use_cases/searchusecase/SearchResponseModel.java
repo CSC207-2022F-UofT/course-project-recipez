@@ -1,4 +1,4 @@
-package use_cases.searchusecase;
+package use_cases.searchUseCase;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

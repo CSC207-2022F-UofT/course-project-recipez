@@ -1,6 +1,6 @@
 package presenters.search;
 
-import use_cases.searchusecase.SearchResponseModel;
+import use_cases.searchUseCase.SearchResponseModel;
 
 public interface SearchPresenter {
     void prepareSuccessView(SearchResponseModel searchResponse);
