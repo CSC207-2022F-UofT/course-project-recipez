@@ -17,4 +17,6 @@ public class loginResponseModel {
         return this.commonUser;
     }
 
+    public String getCommonUserName() {return this.getCommonUser().getName(); }
+
 }
