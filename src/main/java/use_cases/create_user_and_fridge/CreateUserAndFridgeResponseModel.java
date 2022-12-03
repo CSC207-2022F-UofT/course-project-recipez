@@ -27,4 +27,6 @@ public class CreateUserAndFridgeResponseModel {
         return this.commonUser;
     }
 
+    public String getCommonUserName() { return this.getCommonUser().getName(); }
+
 }

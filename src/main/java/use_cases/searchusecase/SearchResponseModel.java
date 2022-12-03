@@ -18,4 +18,24 @@ public class SearchResponseModel {
     public String getApiOutput() {
         return apiOutput;
     }
+
+    public RecipeFactory getRecipeFactory() {
+        return this.recipeFactory;
+    }
+
+    public ArrayList<Dictionary<String, Object>> formatJson() {
+        ArrayList<Dictionary<String, Object>> formattedRecipes = new ArrayList<>();
+
+        JsonObject jsonObject = JsonParser.parseString(this.getApiOutput()).getAsJsonObject();
+        JsonArray recipes = jsonObject.get("hits").getAsJsonArray();
+        int count = jsonObject.get("to").getAsInt();
+
+        for(int j = 0; j < count; j++) {
+            JsonObject n = recipes.get(j).getAsJsonObject();
+            JsonObject p = n.get("recipe").getAsJsonObject();
+            formattedRecipes.add(this.getRecipeFactory().create(p.get("label").getAsString(),p.get("url").getAsString(),p.get("image")).getRecipeInfo());
+
+        }
+        return formattedRecipes;
+    }
 }
