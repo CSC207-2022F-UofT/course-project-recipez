@@ -8,7 +8,7 @@ public class CommonRecipe implements Recipe {
      * Single class constructor requires name of recipe, an ArrayList of required ingredients, time to prepare
      * cost of preparation, and other info such as instructions/description.
      */
-    private final Dictionary<String, Object> dictionary;
+    private Dictionary<String, Object> dictionary;
 
     public CommonRecipe(Object name, Object url, Object image) {
         this.dictionary = new Hashtable<>();
@@ -19,5 +19,14 @@ public class CommonRecipe implements Recipe {
 
     public Dictionary<String, Object> getRecipeInfo() {
         return this.dictionary;
+    }
+
+    /**
+     * Method for retrieving dictionary containing recipe information.
+     * Returns a dictionary with keys, "Name", "IngredientList", "TimeToPrepare", "Cost", and "Description".
+     */
+    @Override
+    public void setDictionary(Dictionary<String, Object> setDict) {
+        this.dictionary = setDict;
     }
 }
