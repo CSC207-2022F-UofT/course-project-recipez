@@ -15,13 +15,11 @@ public class CommonRecipe implements Recipe {
         this.dictionary.put("Name", name);
         this.dictionary.put("URL", url);
         this.dictionary.put("Image", image);
-
-
     }
 
     /**
      * Method for retrieving dictionary containing recipe information.
-     * Returns a dictionary with keys, "Name", "IngredientList", "TimeToPrepare", "Cost", and "Description".
+     * Returns a dictionary with keys, "Name", "URL", "Image".
      */
     public void setDictionary(Dictionary<String, Object> setDict) {
         this.dictionary = setDict;
@@ -31,7 +29,8 @@ public class CommonRecipe implements Recipe {
         return this.dictionary;
     }
 
-    public void printDictionary() {
+    public String toString() {
         System.out.println(this.dictionary);
+        return null;
     }
 }
