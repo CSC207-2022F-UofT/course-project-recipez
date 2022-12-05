@@ -26,8 +26,8 @@ import use_cases.enter_indredients_usecase.UserEnterIngredientsInputBoundary;
 import use_cases.enter_indredients_usecase.UserEnterIngredientsInteractor;
 import use_cases.login_usecase.LoginInteractor;
 import use_cases.login_usecase.loginInputBoundary;
-import use_cases.searchUseCase.SearchInputBoundary;
-import use_cases.searchUseCase.SearchInteractor;
+import use_cases.searchusecase.SearchInputBoundary;
+import use_cases.searchusecase.SearchInteractor;
 import javax.swing.*;
 import java.awt.*;
 

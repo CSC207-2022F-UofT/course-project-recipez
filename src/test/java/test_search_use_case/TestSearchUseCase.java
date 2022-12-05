@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
 
 import presenters.search.SearchFormatter;
 import presenters.search.SearchPresenter;
-import use_cases.searchUseCase.SearchInputBoundary;
-import use_cases.searchUseCase.SearchInteractor;
-import use_cases.searchUseCase.SearchRequestModel;
-import use_cases.searchUseCase.SearchResponseModel;
+import use_cases.searchusecase.SearchInputBoundary;
+import use_cases.searchusecase.SearchInteractor;
+import use_cases.searchusecase.SearchRequestModel;
+import use_cases.searchusecase.SearchResponseModel;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
