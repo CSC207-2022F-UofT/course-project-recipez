@@ -21,9 +21,9 @@ Then to start the RecipEz program, go to the "Main.java" file and click run.
 - Helping this has also allowed us to adhere to clean architecture 
 
 ## 6. User Stories With Code
-- [Register Use Case] ()
-- [Enter ingredient Use case] ()
-- [Search Use Case] ()
+- [Register Use Case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/RegisterUsecase.jpeg)
+- [Enter ingredient Use case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/EnterIngredientsUsecase.jpeg)
+- [Search Use Case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/SearchUseCase.png)
 
 ## About Us
 
