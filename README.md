@@ -18,7 +18,18 @@ Then to start the RecipEz program, go to the "Main.java" file and click run.
 - We have used the dependency injection in all of our use cases. Rather than creating the objects inside the classes,we pass them in as instances. One such example from our code is
 ![Alt text](/reports/DependecyInjectionDesignPattern.jpeg)
 - This has allowed us to create tests easily, as the dependencies can now be mocked.
-- Helping this has also allowed us to adhere to clean architecture 
+- Helping this has also allowed us to adhere to clean architecture
+### Facade
+The JavaHttpGateway class uses a Facade design pattern. It encapsulates url building, sending requests, and handling errors into the facade. The new design is simpler for the search use case to call, which now only depends on one API gateway class. The previous design in Milestone 4 had all three components in the same search method. This method was too long, and modifications to individual components required changes in the whole class.
+![Facade file diagram](reports/javahttpgateway_facade_pattern.png)
+
+### Builder
+The ApiUrlBuilder class uses the Builder design pattern to create the URL to make the API call. The builder has steps for appending the ingredient list, filter options, and response fields returned to the API provider’s base URL. This design simplifies the URL’s constructor and makes it easier to customize request options. In the future, more request options can be easily added, and some can be made optional without multiple constructors.
+
+![Builder file diagram](reports/urlbuilder_builder_pattern.png)
+### Factory
+The Fridge and User entities use the Factory design pattern in the FridgeFactory and UserFactory classes. FridgeFactory create objects of type Fridge, which CommonFridge implements. CommonUser objects are children of User, which can be created from UserFridge. In the future, different types of users or fridges can be easily added and created from UserFactory or FridgeFactory objects.
+
 
 ## User Stories With Code
 - [Register Use Case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/RegisterUsecase.jpeg)
