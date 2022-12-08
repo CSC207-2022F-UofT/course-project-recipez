@@ -20,11 +20,36 @@ Then to start the RecipEz program, go to the "Main.java" file and click run.
 - This has allowed us to create tests easily, as the dependencies can now be mocked.
 - Helping this has also allowed us to adhere to clean architecture 
 
-## 6. User Stories With Code
+## User Stories With Code
 - [Register Use Case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/RegisterUsecase.jpeg)
 - [Enter ingredient Use case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/EnterIngredientsUsecase.jpeg)
 - [Search Use Case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/Reports/SearchUseCase.png)
 
+
+## Updates since Milestone 4
+
+#### Functionality
+- ResultsPage completed and intended program functionality from Registration to final search results displayed has been completed.
+
+#### Pull Requests: 
+
+ - Pull requests made for completing functionality, cleaning code, and tests were made with meaningful comments.
+
+#### Code Organization 
+ - Merged duplicate use_cases package.
+
+#### Testing
+- Tests created for search_usecase, login_usecase, create_user_and_fridge, enter_ingredient_usecase, entities, gateway, and database.
+
+#### Code Style and Documentation
+- Removed warning from all files and Refactored package names and class names to be consistent.
+
+#### Design Patterns
+- Added Facade design pattern used in JavaHttpGateway, and Builder design pattern in ApiUrlBuilder.
+
+##  Pull Requests 
+ - Document highlighting  major pull requests by each user. (https://docs.google.com/document/d/1AO633xoS5uQ1Ctkh7n6KBRYmfO29UYrfxVzqHa4Qp04/edit)
+ 
 ## About Us
 
 We are the group that planned, developed, and tested the RecipEz project. 
