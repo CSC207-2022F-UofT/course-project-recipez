@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class searchPageHelpFrame extends JFrame implements ActionListener {
+public class SearchPageHelpFrame extends JFrame implements ActionListener {
     //This class contains the code to build the searchPage interface, and implements ActionListener
     //so that it enables button click and drop down box function.
     final JButton button_submit;
@@ -31,7 +31,7 @@ public class searchPageHelpFrame extends JFrame implements ActionListener {
 
     final ResultsPageViewModel resultsPageViewModel;
 
-    public searchPageHelpFrame(UserEnterIngredientsController ingredientsController, SearchController searchController, String username, ResultsPageViewModel resultPageViewModel) {
+    public SearchPageHelpFrame(UserEnterIngredientsController ingredientsController, SearchController searchController, String username, ResultsPageViewModel resultPageViewModel) {
         this.enterIngredientsController = ingredientsController;
         this.searchController = searchController;
         this.resultsPageViewModel = resultPageViewModel;

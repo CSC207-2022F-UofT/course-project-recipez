@@ -3,11 +3,11 @@ package use_cases.login_usecase;
 /**
  * loginInputBoundary interface
  */
-public interface loginInputBoundary {
+public interface LoginInputBoundary {
     /**
      * Creates a loginResponseModel
      *
      * @param requestModel takes in a request Model
      */
-    void create(loginRequestModel requestModel);
+    void create(LoginRequestModel requestModel);
 }

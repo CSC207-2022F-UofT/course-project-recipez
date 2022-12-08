@@ -1,19 +1,19 @@
 package UI.startPageUI;
 
 import UI.resultPage.ResultsPageViewModel;
-import UI.searchPageHelpFrame;
+import UI.SearchPageHelpFrame;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
-import controllers.loginController;
+import controllers.LoginController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class userLoginView extends JPanel implements ActionListener {
+public class UserLoginView extends JPanel implements ActionListener {
 
-    private final startPageViewModel viewModel;
+    private final StartPageViewModel viewModel;
     private final JTextField username;
 
     private final JPanel screens;
@@ -25,7 +25,7 @@ public class userLoginView extends JPanel implements ActionListener {
 
     private final JTextField login_response;
 
-    private final loginController loginController;
+    private final LoginController loginController;
 
     private final UserEnterIngredientsController ingredientsController;
 
@@ -33,7 +33,7 @@ public class userLoginView extends JPanel implements ActionListener {
 
     private final ResultsPageViewModel resultsPageViewModel;
 
-    public userLoginView(startPageViewModel viewModel, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout, ResultsPageViewModel resultsPageViewModel) {
+    public UserLoginView(StartPageViewModel viewModel, LoginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, JPanel screens, CardLayout screenLayout, ResultsPageViewModel resultsPageViewModel) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;
@@ -85,7 +85,7 @@ public class userLoginView extends JPanel implements ActionListener {
             JOptionPane.showMessageDialog(this, viewModel.attempt_login_response);
 
             if (viewModel.loggedIn) {
-                new searchPageHelpFrame(this.ingredientsController, this.searchController, username.getText(), resultsPageViewModel);
+                new SearchPageHelpFrame(this.ingredientsController, this.searchController, username.getText(), resultsPageViewModel);
             }
         }
     }

@@ -3,7 +3,7 @@ package UI.startPageUI;
 /**
  * View Model for start Page UI. Interface Adapters Layer.
  */
-public class startPageViewModel implements startPageViewModelInterface {
+public class StartPageViewModel implements StartPageViewModelInterface {
 
     public String pageState;
     public String create_register_response;
@@ -14,7 +14,7 @@ public class startPageViewModel implements startPageViewModelInterface {
     /**
      * Constructor for ViewModel. Sets pageState to the Main start page.
      */
-    public startPageViewModel() {
+    public StartPageViewModel() {
         this.pageState = "Main";
         this.loggedIn = false;
     }

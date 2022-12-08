@@ -1,20 +1,20 @@
 package presenters.login;
 
-import UI.startPageUI.startPageViewModelInterface;
-import use_cases.login_usecase.loginResponseModel;
+import UI.startPageUI.StartPageViewModelInterface;
+import use_cases.login_usecase.LoginResponseModel;
 
-public class loginFormatter implements loginPresenter{
+public class LoginFormatter implements LoginPresenter {
 
      /**
      * Format the login interactor response for success view and fail view
      */
-    private final startPageViewModelInterface viewModel;
+    private final StartPageViewModelInterface viewModel;
     
-    public loginFormatter(startPageViewModelInterface viewModel) {
+    public LoginFormatter(StartPageViewModelInterface viewModel) {
         this.viewModel = viewModel;
     }
     @Override
-    public void prepareSuccessView(loginResponseModel responseModel) {
+    public void prepareSuccessView(LoginResponseModel responseModel) {
         viewModel.login_success(responseModel.getCommonUser().getName());
     }
 

@@ -3,7 +3,7 @@ package use_cases.login_usecase;
 /**
  * Making the login Request Model
  */
-public class loginRequestModel {
+public class LoginRequestModel {
 
     public final String user;
 
@@ -12,7 +12,7 @@ public class loginRequestModel {
      *
      * @param user as a String
      */
-    public loginRequestModel(String user) {
+    public LoginRequestModel(String user) {
         this.user = user;
     }
 

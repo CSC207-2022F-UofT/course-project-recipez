@@ -11,8 +11,8 @@ import java.awt.event.ActionListener;
  * startPageViewWelcome UI for first page user interacts with.
  */
 @SuppressWarnings("ALL")
-public class startPageViewWelcome extends JPanel implements ActionListener{
-    private final startPageViewModel viewModel;
+public class StartPageViewWelcome extends JPanel implements ActionListener{
+    private final StartPageViewModel viewModel;
 
     private final JButton register;
     private final JButton login;
@@ -26,7 +26,7 @@ public class startPageViewWelcome extends JPanel implements ActionListener{
      * @param screens stores the multiple screens in the UI
      * @param screenLayout defines the ordering of the screens so UI can switch
      */
-    public startPageViewWelcome(startPageViewModel viewModel, CreateUserAndFridgeController controller, JPanel screens, CardLayout screenLayout) {
+    public StartPageViewWelcome(StartPageViewModel viewModel, CreateUserAndFridgeController controller, JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
         this.screenLayout = screenLayout;

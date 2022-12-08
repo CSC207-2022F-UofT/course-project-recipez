@@ -7,7 +7,7 @@ import entities.user.CommonUser;
  * loginResponseModel class
  */
 @SuppressWarnings({"ALL", "unused"})
-public class loginResponseModel {
+public class LoginResponseModel {
 
     public final CommonFridge commonFridge;
     public final CommonUser commonUser;
@@ -18,7 +18,7 @@ public class loginResponseModel {
      * @param commonFridge commonFridge
      * @param commonUser commonUser
      */
-    public loginResponseModel(CommonFridge commonFridge, CommonUser commonUser) {
+    public LoginResponseModel(CommonFridge commonFridge, CommonUser commonUser) {
         this.commonFridge = commonFridge;
         this.commonUser = commonUser;
     }

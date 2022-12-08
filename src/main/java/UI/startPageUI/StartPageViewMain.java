@@ -4,7 +4,7 @@ import UI.resultPage.ResultsPageViewModel;
 import controllers.CreateUserAndFridgeController;
 import controllers.SearchController;
 import controllers.UserEnterIngredientsController;
-import controllers.loginController;
+import controllers.LoginController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,14 +13,14 @@ import java.awt.*;
  * Facade for UI start page. Manages if start page is in welcome, register, or login state.
  */
 
-public class startPageViewMain extends JPanel{
+public class StartPageViewMain extends JPanel{
 
     /**
      * Constructor for the startPageViewMain class
      * @param viewModel viewModel containing data for view to present
      * @param controller createUserAndFridge Controller to begin use case for registering/logging in users
      */
-    public startPageViewMain(startPageViewModel viewModel, CreateUserAndFridgeController controller, loginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, ResultsPageViewModel resultsPageViewModel) {
+    public StartPageViewMain(StartPageViewModel viewModel, CreateUserAndFridgeController controller, LoginController loginController, UserEnterIngredientsController ingredientsController, SearchController searchController, ResultsPageViewModel resultsPageViewModel) {
 
         setLayout(new BorderLayout());
 
@@ -33,9 +33,9 @@ public class startPageViewMain extends JPanel{
         JPanel startScreens = new JPanel();
         startScreens.setLayout(screenLayout);
 
-        startPageViewWelcome welcome = new startPageViewWelcome(viewModel, controller, startScreens, screenLayout);
-        registerUserView register = new registerUserView(viewModel, controller, startScreens, screenLayout);
-        userLoginView login = new userLoginView(viewModel, loginController, ingredientsController, searchController, startScreens, screenLayout, resultsPageViewModel);
+        StartPageViewWelcome welcome = new StartPageViewWelcome(viewModel, controller, startScreens, screenLayout);
+        RegisterUserView register = new RegisterUserView(viewModel, controller, startScreens, screenLayout);
+        UserLoginView login = new UserLoginView(viewModel, loginController, ingredientsController, searchController, startScreens, screenLayout, resultsPageViewModel);
 
         startScreens.add(welcome , "Main");
         startScreens.add(register, "register");

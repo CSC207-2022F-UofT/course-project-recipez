@@ -11,8 +11,8 @@ import java.awt.event.ActionListener;
  * View UI for user registration page
  */
 
-public class registerUserView extends JPanel implements ActionListener {
-    private final startPageViewModel viewModel;
+public class RegisterUserView extends JPanel implements ActionListener {
+    private final StartPageViewModel viewModel;
     private final JTextField username;
     private final JButton back;
     private final JButton create_user_btn;
@@ -23,7 +23,7 @@ public class registerUserView extends JPanel implements ActionListener {
 
     private final JTextField register_response;
 
-    public registerUserView(startPageViewModel viewModel, CreateUserAndFridgeController controller,
+    public RegisterUserView(StartPageViewModel viewModel, CreateUserAndFridgeController controller,
                             JPanel screens, CardLayout screenLayout) {
         this.viewModel = viewModel;
         this.screens = screens;
