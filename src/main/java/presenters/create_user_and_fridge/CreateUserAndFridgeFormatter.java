@@ -1,6 +1,6 @@
 package presenters.create_user_and_fridge;
 
-import UI.startPageUI.startPageViewModelInterface;
+import UI.startPageUI.StartPageViewModelInterface;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
 
 @SuppressWarnings("ALL")
@@ -9,13 +9,13 @@ import use_cases.create_user_and_fridge.CreateUserAndFridgeResponseModel;
  */
 public class CreateUserAndFridgeFormatter implements CreateUserAndFridgePresenter {
 
-    private final startPageViewModelInterface viewModel;
+    private final StartPageViewModelInterface viewModel;
 
 
     /**
      * @param viewModel Constructor for this class
      */
-    public CreateUserAndFridgeFormatter(startPageViewModelInterface viewModel) {
+    public CreateUserAndFridgeFormatter(StartPageViewModelInterface viewModel) {
         this.viewModel = viewModel;
     }
 

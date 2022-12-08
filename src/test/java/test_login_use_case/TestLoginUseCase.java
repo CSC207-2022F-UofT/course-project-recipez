@@ -10,11 +10,11 @@ import entities.ingredient.CommonIngredient;
 import entities.user.CommonUser;
 import entities.user.CommonUserFactory;
 import entities.user.UserFactory;
-import presenters.login.loginPresenter;
+import presenters.login.LoginPresenter;
 import use_cases.login_usecase.LoginInteractor;
-import use_cases.login_usecase.loginInputBoundary;
-import use_cases.login_usecase.loginRequestModel;
-import use_cases.login_usecase.loginResponseModel;
+import use_cases.login_usecase.LoginInputBoundary;
+import use_cases.login_usecase.LoginRequestModel;
+import use_cases.login_usecase.LoginResponseModel;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -30,9 +30,9 @@ public class TestLoginUseCase {
 
         DatabaseGateway testingDatabase = new Database("Test_Storage");
 
-        loginPresenter testingPresenter = new loginPresenter() {
+        LoginPresenter testingPresenter = new LoginPresenter() {
             @Override
-            public void prepareSuccessView(loginResponseModel responseModel) {
+            public void prepareSuccessView(LoginResponseModel responseModel) {
                 assertEquals("demetriusjr", responseModel.getCommonUser().getName());
                 assertTrue(testingDatabase.hasKey("demetriusjr"));
                 testingDatabase.deleteStorageFile();
@@ -52,9 +52,9 @@ public class TestLoginUseCase {
         StorageObjects objects = new StorageObjects(testUser, testFridge);
         testingDatabase.store("demetriusjr", objects);
 
-        loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
+        LoginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
         //loginResponseModel inputData = new loginResponseModel(testFridge ,testUser);
-        loginRequestModel inputData = new loginRequestModel("demetriusjr");
+        LoginRequestModel inputData = new LoginRequestModel("demetriusjr");
         testing_login.create(inputData);
         testingDatabase.deleteStorageFile();
     }
@@ -67,9 +67,9 @@ public class TestLoginUseCase {
 
         DatabaseGateway testingDatabase = new Database("Test_Storage");
 
-        loginPresenter testingPresenter = new loginPresenter() {
+        LoginPresenter testingPresenter = new LoginPresenter() {
             @Override
-            public void prepareSuccessView(loginResponseModel responseModel) {
+            public void prepareSuccessView(LoginResponseModel responseModel) {
                 assertEquals("demetriusjr", responseModel.getCommonUser().getName());
                 assertTrue(testingDatabase.hasKey("demetriusjr"));
                 testingDatabase.deleteStorageFile();
@@ -80,8 +80,8 @@ public class TestLoginUseCase {
                 assertEquals(error, "Account does not exist");
             }
         };
-        loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
-        loginRequestModel inputData = new loginRequestModel("demetriusSr");
+        LoginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
+        LoginRequestModel inputData = new LoginRequestModel("demetriusSr");
         testing_login.create(inputData);
         testingDatabase.deleteStorageFile();
 
@@ -94,17 +94,17 @@ public class TestLoginUseCase {
     @Test
     void nothingTest(){
         DatabaseGateway testingDatabase = new Database("Test_Storage");
-        loginPresenter testingPresenter = new loginPresenter() {
+        LoginPresenter testingPresenter = new LoginPresenter() {
             @Override
-            public void prepareSuccessView(loginResponseModel responseModel) {
+            public void prepareSuccessView(LoginResponseModel responseModel) {
             }
             @Override
             public void prepareFailView(String error) {
                 assertEquals(error, "Nothing Entered");
             }
         };
-        loginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
-        loginRequestModel inputData = new loginRequestModel("");
+        LoginInputBoundary testing_login = new LoginInteractor(testingDatabase, testingPresenter);
+        LoginRequestModel inputData = new LoginRequestModel("");
         testing_login.create(inputData);
         testingDatabase.deleteStorageFile();
     }
