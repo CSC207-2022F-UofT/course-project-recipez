@@ -27,3 +27,8 @@ Group members:
 - [Samira Dang](https://github.com/fonuxxine)
 - [Jacky Yang](https://github.com/Zhuofan-Y)
 
+## Github Features Used
+- Issues: In milestone 1, we used the issues page to define the features in our application. As we moved through our implementation, we closed off issues, allowing us to gauge our progress and measure how our project idea changed from its initial conception. 
+- Pull Requests: Once a group member pushed substantial contributions to the remote repository, they also opened a pull request in github to allow others to view the code changes. This feature was immensely helpful in managing changes to the main branch, as merging was only permitted with the approval of 3 members. Thus, all changes could be properly assessed by several reviewers to prevent erroneous merging. 
+- Merge Conflict Editor: In cases where merge conflicts arose, we made use of the github editor to view the conflicts side-by-side and determine the most prudent course of action. In particular, the gradle daemon presented some merge conflicts when the GSON library was loaded into the recipe-builder branch. We made heavy use of the merge conflict editor to resolve this issue.
+- Github CLI: The Github
