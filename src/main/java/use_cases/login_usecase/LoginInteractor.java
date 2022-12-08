@@ -3,7 +3,7 @@ package use_cases.login_usecase;
 import database.DatabaseGateway;
 import entities.fridge.CommonFridge;
 import entities.user.CommonUser;
-import presenters.login.loginPresenter;
+import presenters.login.LoginPresenter;
 
 
 import java.util.Objects;
@@ -12,13 +12,13 @@ import java.util.Objects;
  * Login interactor which implements loginInputBoundary
  *
  */
-public class LoginInteractor implements loginInputBoundary{
+public class LoginInteractor implements LoginInputBoundary {
 
     final DatabaseGateway database;
 
-    public final loginPresenter loginPresenter;
+    public final LoginPresenter loginPresenter;
 
-    public LoginInteractor(DatabaseGateway database, loginPresenter loginPresenter) {
+    public LoginInteractor(DatabaseGateway database, LoginPresenter loginPresenter) {
         this.database = database;
         this.loginPresenter = loginPresenter;
     }
@@ -29,7 +29,7 @@ public class LoginInteractor implements loginInputBoundary{
      * @param requestModel takes in a request Model
      */
     @Override
-    public void create(loginRequestModel requestModel) {
+    public void create(LoginRequestModel requestModel) {
         if (Objects.equals(requestModel.getUserName(), "")) {
             loginPresenter.prepareFailView("Nothing Entered");
         }
@@ -39,7 +39,7 @@ public class LoginInteractor implements loginInputBoundary{
         else {
             CommonUser curr_user = (CommonUser) database.get(requestModel.getUserName()).getUser();
             CommonFridge curr_fridge = (CommonFridge) database.get(requestModel.getUserName()).getFridge();
-            loginResponseModel Login_Success = new loginResponseModel(curr_fridge, curr_user);
+            LoginResponseModel Login_Success = new LoginResponseModel(curr_fridge, curr_user);
 
             try{
                 loginPresenter.prepareSuccessView(Login_Success);

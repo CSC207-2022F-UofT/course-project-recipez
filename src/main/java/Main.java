@@ -1,8 +1,8 @@
 import UI.resultPage.ResultsPageViewModel;
-import UI.startPageUI.startPageViewMain;
-import UI.startPageUI.startPageViewModel;
+import UI.startPageUI.StartPageViewMain;
+import UI.startPageUI.StartPageViewModel;
 import controllers.SearchController;
-import controllers.loginController;
+import controllers.LoginController;
 import database.Database;
 import database.DatabaseGateway;
 import controllers.CreateUserAndFridgeController;
@@ -17,15 +17,15 @@ import presenters.create_user_and_fridge.CreateUserAndFridgeFormatter;
 import presenters.create_user_and_fridge.CreateUserAndFridgePresenter;
 import presenters.enter_ingredient.UserEnterIngredientFormatter;
 import presenters.enter_ingredient.UserEnterIngredientPresenter;
-import presenters.login.loginFormatter;
-import presenters.login.loginPresenter;
+import presenters.login.LoginFormatter;
+import presenters.login.LoginPresenter;
 import presenters.search.*;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInputBoundary;
 import use_cases.create_user_and_fridge.CreateUserAndFridgeInteractor;
 import use_cases.enter_indredients_usecase.UserEnterIngredientsInputBoundary;
 import use_cases.enter_indredients_usecase.UserEnterIngredientsInteractor;
 import use_cases.login_usecase.LoginInteractor;
-import use_cases.login_usecase.loginInputBoundary;
+import use_cases.login_usecase.LoginInputBoundary;
 import use_cases.searchusecase.SearchInputBoundary;
 import use_cases.searchusecase.SearchInteractor;
 import javax.swing.*;
@@ -49,9 +49,9 @@ public class Main {
 
         DatabaseGateway databaseGateway = new Database("Storage");
 
-        startPageViewModel startViewModel = new startPageViewModel();
+        StartPageViewModel startViewModel = new StartPageViewModel();
         CreateUserAndFridgePresenter presenter = new CreateUserAndFridgeFormatter(startViewModel);
-        loginPresenter loginPresenter = new loginFormatter(startViewModel);
+        LoginPresenter loginPresenter = new LoginFormatter(startViewModel);
 
         CreateUserAndFridgeInputBoundary interactor = new CreateUserAndFridgeInteractor(userFactory, fridgeFactory,
                 presenter, databaseGateway);
@@ -66,8 +66,8 @@ public class Main {
         UserEnterIngredientsController userEnterIngredientsController =
                 new UserEnterIngredientsController(interactorforenteringingredients);
 
-        loginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
-        loginController loginController = new loginController(loginInputinteractor);
+        LoginInputBoundary loginInputinteractor= new LoginInteractor(databaseGateway,loginPresenter);
+        LoginController loginController = new LoginController(loginInputinteractor);
 
         IApiGateway apiGateway = new JavaHttpGateway();
         ResultsPageViewModel resultViewModel = new ResultsPageViewModel();
@@ -75,7 +75,7 @@ public class Main {
         SearchInputBoundary searchInteractor = new SearchInteractor(apiGateway, databaseGateway, recipeFactory, searchPresenter);
         SearchController searchController = new SearchController(searchInteractor);
 
-        startPageViewMain startScreen = new startPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController, resultViewModel);
+        StartPageViewMain startScreen = new StartPageViewMain(startViewModel, createUserandFridgeController, loginController, userEnterIngredientsController, searchController, resultViewModel);
         screens.add(startScreen, "welcome");
         cardLayout.show(screens, "register");
         application.setVisible(true);
