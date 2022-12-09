@@ -28,7 +28,7 @@ The ApiUrlBuilder class uses the Builder design pattern to create the URL to mak
 
 ![Builder file diagram](reports/urlbuilder_builder_pattern.png)
 ### Factory
-The Fridge and User entities use the Factory design pattern in the FridgeFactory and UserFactory classes. FridgeFactory create objects of type Fridge, which CommonFridge implements. CommonUser objects are children of User, which can be created from UserFridge. In the future, different types of users or fridges can be easily added and created from UserFactory or FridgeFactory objects.
+The Fridge, Ingredient, Recipe and User entities use the Factory design pattern in the FridgeFactory, IngredientFactory, RecipeFactory and UserFactory classes. FridgeFactory create objects of type Fridge, which CommonFridge implements. This is similar to the function of IngredientFactory and RecipeFactory. CommonUser objects are children of User, which can be created from UserFridge. In the future, different types of users, ingredients, recipes or fridges can be easily added and created from UserFactory or FridgeFactory objects. 
 
 ## UML Diagram 
 ![UML Diagram](reports/UMLDiagram.png)
