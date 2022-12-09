@@ -38,6 +38,9 @@ The Fridge and User entities use the Factory design pattern in the FridgeFactory
 - [Enter ingredient Use case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/reports/EnterIngredientsUsecase.jpeg)
 - [Search Use Case] (https://github.com/CSC207-2022F-UofT/course-project-recipez/blob/main/reports/SearchUseCase.png)
 
+## Test Coverage
+![Test Coverage Image](reports/TestCoverageScreenShot.png)
+
 
 ## Updates since Milestone 4
 
